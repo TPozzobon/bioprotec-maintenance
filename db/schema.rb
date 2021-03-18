@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_095645) do
+ActiveRecord::Schema.define(version: 2021_03_18_101634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "equipment", force: :cascade do |t|
+  create_table "equipments", force: :cascade do |t|
     t.string "type"
     t.string "identifiant"
     t.string "serial_number"
@@ -24,6 +24,32 @@ ActiveRecord::Schema.define(version: 2021_03_18_095645) do
     t.date "commissioning_date"
     t.date "validity_qualification"
     t.date "preventive_maintenance"
+    t.string "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "external_interlocutors", force: :cascade do |t|
+    t.string "name"
+    t.string "company"
+    t.string "phone_number"
+    t.string "mobile_number"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "internal_interlocutors", force: :cascade do |t|
+    t.string "visa"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "maintenances", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.text "description"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
