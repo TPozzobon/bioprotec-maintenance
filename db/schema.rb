@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_101634) do
+ActiveRecord::Schema.define(version: 2021_03_18_110314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "equipments", force: :cascade do |t|
+  create_table "equipment", force: :cascade do |t|
     t.string "type"
     t.string "identifiant"
     t.string "serial_number"
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 2021_03_18_101634) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "equipment_id", null: false
+    t.bigint "external_interlocutor_id", null: false
+    t.bigint "internal_interlocutor_id", null: false
+    t.index ["equipment_id"], name: "index_maintenances_on_equipment_id"
+    t.index ["external_interlocutor_id"], name: "index_maintenances_on_external_interlocutor_id"
+    t.index ["internal_interlocutor_id"], name: "index_maintenances_on_internal_interlocutor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,4 +73,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_101634) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "maintenances", "equipment"
+  add_foreign_key "maintenances", "external_interlocutors"
+  add_foreign_key "maintenances", "internal_interlocutors"
 end
