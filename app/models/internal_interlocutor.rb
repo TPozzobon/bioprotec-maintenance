@@ -1,0 +1,2 @@
+class InternalInterlocutor < ApplicationRecord
+end
