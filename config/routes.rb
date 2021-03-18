@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :maintenances, only: [ :edit, :update, :destroy]
   resources :internal_interlocutors
   resources :external_interlocutors
+  resources :users
 end
