@@ -7,7 +7,7 @@ User.create!(email: "user@gmail.com", password: "password")
 puts "Creating Equipment"
 
 equipment = Equipment.create!(
-  type: "Frigo", 
+  name: "Frigo", 
   identifiant: "RE12", 
   serial_number: "34398935N2", 
   location: "poste C", 
