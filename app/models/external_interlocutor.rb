@@ -1,0 +1,2 @@
+class ExternalInterlocutor < ApplicationRecord
+end
