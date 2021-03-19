@@ -1,1 +1,11 @@
 <h1>Prestataires Maintenance</h1>
+
+ <% @external_interlocutors.each do |external_interlocutor| %>
+  <div class="index_equipment_flex d-flex justify-content-around">
+    <h2><%= external_interlocutor.name %></h2>
+    <p><%= external_interlocutor.company %></p>
+    <p><%= external_interlocutor.phone_number %></p>
+    <p><%= external_interlocutor.mobile_number %></p>
+    <p><%= external_interlocutor.email %></p>
+  </div>
+<% end %>
