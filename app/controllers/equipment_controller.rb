@@ -27,7 +27,7 @@ class EquipmentController < ApplicationController
   def update
     @equipment = Equipment.find(params[:id])
     @equipment.update(equipment_params)
-    redirect_to user_path(current_user)
+    redirect_to root_path
   end
   
 
