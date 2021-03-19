@@ -7,5 +7,8 @@ class EquipmentsController < ApplicationController
     @equipment = Equipment.find(params[:id])
   end
   
-
+  def new
+    @equipment = Equipment.new
+  end
+  
 end
