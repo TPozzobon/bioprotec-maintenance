@@ -20,6 +20,17 @@ class EquipmentController < ApplicationController
     end
   end
 
+  def edit
+    @equipment = Equipment.find(params[:id])
+  end
+  
+  def update
+    @equipment = Equipment.find(params[:id])
+    @equipment.update(equipment_params)
+    redirect_to root_path
+  end
+  
+
   private
 
   def equipment_params
