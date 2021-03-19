@@ -49,3 +49,5 @@ equipment = Equipment.create!(
   validity_qualification: "16/03/2023",
   status: "Terminée"
 )
+
+puts "Creating External Interlocutors"
