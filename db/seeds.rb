@@ -1,5 +1,7 @@
 puts "Cleaning database"
 User.destroy_all
+Equipment.destroy_all
+ExternalInterlocutor.destroy_all
 
 puts "Creating Users"
 User.create!(email: "user@gmail.com", password: "password")
@@ -49,3 +51,39 @@ equipment = Equipment.create!(
   validity_qualification: "16/03/2023",
   status: "Terminée"
 )
+
+puts "Creating External Interlocutors"
+
+external_interlocutor = ExternalInterlocutor.create!(
+  name: "Gérard Brodar", 
+  company: "Médiplan", 
+  phone_number: "0400000000", 
+  mobile_number: "0600000000", 
+  email: "brodar@mediplan.com"
+)
+
+external_interlocutor = ExternalInterlocutor.create!(
+  name: "Cédric Taint", 
+  company: "Médiplan", 
+  phone_number: "0400000000", 
+  mobile_number: "0600000000", 
+  email: "taint@mediplan.com"
+)
+
+external_interlocutor = ExternalInterlocutor.create!(
+  name: "Bob Bob", 
+  company: "Merck Millipore", 
+  phone_number: "0400000000", 
+  mobile_number: "0600000000", 
+  email: "bob@merck.com"
+)
+
+external_interlocutor = ExternalInterlocutor.create!(
+  name: "John John", 
+  company: "Sauermann", 
+  phone_number: "0400000000", 
+  mobile_number: "0600000000", 
+  email: "john@sauermann.com"
+)
+
+puts "Finished!"
