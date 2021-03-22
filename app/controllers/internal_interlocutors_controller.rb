@@ -4,15 +4,15 @@ class InternalInterlocutorsController < ApplicationController
   end
   
   def show
-    @interlal_interlocutor = InternalInterlocutor.find(params[:id])
+    @internal_interlocutor = InternalInterlocutor.find(params[:id])
   end
 
   def new
-    @interlal_interlocutor = InternalInterlocutor.new
+    @internal_interlocutor = InternalInterlocutor.new
   end
 
   def create
-    @interlal_interlocutor = InternalInterlocutor.new(internal_interlocutor_params)
+    @internal_interlocutor = InternalInterlocutor.new(internal_interlocutor_params)
     if @internal_interlocutor.save
       redirect_to internal_interlocutor_path
     else
@@ -26,13 +26,13 @@ class InternalInterlocutorsController < ApplicationController
   
   def update
     @internal_interlocutor = InternalInterlocutor.find(params[:id])
-    @interlal_interlocutor.update(internal_interlocutor_params)
+    @internal_interlocutor.update(internal_interlocutor_params)
     redirect_to internal_interlocutor_path
   end
   
   def destroy
-    @interlal_interlocutor = InternalInterlocutor.find(params[:id])
-    @interlal_interlocutor.destroy
+    @internal_interlocutor = InternalInterlocutor.find(params[:id])
+    @internal_interlocutor.destroy
     redirect_to internal_interlocutor_path
   end
   
