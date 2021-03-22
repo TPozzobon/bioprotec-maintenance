@@ -8,6 +8,7 @@ class MaintenancesController < ApplicationController
   end
   
   def new
+    @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new
   end
   
