@@ -3,6 +3,7 @@
  <% @external_interlocutors.each do |external_interlocutor| %>
   <div class="index_equipment_flex d-flex justify-content-around">
     <h2><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor) %></h2>
+    <p>id= <%= external_interlocutor.id %></p>
     <p><%= external_interlocutor.company %></p>
     <p><%= external_interlocutor.phone_number %></p>
     <p><%= external_interlocutor.mobile_number %></p>
