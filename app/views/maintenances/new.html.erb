@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row mt-10 rounded">
+    <div class="col-6 m-auto mt-5 w-50 rounded p-5 border bg-transparent">
+      <h1 class="mb-10">Ajouter un Super Héros</h1>
+      <%= simple_form_for [ @super_hero ] do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :date, as: :date, html5: true %>
+        <%= f.input :status %>
+        <%= f.submit "Valider", class: "btn btn-success" %>
+        <%= link_to "Annuler", root_path, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
