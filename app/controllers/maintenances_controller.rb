@@ -13,6 +13,7 @@ class MaintenancesController < ApplicationController
   end
   
   def create
+    @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new(maintenance_params)
     if @maintenance.save
       redirect_to root_path
