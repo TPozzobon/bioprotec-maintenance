@@ -1,0 +1,19 @@
+<div class="position-relative">
+  <div class="container">
+    <div class="row mt-10 rounded">
+      <div class="col-6 m-auto mt-5 w-50 rounded p-5 border bg-transparen">
+        <h1 class="mb-10">Modifier un prestataire</h1>
+        <%= simple_form_for [ @external_interlocutor ] do |f| %>
+          <%= f.input :name, label: 'Nom' %>
+          <%= f.input :company, label: 'Société' %>
+          <%= f.input :phone_number, label: 'Téléphone fixe' %>
+          <%= f.input :mobile_number, label: 'Mobile' %>
+          <%= f.input :email %>
+          <%= f.submit "Valider", class: "btn btn-success" %>
+          <%= link_to "Annuler", user_path(current_user), class: "btn btn-danger" %>
+          <%= link_to "Supprimer", external_interlocutor_path ,class:'btn text-danger', method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
