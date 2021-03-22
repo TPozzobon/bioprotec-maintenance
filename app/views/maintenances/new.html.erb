@@ -3,12 +3,12 @@
     <div class="col-6 m-auto mt-5 w-50 rounded p-5 border bg-transparent">
       <h1 class="mb-10">Déclarer une intervention</h1>
       <%= simple_form_for [ @equipment, @maintenance ] do |f| %>
-        <%= f.input :title %>
+        <%= f.input :title, label: 'Nom' %>
         <%= f.input :description %>
         <%= f.input :date, as: :date, html5: true %>
-        <%= f.input :status %>
-        <%= f.input :external_interlocutor_id %>
-        <%= f.input :internal_interlocutor_id %>
+        <%= f.input :status, label: 'Statut' %>
+        <%= f.input :external_interlocutor_id, label: 'Prestataire' %>
+        <%= f.input :internal_interlocutor_id , label: 'Personnel Bioprotec' %>
         <%= f.submit "Valider", class: "btn btn-success" %>
         <%= link_to "Annuler", root_path, class: "btn btn-danger" %>
       <% end %>
