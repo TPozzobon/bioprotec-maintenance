@@ -12,9 +12,6 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Créer intervention", new_maintenance_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
           <%= link_to "Equipement", equipment_index_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
