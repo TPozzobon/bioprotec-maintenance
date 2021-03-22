@@ -7,3 +7,5 @@
     <p><%= @equipment.validity_qualification %></p>
     <p><%= @equipment.status %></p>
   </div>
+
+<%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %>
