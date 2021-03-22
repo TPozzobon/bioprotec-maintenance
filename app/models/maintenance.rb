@@ -1,5 +1,5 @@
 class Maintenance < ApplicationRecord
   belongs_to :equipment
-  belongs_to :externalinterlocutor
-  belongs_to :internalinterlocutor
+
+  validates :title, :date, :description, :status, presence: true
 end

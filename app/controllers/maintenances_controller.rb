@@ -1,6 +1,6 @@
 class MaintenancesController < ApplicationController
   def index
-    @maintenances = Equipment.all
+    @maintenances = Maintenance.all
   end
 
   def show
@@ -15,6 +15,7 @@ class MaintenancesController < ApplicationController
   def create
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new(maintenance_params)
+    @maintenance.equipment = @equipment
     if @maintenance.save
       redirect_to root_path
     else
