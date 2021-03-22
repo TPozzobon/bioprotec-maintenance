@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'equipment#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :equipment do
-    resources :maintenances, only: [:index, :show ]
+    resources :maintenances, only: [:index, :show, :new, :create ]
   end
-  resources :maintenances, only: [ :edit, :update, :destroy, :new, :create]
+  resources :maintenances, only: [ :edit, :update, :destroy]
   resources :internal_interlocutors
   resources :external_interlocutors
   resources :users
