@@ -14,15 +14,6 @@ class MaintenancesController < ApplicationController
   
   def create
     @equipment = Equipment.find(params[:equipment_id])
-    # @external_interlocutor = ExternalInterlocutor.ids.each do |id|
-    #   ExternalInterlocutor.find(id)
-    # end
-
-    @external_interlocutor = ExternalInterlocutor.find(params[:external_interlocutor_id])
-    @internal_interlocutor = InternalInterlocutor.find(params[:internal_interlocutor_id])
-    @maintenance.equipment = @equipment
-    @maintenance.external_interlocutor = @external_interlocutor
-    @maintenance.internal_interlocutor = @internal_interlocutor
     @maintenance = Maintenance.new(maintenance_params)
     if @maintenance.save
       redirect_to root_path
