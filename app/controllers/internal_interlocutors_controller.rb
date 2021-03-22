@@ -41,3 +41,4 @@ class InternalInterlocutorsController < ApplicationController
   def internal_interlocutor_params
     params.require(:internal_interlocutor).permit(:visa, :phone_number)
   end
+end
