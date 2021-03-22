@@ -2,7 +2,7 @@
 
  <% @internal_interlocutors.each do |internal_interlocutor| %>
   <div class="index_equipment_flex d-flex justify-content-around">
-    <h2><%= internal_interlocutor.visa %></h2>
+    <h2><%= link_to "#{internal_interlocutor.visa}", internal_interlocutor_path(internal_interlocutor) %></h2>
     <p><%= internal_interlocutor.phone_number %></p>
   </div>
 <% end %>

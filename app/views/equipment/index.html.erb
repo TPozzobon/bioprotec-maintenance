@@ -1,6 +1,6 @@
  <% @equipment.each do |equipment| %>
   <div class="index_equipment_flex d-flex justify-content-around">
-    <h1><%= equipment.name %></h1>
+    <h1><%= link_to "#{equipment.name}", equipment_path(equipment) %></h1>
     <p><%= equipment.identifiant %></p>
     <p><%= equipment.location %></p>
     <p><%= equipment.detail %></p>
