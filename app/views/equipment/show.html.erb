@@ -1,12 +1,33 @@
- <div class="index_equipment_flex">
-    <h1><%= @equipment.name %></h1>
-    <p><%= @equipment.identifiant %></p>
-    <p><%= @equipment.location %></p>
-    <p><%= @equipment.detail %></p>
-    <p><%= @equipment.commissioning_date %></p>
-    <p><%= @equipment.validity_qualification %></p>
-    <p><%= @equipment.status %></p>
-  </div>
+ <div class="container_show_equipment">
+   <div class="card-equipment">
+      <h3 class="mb-5 text-center"><%= @equipment.name %></h3>
+      <p>Identifiant: <span class="equipement_item_show"><%= @equipment.identifiant %></span></p>
+      <p>Localisation: <span class="equipement_item_show"><%= @equipment.location %></span></p>
+      <p>État: <span class="equipement_item_show"><%= @equipment.detail %></span></p>
+      <p>Status: <span class="equipement_item_show"><%= @equipment.status %></span></p>
+      <p>Mise en service: <span class="equipement_item_show"><%= @equipment.commissioning_date %></span></p>
+      <p>Date de QP: <span class="equipement_item_show"><%= @equipment.validity_qualification %></span></p>
+   </div>
+   <div class="maintenances_show_equipment">
+   <h3 class="text-center mb-5">Maintenances effectuées sur l'équipement</h3>
+   <% @equipment.maintenances.each do |maintenance| %>
+      <%= maintenance.date %>
+      <%= maintenance.title %>
+      <%= maintenance.description %>
+      <%= maintenance.status %>
+   <% end %>
+   </div>
+ </div>
 
-<%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %>
+
+<!--<%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %>
 <%= link_to 'Voir toutes les maintenances', equipment_maintenances_path(@equipment), class:'btn btn-primary text-light' %>
+-->
+
+
+
+<%# afficher les maintenances de cet équipement %>
+
+<!--<% @equipment.maintenances.where(equipment_id: @equipment.maintenances).each do |equipment| %>
+   <%= equipment.maintenance.title %>
+<% end %>-->
