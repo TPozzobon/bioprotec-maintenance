@@ -9,25 +9,13 @@
       <p>Date de QP: <span class="equipement_item_show"><%= @equipment.validity_qualification %></span></p>
    </div>
    <div class="maintenances_show_equipment">
-   <h3 class="text-center mb-5">Maintenances effectuées sur l'équipement</h3>
-   <% @equipment.maintenances.each do |maintenance| %>
-      <%= maintenance.date %>
-      <%= maintenance.title %>
-      <%= maintenance.description %>
-      <%= maintenance.status %>
-   <% end %>
+      <h3 class="text-center mb-5">Maintenances effectuées sur l'équipement</h3>
+      <% @equipment.maintenances.each do |maintenance| %>
+         <%= maintenance.date %>
+         <%= maintenance.title %>
+         <%= maintenance.description %>
+         <%= maintenance.status %>
+      <% end %>
    </div>
  </div>
-
-
-<!--<%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %>
-<%= link_to 'Voir toutes les maintenances', equipment_maintenances_path(@equipment), class:'btn btn-primary text-light' %>
--->
-
-
-
-<%# afficher les maintenances de cet équipement %>
-
-<!--<% @equipment.maintenances.where(equipment_id: @equipment.maintenances).each do |equipment| %>
-   <%= equipment.maintenance.title %>
-<% end %>-->
+<%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %>

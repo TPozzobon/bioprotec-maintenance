@@ -3,25 +3,23 @@
   justify-content: center;
   align-items: center;
   height: 90vh;
-}
 
-.card-equipment {
-  padding: 16px;
-  width: 600px;
-  height: 600px;
-  border: 1px solid grey;
-  p {
-    font-size: 24px;
-  }
-
-  .equipement_item_show {
-    font-weight: bold;
-  }
-}
-
-.maintenances_show_equipment {
-  padding: 16px;
-  width: 600px;
-  height: 600px;
-  border: 1px solid grey;
+    .card-equipment {
+      padding: 16px;
+      width: 35vw;
+      height: 35vw;
+      border: 1px solid grey;
+      font-size: 24px;
+      
+      .equipement_item_show {
+        font-weight: bold;
+      }
+    }
+    
+    .maintenances_show_equipment {
+      padding: 16px;
+      width: 35vw;
+      height: 35vw;
+      border: 1px solid grey;
+    }
 }
