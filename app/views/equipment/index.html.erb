@@ -1,11 +1,15 @@
- <% @equipment.each do |equipment| %>
-  <div class="equipment_index_container">
-    <h1><%= link_to "#{equipment.name}", equipment_path(equipment) %></h1>
-    <p><%= equipment.identifiant %></p>
-    <p><%= equipment.location %></p>
-    <p><%= equipment.detail %></p>
-    <p><%= equipment.commissioning_date %></p>
-    <p><%= equipment.validity_qualification %></p>
-    <p><%= equipment.status %></p>
+<div class="equipment_index_container">
+  <% @equipment.each do |equipment| %>
+  <div class="equipment-align-items">
+    <p class="equipment-align-item"><%= link_to "#{equipment.name}", equipment_path(equipment) %></p>
+    <p class="equipment-align-item"><%= equipment.identifiant %></p>
+    <p class="equipment-align-item"><%= equipment.location %></p>
+    <p class="equipment-align-item"><%= equipment.detail %></p>
+    <p class="equipment-align-item"><%= equipment.commissioning_date %></p>
+    <p class="equipment-align-item"><%= equipment.validity_qualification %></p>
+    <p class="equipment-align-item"><%= equipment.status %></p>
   </div>
-<% end %>
+  <% end %>
+</div>
+
+
