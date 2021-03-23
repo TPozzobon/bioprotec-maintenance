@@ -16,6 +16,6 @@
          <%= maintenance.description %>
          <%= maintenance.status %>
       <% end %>
+      <p class="btn_add_maintenance"><%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
  </div>
-<%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %>
