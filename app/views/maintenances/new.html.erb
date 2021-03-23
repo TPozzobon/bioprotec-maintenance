@@ -7,8 +7,6 @@
         <%= f.input :description %>
         <%= f.input :date, as: :date, html5: true %>
         <%= f.input :status, label: 'Statut' %>
-        <%= f.input :external_interlocutor_id, label: 'Prestataire' %>
-        <%= f.input :internal_interlocutor_id , label: 'Personnel Bioprotec' %>
         <%= f.submit "Valider", class: "btn btn-success" %>
         <%= link_to "Annuler", root_path, class: "btn btn-danger" %>
       <% end %>
