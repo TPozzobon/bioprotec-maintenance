@@ -6,6 +6,7 @@
         <%= f.input :title, label: 'Nom' %>
         <%= f.input :description %>
         <%= f.input :date, as: :date, html5: true %>
+        <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.collect{ |e| [e.name, e.id] }), prompt: "Prestataires" %>
         <%= f.input :status, label: 'Statut' %>
         <%= f.submit "Valider", class: "btn btn-success" %>
         <%= link_to "Annuler", root_path, class: "btn btn-danger" %>
@@ -13,5 +14,3 @@
     </div>
   </div>
 </div>
-
-
