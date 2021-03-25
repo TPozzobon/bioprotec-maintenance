@@ -56,6 +56,10 @@ equipment = Equipment.create!(
 puts "Creating External Interlocutors"
 
 external_interlocutor = ExternalInterlocutor.create!(
+  name: "Pas de préstataire"
+)
+
+external_interlocutor = ExternalInterlocutor.create!(
   name: "Gérard Brodar", 
   company: "Médiplan", 
   phone_number: "0400000000", 
