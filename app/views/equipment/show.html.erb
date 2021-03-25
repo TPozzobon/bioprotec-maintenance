@@ -15,6 +15,7 @@
          <%= maintenance.title %>
          <%= maintenance.description %>
          <%= maintenance.status %>
+         <%= maintenance.external_interlocutor.name %>
       <% end %>
       <p class="btn_add_maintenance"><%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
