@@ -9,22 +9,19 @@ class MaintenancesController < ApplicationController
   
   def new
     @external_interlocutors = ExternalInterlocutor.all
-    if params[:external_interlocutor_id].present?
-      @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
-    end
+    @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new
   end
   
   def create
-    @external_interlocutors = ExternalInterlocutor.all
     @external_interlocutor = ExternalInterlocutor.find(params[:external_interlocutor_id])
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new(maintenance_params)
     @maintenance.external_interlocutor = @external_interlocutor
     @maintenance.equipment = @equipment
     if @maintenance.save
-      redirect_to root_path
+      redirect_to equipment_path(@equipment)
     else
       render :new
     end
