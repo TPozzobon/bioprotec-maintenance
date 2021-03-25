@@ -1,4 +1,4 @@
 class InternalInterlocutor < ApplicationRecord
   has_many :maintenances
-  has_many :equipment, through: :maintenances
+  has_many :equipment
 end

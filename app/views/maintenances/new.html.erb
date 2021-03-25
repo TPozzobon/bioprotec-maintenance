@@ -7,6 +7,7 @@
         <%= f.input :description %>
         <%= f.input :date, as: :date, html5: true %>
         <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.collect{ |e| [e.name, e.id] }), prompt: "Prestataires" %>
+        <%= select_tag :internal_interlocutor_id, options_for_select(@internal_interlocutors.collect{ |e| [e.visa, e.id] }), prompt: "Personnel Bioprotec" %>
         <%= f.input :status, label: 'Statut' %>
         <%= f.submit "Valider", class: "btn btn-success" %>
         <%= link_to "Annuler", root_path, class: "btn btn-danger" %>
