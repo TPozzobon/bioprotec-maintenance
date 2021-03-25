@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_130159) do
+ActiveRecord::Schema.define(version: 2021_03_25_074036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,9 @@ ActiveRecord::Schema.define(version: 2021_03_24_130159) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "equipment_id", null: false
+    t.bigint "external_interlocutor_id", null: false
     t.index ["equipment_id"], name: "index_maintenances_on_equipment_id"
+    t.index ["external_interlocutor_id"], name: "index_maintenances_on_external_interlocutor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,4 +94,5 @@ ActiveRecord::Schema.define(version: 2021_03_24_130159) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "maintenances", "equipment"
+  add_foreign_key "maintenances", "external_interlocutors"
 end
