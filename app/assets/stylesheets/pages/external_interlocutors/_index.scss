@@ -1,0 +1,20 @@
+table, td, th {
+    border: 2px solid #333;
+}
+
+.link-to-new {
+  border-radius: 8px;
+}
+
+.hover:hover {
+  color: #016A97;
+}
+
+.remove-deco-link {
+  color: #016A97;
+}
+
+.remove-deco-link:hover {
+  text-decoration: none;
+  color: #016A97;
+}
