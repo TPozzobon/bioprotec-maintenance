@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_145844) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "equipment_id", null: false
-    t.bigint "external_interlocutor_id"
+    t.bigint "external_interlocutor_id", null: false
     t.bigint "internal_interlocutor_id", null: false
     t.index ["equipment_id"], name: "index_maintenances_on_equipment_id"
     t.index ["external_interlocutor_id"], name: "index_maintenances_on_external_interlocutor_id"
