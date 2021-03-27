@@ -1,7 +1,31 @@
-<% @maintenances.each do |maintenance| %>
-  <%= maintenance.title %>
-  <%= maintenance.description %>
-  <%= maintenance.status %>
-  <%= maintenance.date %>
-  <%= maintenance.external_interlocutor.name %>
-<% end %>
+<div class="container">
+  <div class="d-flex justify-content-around mb-4 align-items-center">
+    <h1>Maintenances</h1>
+  </div>
+  <div class="d-flex justify-content-center">
+    <table>
+      <thead>
+        <tr>
+          <th class="p-3 text-center h3">Équipement</th>
+          <th class="p-3 text-center h3">Intitulé</th>
+          <th class="p-3 text-center h3">Description</th>
+          <th class="p-3 text-center h3">Date</th>
+          <th class="p-3 text-center h3">Prestataire</th>
+          <th class="p-3 text-center h3">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @maintenances.each do |maintenance| %>
+          <tr class= "hover">
+            <td class="p-3 text-center h5"><%= "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})" %></td>
+            <td class="p-3 text-center h5"><%= maintenance.title %></td>
+            <td class="p-3 text-center h5"><%= maintenance.description %></td>
+            <td class="p-3 text-center h5"><%= maintenance.date %></td>
+            <td class="p-3 text-center h5"><%= maintenance.external_interlocutor.name %></td>
+            <td class="p-3 text-center h5"><%= maintenance.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
