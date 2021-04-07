@@ -10,13 +10,25 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/login";
 @import "pages/index";
 @import "pages/equipment/index";
 @import "pages/equipment/show";
+@import "pages/equipment/new";
 @import "pages/external_interlocutors/index";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.remove-deco-link {
+  color: #016A97;
+}
+
+.remove-deco-link:hover {
+  text-decoration: none;
+  color: #016A97;
+  opacity: 0.6;
 }
