@@ -1,6 +1,10 @@
 class EquipmentController < ApplicationController
   def index
-    @equipment = Equipment.all
+    if params[:query].present?
+      @equipment = Equipment.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @equipment = Equipment.all
+    end
   end
 
   def show
