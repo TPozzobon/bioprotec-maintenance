@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="d-flex justify-content-between mb-5 align-items-center">
     <h1 class="title-equipment font-weight-bold">Équipements</h1>
     <%= link_to "Ajouter un equipement", new_equipment_path, class: "link-to-new btn btn-primary" %>
@@ -7,25 +7,25 @@
     <table>
       <thead>
         <tr>
-          <th class="font-weight-bold p-3 text-center h5">Nom</th>
-          <th class="font-weight-bold p-3 text-center h5">Identifant</th>
-          <th class="font-weight-bold p-3 text-center h5">Localisation</th>
-          <th class="font-weight-bold p-3 text-center h5">Détails</th>
-          <th class="font-weight-bold p-3 text-center h5">Date de mise en service</th>
-          <th class="font-weight-bold p-3 text-center h5">Date QP</th>
-          <th class="font-weight-bold p-3 text-center h5">Statut</th>
+          <th class="font-weight-bold p-3 text-center h6">Nom</th>
+          <th class="font-weight-bold p-3 text-center h6">Identifant</th>
+          <th class="font-weight-bold p-3 text-center h6">Localisation</th>
+          <th class="font-weight-bold p-3 text-center h6">Détails</th>
+          <th class="font-weight-bold p-3 text-center h6">Date de mise en service</th>
+          <th class="font-weight-bold p-3 text-center h6">Date QP</th>
+          <th class="font-weight-bold p-3 text-center h6">Statut</th>
         </tr>
       </thead>
       <tbody>
         <% @equipment.each do |equipment| %>
           <tr class= "hover">
-            <td class="p-3 text-center h4"><%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %></td>
-            <td class="p-3 text-center h4"><%= equipment.identifiant %></td>
-            <td class="p-3 text-center h4"><%= equipment.location %></td>
-            <td class="p-3 text-center h4"><%= equipment.detail %></td>
-            <td class="p-3 text-center h4"><%= equipment.commissioning_date %></td>
-            <td class="p-3 text-center h4"><%= equipment.validity_qualification %></td>
-            <td class="p-3 text-center h4"><%= equipment.status %></td>
+            <td class="p-3 text-center h6"><%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %></td>
+            <td class="p-3 text-center h6"><%= equipment.identifiant %></td>
+            <td class="p-3 text-center h6"><%= equipment.location %></td>
+            <td class="p-3 text-center h6"><%= equipment.detail %></td>
+            <td class="p-3 text-center h6"><%= equipment.commissioning_date %></td>
+            <td class="p-3 text-center h6"><%= equipment.validity_qualification %></td>
+            <td class="p-3 text-center h6"><%= equipment.status %></td>
           </tr>
         <% end %>
       </tbody>
