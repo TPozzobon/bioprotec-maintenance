@@ -6,23 +6,23 @@
     <table>
       <thead>
         <tr>
-          <th class="p-3 text-center h3">Équipement</th>
-          <th class="p-3 text-center h3">Intitulé</th>
-          <th class="p-3 text-center h3">Description</th>
-          <th class="p-3 text-center h3">Date</th>
-          <th class="p-3 text-center h3">Prestataire</th>
-          <th class="p-3 text-center h3">Status</th>
+          <th class="p-3 text-center h6">Équipement</th>
+          <th class="p-3 text-center h6">Intitulé</th>
+          <th class="p-3 text-center h6">Description</th>
+          <th class="p-3 text-center h6">Date</th>
+          <th class="p-3 text-center h6">Prestataire</th>
+          <th class="p-3 text-center h6">Status</th>
         </tr>
       </thead>
       <tbody>
         <% @maintenances.each do |maintenance| %>
           <tr class= "hover">
-            <td class="p-3 text-center h5"><%= "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})" %></td>
-            <td class="p-3 text-center h5"><%= maintenance.title %></td>
-            <td class="p-3 text-center h5"><%= maintenance.description %></td>
-            <td class="p-3 text-center h5"><%= maintenance.date %></td>
-            <td class="p-3 text-center h5"><%= maintenance.external_interlocutor.name %></td>
-            <td class="p-3 text-center h5"><%= maintenance.status %></td>
+            <td class="p-3 text-center h6"><%= "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})" %></td>
+            <td class="p-3 text-center h6"><%= maintenance.title %></td>
+            <td class="p-3 text-center h6"><%= maintenance.description %></td>
+            <td class="p-3 text-center h6"><%= maintenance.date %></td>
+            <td class="p-3 text-center h6"><%= maintenance.external_interlocutor.name %></td>
+            <td class="p-3 text-center h6"><%= maintenance.status %></td>
           </tr>
         <% end %>
       </tbody>
