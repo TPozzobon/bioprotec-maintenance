@@ -2,12 +2,12 @@ table, td, th {
     border: 2px solid #333;
 }
 
-.link-to-new {
-  border-radius: 8px;
+.title-external {
+  color: #016A97;
 }
 
-.hover:hover {
-  color: #016A97;
+.link-to-new {
+  border-radius: 8px;
 }
 
 .remove-deco-link {
@@ -17,4 +17,5 @@ table, td, th {
 .remove-deco-link:hover {
   text-decoration: none;
   color: #016A97;
+  opacity: 0.6;
 }
