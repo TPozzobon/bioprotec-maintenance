@@ -6,10 +6,6 @@ table, td, th {
   border-radius: 8px;
 }
 
-.hover:hover {
-  color: #016A97;
-}
-
 .remove-deco-link {
   color: #016A97;
 }
@@ -17,4 +13,9 @@ table, td, th {
 .remove-deco-link:hover {
   text-decoration: none;
   color: #016A97;
+  opacity: 0.6;
+}
+
+.title-table-external {
+  font-weight: bold;
 }

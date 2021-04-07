@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="d-flex justify-content-around mb-4 align-items-center">
+  <div class="d-flex justify-content-between mb-5 align-items-center">
     <h1>Prestataires maintenance</h1>
     <%= link_to "Ajouter un prestataires", new_external_interlocutor_path, class: "link-to-new btn btn-primary" %>
   </div>
@@ -7,21 +7,21 @@
     <table>
       <thead>
         <tr>
-          <th class="p-3 text-center h3">Nom</th>
-          <th class="p-3 text-center h3">Société</th>
-          <th class="p-3 text-center h3">Téléphone</th>
-          <th class="p-3 text-center h3">Mobile</th>
-          <th class="p-3 text-center h3">Email</th>
+          <th class="title-table-external p-3 text-center h5">Nom</th>
+          <th class="title-table-external p-3 text-center h5">Société</th>
+          <th class="title-table-external p-3 text-center h5">Téléphone</th>
+          <th class="title-table-external p-3 text-center h5">Mobile</th>
+          <th class="title-table-external p-3 text-center h5">Email</th>
         </tr>
       </thead>
       <tbody>
         <% @external_interlocutors.each do |external_interlocutor| %>
-          <tr class= "hover">
-            <td class="p-3 text-center h5"><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor), class: "remove-deco-link" %></td>
-            <td class="p-3 text-center h5"><%= external_interlocutor.company %></td>
-            <td class="p-3 text-center h5"><%= external_interlocutor.phone_number %></td>
-            <td class="p-3 text-center h5"><%= external_interlocutor.mobile_number %></td>
-            <td class="p-3 text-center h5"><%= external_interlocutor.email %></td>
+          <tr>
+            <td class="p-4 text-center h4"><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor), class: "remove-deco-link" %></td>
+            <td class="p-4 text-center h4"><%= external_interlocutor.company %></td>
+            <td class="p-4 text-center h4"><%= external_interlocutor.phone_number %></td>
+            <td class="p-4 text-center h4"><%= external_interlocutor.mobile_number %></td>
+            <td class="p-4 text-center h4"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
           </tr>
         <% end %>
       </tbody>
