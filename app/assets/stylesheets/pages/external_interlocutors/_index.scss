@@ -2,6 +2,10 @@ table, td, th {
     border: 2px solid #333;
 }
 
+.title-external {
+  color: #016A97;
+}
+
 .link-to-new {
   border-radius: 8px;
 }
@@ -14,8 +18,4 @@ table, td, th {
   text-decoration: none;
   color: #016A97;
   opacity: 0.6;
-}
-
-.title-table-external {
-  font-weight: bold;
 }
