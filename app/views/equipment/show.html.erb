@@ -10,14 +10,18 @@
    </div>
    <div class="maintenances_show_equipment">
       <h3 class="text-center mb-5">Maintenances effectuées sur l'équipement</h3>
-      <% @equipment.maintenances.each do |maintenance| %>
-         <%= maintenance.date %>
-         <%= maintenance.title %>
-         <%= maintenance.description %>
-         <%= maintenance.status %>
-         <%= "#{maintenance.external_interlocutor.company} - #{maintenance.external_interlocutor.name}" %>
-         <%= maintenance.internal_interlocutor.visa %>
-      <% end %>
+      <ul>
+         <% @equipment.maintenances.each do |maintenance| %>
+            <li>
+               <%= maintenance.date %>
+               <%= maintenance.title %>
+               <%= maintenance.description %>
+               <%= maintenance.status %>
+               <%= "#{maintenance.external_interlocutor.company} - #{maintenance.external_interlocutor.name}" %>
+               <%= maintenance.internal_interlocutor.visa %>
+            </li>
+         <% end %>
+      </ul>
       <p class="btn_add_maintenance"><%= link_to 'Ajouter une maintenance', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
  </div>

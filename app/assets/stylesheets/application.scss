@@ -20,3 +20,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.remove-deco-link {
+  color: #016A97;
+}
+
+.remove-deco-link:hover {
+  text-decoration: none;
+  color: #016A97;
+  opacity: 0.6;
+}
