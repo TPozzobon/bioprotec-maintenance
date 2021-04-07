@@ -13,7 +13,7 @@
           <%= f.input :validity_qualification, label: 'Date de fin de validité QP' %>
           <%= f.input :status, label: 'État' %>
           <%= f.submit "Valider", class: "btn btn-success" %>
-          <%= link_to "Annuler", external_interlocutors_path, class: "btn btn-danger" %>
+          <%= link_to "Annuler", user_path(current_user), class: "btn btn-danger" %>
         <% end %>
       </div>
     </div>
