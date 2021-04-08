@@ -1,28 +1,28 @@
 <div class="container-fluid">
-  <div class="d-flex flex-column mb-5 align-items-center">
-    <h2 class="title-external font-weight-bold mb-3">Prestataires maintenance</h2>
+  <div class="d-flex flex-column mb-3 align-items-center">
+    <h2 class="title-external font-weight-bold mb-5">Prestataires maintenance</h2>
     <%= link_to "Ajouter un prestataire", new_external_interlocutor_path, class: "link-to-new btn btn-primary" %>
   </div>
   <div class="d-flex justify-content-center">
     <table>
-      <thead>
+      <thead class="back-color">
         <tr>
-          <th class="font-weight-bold p-3 text-center h5">Nom</th>
-          <th class="font-weight-bold p-3 text-center h5">Société</th>
-          <th class="font-weight-bold p-3 text-center h5">Téléphone</th>
-          <th class="font-weight-bold p-3 text-center h5">Mobile</th>
-          <th class="font-weight-bold p-3 text-center h5">Email</th>
+          <th class="font-weight-bold p-3 text-center h6">Nom</th>
+          <th class="font-weight-bold p-3 text-center h6">Société</th>
+          <th class="font-weight-bold p-3 text-center h6">Téléphone</th>
+          <th class="font-weight-bold p-3 text-center h6">Mobile</th>
+          <th class="font-weight-bold p-3 text-center h6">Email</th>
         </tr>
       </thead>
       <tbody>
         <% @external_interlocutors.each do |external_interlocutor| %>
           <tr>
-            <td class="p-4 text-center h4"><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor), class: "remove-deco-link" %></td>
-            <td class="p-4 text-center h4"><%= external_interlocutor.company %></td>
-            <td class="p-4 text-center h4"><%= external_interlocutor.phone_number %></td>
-            <td class="p-4 text-center h4"><%= external_interlocutor.mobile_number %></td>
-            <td class="p-4 text-center h4"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
-            <td class="p-4 text-center h4">
+            <td class="p-4 text-center h5"><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor), class: "remove-deco-link" %></td>
+            <td class="p-4 text-center h5"><%= external_interlocutor.company %></td>
+            <td class="p-4 text-center h5"><%= external_interlocutor.phone_number %></td>
+            <td class="p-4 text-center h5"><%= external_interlocutor.mobile_number %></td>
+            <td class="p-4 text-center h5"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
+            <td class="back-color p-4 text-center h5">
               <%= link_to edit_external_interlocutor_path(external_interlocutor) do %>
                 <i class="fas fa-user-edit"></i>
               <% end %>

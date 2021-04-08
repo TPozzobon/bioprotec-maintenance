@@ -1,5 +1,5 @@
 table, td, th {
-    border: 2px solid #333;
+    border: 1px solid #333;
 }
 
 .title-external {
@@ -8,4 +8,8 @@ table, td, th {
 
 .link-to-new {
   border-radius: 8px;
+}
+
+.back-color {
+  background-color: rgba(1, 106, 151, .1);
 }
