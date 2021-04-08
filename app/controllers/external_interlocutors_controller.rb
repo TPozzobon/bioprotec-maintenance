@@ -3,10 +3,6 @@ class ExternalInterlocutorsController < ApplicationController
     @external_interlocutors = ExternalInterlocutor.all
   end
 
-  def show
-    @external_interlocutor = ExternalInterlocutor.find(params[:id])
-  end
-
   def new
     @external_interlocutor = ExternalInterlocutor.new
   end
@@ -14,7 +10,7 @@ class ExternalInterlocutorsController < ApplicationController
   def create
     @external_interlocutor = ExternalInterlocutor.new(external_interlocutor_params)
     if @external_interlocutor.save
-      redirect_to external_interlocutor_path
+      redirect_to external_interlocutors_path
     else
       render :new
     end
@@ -27,13 +23,7 @@ class ExternalInterlocutorsController < ApplicationController
   def update
     @external_interlocutor = ExternalInterlocutor.find(params[:id])
     @external_interlocutor.update(external_interlocutor_params)
-    redirect_to external_interlocutor_path
-  end
-  
-  def destroy
-    @external_interlocutor = ExternalInterlocutor.find(params[:id])
-    @external_interlocutor.destroy
-    redirect_to external_interlocutor_path
+    redirect_to external_interlocutors_path
   end
   
   private
