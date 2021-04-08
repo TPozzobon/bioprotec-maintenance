@@ -22,6 +22,11 @@
             <td class="p-4 text-center h4"><%= external_interlocutor.phone_number %></td>
             <td class="p-4 text-center h4"><%= external_interlocutor.mobile_number %></td>
             <td class="p-4 text-center h4"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
+            <td class="p-4 text-center h4">
+              <%= link_to edit_external_interlocutor_path(external_interlocutor) do %>
+                <i class="fas fa-user-edit"></i>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
