@@ -3,6 +3,10 @@ class ExternalInterlocutorsController < ApplicationController
     @external_interlocutors = ExternalInterlocutor.all
   end
 
+  def show
+    @external_interlocutor = ExternalInterlocutor.find(params[:id])
+  end
+
   def new
     @external_interlocutor = ExternalInterlocutor.new
   end
