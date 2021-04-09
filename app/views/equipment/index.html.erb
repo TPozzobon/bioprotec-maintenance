@@ -5,12 +5,11 @@
       <%= form_tag equipment_index_path, class:"form-inline", method: :get do %>
         <%= text_field_tag :query,
             params[:query],
-            class: "form-control mr-5",
+            class: "form-control",
             placeholder: "Rechercher un equipement",
             style: "width: 250px;"
         %>
       <% end %>
-      <%= link_to "Ajouter un equipement", new_equipment_path, class: "link-to-new btn btn-primary" %>
     </div>
   </div>
   <div class="d-flex justify-content-center">
@@ -23,6 +22,11 @@
           <th class="font-weight-bold p-3 text-center h6">Détails</th>
           <th class="font-weight-bold p-3 px-5 text-center h6">Date QP</th>
           <th class="font-weight-bold p-3 text-center h6">Statut</th>
+          <th class="p-1 text-center h1">
+            <%= link_to new_equipment_path do %>
+              <i class="fas fa-folder-plus"></i>
+            <% end %>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +38,11 @@
             <td class="p-3 text-center h5"><%= equipment.detail %></td>
             <td class="p-3 text-center h5"><%= equipment.validity_qualification %></td>
             <td class="p-3 text-center h5"><%= equipment.status %></td>
+            <td class="back-color p-4 text-center h5">
+              <%= link_to edit_equipment_path(equipment) do %>
+                <i class="fas fa-user-edit"></i>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
