@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :maintenances, only: [ :show, :new, :create ]
   end
   resources :maintenances, only: [ :index, :edit, :update, :destroy]
-  resources :external_interlocutors, only: [:index, :new, :create, :edit, :update]
+  resources :external_interlocutors, only: [:index, :show, :new, :create, :edit, :update]
   resources :internal_interlocutors, only: [:new, :create, :edit, :update]
   resources :users
 end

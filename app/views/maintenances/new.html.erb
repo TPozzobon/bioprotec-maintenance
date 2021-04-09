@@ -1,16 +1,18 @@
 <div class="container">
-  <div class="row mt-10 rounded">
-    <div class="col-6 m-auto mt-5 w-50 rounded p-5 border bg-transparent">
-      <h1 class="mb-10">Déclarer une intervention</h1>
+  <div class="row rounded">
+    <div class="m-auto rounded p-5 border bg-transparent">
+      <h1 class="title-new-maintenance mb-3 font-weight-bold">Déclarer une intervention</h1>
       <%= simple_form_for [ @equipment, @maintenance ] do |f| %>
-        <%= f.input :title, label: 'Nom' %>
+        <%= f.input :title, label: 'Intitulé' %>
         <%= f.input :description %>
         <%= f.input :date, as: :date, html5: true %>
-        <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataires" %>
-        <%= select_tag :internal_interlocutor_id, options_for_select(@internal_interlocutors.map{ |e| [e.visa, e.id] }), prompt: "Personnel Bioprotec" %>
+        <div class="d-flex flex-column w-100">
+          <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataires", class: "select-menu mt-3 mb-4" %>
+          <%= select_tag :internal_interlocutor_id, options_for_select(@internal_interlocutors.map{ |i| [i.visa, i.id] }), prompt: "Bioprotec", class: "select-menu mb-4" %>
+        </div>
         <%= f.input :status, label: 'Statut' %>
-        <%= f.submit "Valider", class: "btn btn-success" %>
-        <%= link_to "Annuler", root_path, class: "btn btn-danger" %>
+        <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>
+        <%= link_to "Annuler", equipment_path(@equipment), class: "btn-new-maintenance btn btn-danger mt-3" %>
       <% end %>
     </div>
   </div>

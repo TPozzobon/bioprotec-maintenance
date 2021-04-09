@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="d-flex justify-content-around mb-5 align-items-center">
+  <div class="d-flex justify-content-center mb-5 align-items-center">
     <h2 class="title-external font-weight-bold border-bottom">Maintenances</h2>
   </div>
   <div class="d-flex justify-content-center">
@@ -11,17 +11,19 @@
           <th class="p-3 text-center h6 font-weight-bold">Description</th>
           <th class="p-3 text-center h6 font-weight-bold">Date</th>
           <th class="p-3 text-center h6 font-weight-bold">Prestataire</th>
+          <th class="p-3 text-center h6 font-weight-bold">Bioprotec</th>
           <th class="p-3 text-center h6 font-weight-bold">Statut</th>
         </tr>
       </thead>
       <tbody>
         <% @maintenances.each do |maintenance| %>
           <tr class= "hover">
-            <td class="p-4 text-center h5"><%= "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})" %></td>
+            <td class="p-4 text-center h5"><%= link_to "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})", equipment_path(maintenance.equipment), class: "remove-deco-link" %></td>
             <td class="p-4 text-center h5"><%= maintenance.title %></td>
             <td class="p-4 text-center h5"><%= maintenance.description %></td>
             <td class="p-4 text-center h5"><%= maintenance.date %></td>
-            <td class="p-4 text-center h5"><%= maintenance.external_interlocutor.name %></td>
+            <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name}", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
+            <td class="p-4 text-center h5"><%= maintenance.internal_interlocutor.visa %></td>
             <td class="p-4 text-center h5"><%= maintenance.status %></td>
           </tr>
         <% end %>
