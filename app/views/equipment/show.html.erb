@@ -1,27 +1,30 @@
  <div class="container_show_equipment">
    <div class="card-equipment">
-      <h3 class="mb-5 text-center"><%= @equipment.name %></h3>
-      <p>Identifiant: <span class="equipement_item_show"><%= @equipment.identifiant %></span></p>
-      <p>Localisation: <span class="equipement_item_show"><%= @equipment.location %></span></p>
-      <p>État: <span class="equipement_item_show"><%= @equipment.detail %></span></p>
-      <p>Status: <span class="equipement_item_show"><%= @equipment.status %></span></p>
-      <p>Mise en service: <span class="equipement_item_show"><%= @equipment.commissioning_date %></span></p>
-      <p>Date de QP: <span class="equipement_item_show"><%= @equipment.validity_qualification %></span></p>
+      <h3 class="mb-5 text-center h3"><%= @equipment.name %> <span class="h4 text-muted">(<%= @equipment.identifiant %>)</span></h3>
+      <p class="h6 mb-4">Localisation: <span class="equipement_item_show"><%= @equipment.location %></span></p>
+      <p class="h6 mb-4">État: <span class="equipement_item_show"><%= @equipment.detail %></span></p>
+      <p class="h6 mb-4">Status: <span class="equipement_item_show"><%= @equipment.status %></span></p>
+      <p class="h6 mb-4">Mise en service: <span class="equipement_item_show"><%= @equipment.commissioning_date.strftime("%d/%m/%Y") %></span></p>
+      <p class="h6 mb-4">Date de QP: <span class="equipement_item_show"><%= @equipment.validity_qualification.strftime("%d/%m/%Y") %></span></p>
+      <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
    <div class="maintenances_show_equipment">
-      <h3 class="text-center mb-5">Maintenances effectuées sur l'équipement</h3>
-      <ul>
-         <% @equipment.maintenances.each do |maintenance| %>
-            <li>
-               <%= maintenance.date %>
-               <%= maintenance.title %>
-               <%= maintenance.description %>
-               <%= maintenance.status %>
-               <%= "#{maintenance.external_interlocutor.company} - #{maintenance.external_interlocutor.name}" %>
-               <%= maintenance.internal_interlocutor.visa %>
-            </li>
-         <% end %>
-      </ul>
-      <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
+      <% @equipment.maintenances.each do |maintenance| %>         
+         <div class="card">
+            <div class="card-header">
+               <%= maintenance.date.strftime("%d/%m/%Y") %> - <%= maintenance.status %>
+            </div>
+            <div class="card-body">
+               <h5 class="card-title"><%= maintenance.title %></h5>
+               <p class="card-text"><%= maintenance.description %></p>
+               <p><%= "#{maintenance.external_interlocutor.company} - #{maintenance.external_interlocutor.name}" %> / <%= maintenance.internal_interlocutor.visa %></p>
+            </div>
+            <p>
+               <%= link_to edit_maintenance_path(maintenance) do %>
+                  <i class="fas fa-user-edit"></i>
+               <% end %>
+            </p>
+         </div>
+      <% end %>         
    </div>
  </div>
