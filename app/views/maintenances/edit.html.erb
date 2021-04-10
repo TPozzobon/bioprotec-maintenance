@@ -4,7 +4,7 @@
       <h1 class="title-new-maintenance mb-3 font-weight-bold">Déclarer une intervention</h1>
       <%= simple_form_for [ @equipment, @maintenance ] do |f| %>
         <%= f.input :title, label: 'Intitulé' %>
-        <%= f.input :description %>
+        <%= f.input :description, :as => :text, :input_html => { 'rows' => 8, 'cols' => 10 } %>
         <%= f.input :date, as: :date, html5: true %>
         <div class="d-flex flex-column w-100">
           <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataires", class: "select-menu mt-3 mb-4" %>
