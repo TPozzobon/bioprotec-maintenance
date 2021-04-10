@@ -32,6 +32,10 @@ class MaintenancesController < ApplicationController
   end
 
   def edit
+    @external_interlocutors = ExternalInterlocutor.all
+    @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
+    @internal_interlocutors = InternalInterlocutor.all
+    @internal_interlocutor = InternalInterlocutor.where(internal_interlocutor_id: params[:internal_interlocutor_id])
     @maintenance = Maintenance.find(params[:id])
   end
   
