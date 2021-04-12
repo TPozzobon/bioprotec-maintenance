@@ -11,7 +11,7 @@
           <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataires", class: "select-menu mt-3 mb-4" %>
           <%= select_tag :internal_interlocutor_id, options_for_select(@internal_interlocutors.map{ |i| [i.visa, i.id] }), prompt: "Bioprotec", class: "select-menu mb-4" %>
         </div>
-        <%= f.input :status, label: 'Statut' %>
+        <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé'] %>
         <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>
         <%= link_to "Annuler", equipment_path(@equipment), class: "btn-new-maintenance btn btn-danger mt-3" %>
       <% end %>
