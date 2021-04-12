@@ -21,7 +21,8 @@
             <td class="p-4 text-center h5"><%= link_to "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})", equipment_path(maintenance.equipment), class: "remove-deco-link" %></td>
             <td class="p-4 text-center h5"><%= maintenance.title %></td>
             <td class="p-4 text-center h5"><%= maintenance.description %></td>
-            <td class="p-4 text-center h5"><%= maintenance.date %></td>
+            <td class="p-4 text-center h5"><%= maintenance.start_date %></td>
+            <td class="p-4 text-center h5"><%= maintenance.end_date %></td>
             <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name}", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
             <td class="p-4 text-center h5"><%= maintenance.internal_interlocutor.visa %></td>
             <td class="p-4 text-center h5"><%= maintenance.status %></td>
