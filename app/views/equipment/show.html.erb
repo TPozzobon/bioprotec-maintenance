@@ -12,8 +12,11 @@
       <% @equipment.maintenances.each do |maintenance| %>         
          <div class="card mb-4">
             <div class="card-header d-flex justify-content-between">
-               <p><%= maintenance.start_date.strftime("%d/%m/%Y") %></p>
-               <p><%= maintenance.end_date.strftime("%d/%m/%Y") %></p>
+               <% if maintenance.start_date === maintenance.end_date %>
+                  <%= maintenance.start_date.strftime("%d/%m/%Y") %>
+               <% else %>
+                  <p><%= maintenance.start_date.strftime("%d/%m/%Y") %> - <%= maintenance.end_date.strftime("%d/%m/%Y") %></p>
+               <% end %>
                <p><%= maintenance.status %></p> 
             </div>
             <div class="card-body">
@@ -31,4 +34,3 @@
       <% end %>         
    </div>
  </div>
-
