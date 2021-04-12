@@ -5,7 +5,8 @@
       <%= simple_form_for [ @equipment, @maintenance ] do |f| %>
         <%= f.input :title, label: 'Intitulé' %>
         <%= f.input :description, :as => :text, :input_html => { 'rows' => 8, 'cols' => 10 } %>
-        <%= f.input :date, as: :date, html5: true %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
         <div class="d-flex flex-column w-100">
           <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataires", class: "select-menu mt-3 mb-4" %>
           <%= select_tag :internal_interlocutor_id, options_for_select(@internal_interlocutors.map{ |i| [i.visa, i.id] }), prompt: "Bioprotec", class: "select-menu mb-4" %>
