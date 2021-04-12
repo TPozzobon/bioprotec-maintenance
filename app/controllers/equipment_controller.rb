@@ -1,7 +1,11 @@
 class EquipmentController < ApplicationController
   def index
     if params[:query].present?
-      @equipment = Equipment.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_query = "
+      equipment.name ILIKE :query
+      OR equipment.identifiant ILIKE :query
+      "
+      @equipment = Equipment.where(sql_query, query: "%#{params[:query]}%")
     else
       @equipment = Equipment.all
     end
