@@ -1,3 +1,3 @@
 class Equipment < ApplicationRecord
-  has_many :maintenances
+  has_many :maintenances, dependent: :destroy
 end
