@@ -11,7 +11,7 @@
           <%= f.input :detail, label: 'Détails' %>
           <%= f.input :commissioning_date, label: 'Date de mise en service' %>
           <%= f.input :validity_qualification, label: 'Date de fin de validité QP' %>
-          <%= f.input :status, :collection => ['En cours', 'Finis'] %>
+          <%= f.input :status, :collection => ['Actif', 'Inactif'] %>
           <%= f.submit "Valider", class: "btn btn-success" %>
           <%= link_to "Annuler", equipment_index_path, class: "btn btn-danger" %>
         <% end %>
