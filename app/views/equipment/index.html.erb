@@ -36,7 +36,7 @@
             <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
             <td class="p-3 text-center h5"><%= equipment.location %></td>
             <td class="p-3 text-center h5"><%= equipment.detail %></td>
-            <td class="p-3 text-center h5"><%= equipment.validity_qualification %></td>
+            <td class="p-3 text-center h5"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
             <td class="p-3 text-center h5"><%= equipment.status %></td>
             <td class="back-color p-4 text-center h5">
               <%= link_to edit_equipment_path(equipment) do %>
