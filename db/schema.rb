@@ -50,15 +50,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_135724) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "external_interlocutors", force: :cascade do |t|
     t.string "name"
     t.string "company"
@@ -84,8 +75,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_135724) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "equipment_id", null: false
-    t.bigint "external_interlocutor_id", null: false
-    t.bigint "internal_interlocutor_id", null: false
+    t.bigint "external_interlocutor_id"
+    t.bigint "internal_interlocutor_id"
     t.date "end_date"
     t.index ["equipment_id"], name: "index_maintenances_on_equipment_id"
     t.index ["external_interlocutor_id"], name: "index_maintenances_on_external_interlocutor_id"
