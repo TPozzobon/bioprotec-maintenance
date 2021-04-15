@@ -87,21 +87,4 @@ external_interlocutor = ExternalInterlocutor.create!(
   email: "john@sauermann.com"
 )
 
-puts "Creating Internal Interlocutors"
-
-internal_interlocutor = InternalInterlocutor.create!(
-  visa: "TPO",
-  phone_number: "223"
-)
-
-internal_interlocutor = InternalInterlocutor.create!(
-  visa: "JBE",
-  phone_number: "223"
-)
-
-internal_interlocutor = InternalInterlocutor.create!(
-  visa: "SOL",
-  phone_number: "225"
-)
-
 puts "Finished!"
