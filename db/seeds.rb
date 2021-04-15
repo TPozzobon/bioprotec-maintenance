@@ -2,7 +2,6 @@ puts "Cleaning database"
 User.destroy_all
 Equipment.destroy_all
 ExternalInterlocutor.destroy_all
-InternalInterlocutor.destroy_all
 
 puts "Creating Users"
 User.create!(email: "user@gmail.com", password: "password")
