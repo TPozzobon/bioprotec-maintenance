@@ -9,7 +9,6 @@
         <%= f.input :end_date, as: :date, html5: true, label: 'Date de fin' %>
         <div class="d-flex flex-column w-100">
           <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataires", class: "select-menu mt-3 mb-4" %>
-          <%= select_tag :internal_interlocutor_id, options_for_select(@internal_interlocutors.map{ |i| [i.visa, i.id] }), prompt: "Bioprotec", class: "select-menu mb-4" %>
         </div>
         <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé'] %>
         <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>

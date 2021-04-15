@@ -23,8 +23,7 @@
                <h5 class="card-title"><%= maintenance.title %></h5>
                <p class="card-text text-wrap"><%= maintenance.description %></p>
                <p class="d-flex justify-content-between">
-               <%= "#{maintenance.external_interlocutor.company} - #{maintenance.external_interlocutor.name}" %> / 
-               <%= maintenance.internal_interlocutor.visa %>
+               <%= "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})" %> 
                <%= link_to edit_maintenance_path(maintenance) do %>
                   <i class="fas fa-user-edit"></i>
                <% end %>

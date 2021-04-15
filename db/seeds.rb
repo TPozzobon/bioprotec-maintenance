@@ -2,7 +2,6 @@ puts "Cleaning database"
 User.destroy_all
 Equipment.destroy_all
 ExternalInterlocutor.destroy_all
-InternalInterlocutor.destroy_all
 
 puts "Creating Users"
 User.create!(email: "user@gmail.com", password: "password")
@@ -85,23 +84,6 @@ external_interlocutor = ExternalInterlocutor.create!(
   phone_number: "0400000000", 
   mobile_number: "0600000000", 
   email: "john@sauermann.com"
-)
-
-puts "Creating Internal Interlocutors"
-
-internal_interlocutor = InternalInterlocutor.create!(
-  visa: "TPO",
-  phone_number: "223"
-)
-
-internal_interlocutor = InternalInterlocutor.create!(
-  visa: "JBE",
-  phone_number: "223"
-)
-
-internal_interlocutor = InternalInterlocutor.create!(
-  visa: "SOL",
-  phone_number: "225"
 )
 
 puts "Finished!"

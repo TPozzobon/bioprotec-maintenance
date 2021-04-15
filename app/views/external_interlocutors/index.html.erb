@@ -7,11 +7,7 @@
       <thead class="back-color">
         <tr>
           <th class="font-weight-bold p-3 text-center h6">Nom</th>
-          <th class="text-center h6">
-            <%= form_tag external_interlocutors_path, method: :get do %>
-              <%= select_tag 'external_interlocutors', options_for_select(@external_interlocutors.pluck(:company).uniq), prompt: "Société", class: "company-select font-weight-bold border-0" %>
-            <% end %>
-            </th>
+          <th class="font-weight-bold p-3 text-center h6">Société</th>
           <th class="font-weight-bold p-3 text-center h6">Téléphone</th>
           <th class="font-weight-bold p-3 text-center h6">Mobile</th>
           <th class="font-weight-bold p-3 text-center h6">Email</th>
