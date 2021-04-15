@@ -18,7 +18,7 @@
           </div>
           <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé'] %>
           <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>
-          <%= link_to "Annuler", equipment_path, class: "btn-new-maintenance btn btn-danger mt-3" %>
+          <%= link_to "Annuler", :back, class: "btn-new-maintenance btn btn-danger mt-3" %>
         <% end %>
       </div>
     </div>
