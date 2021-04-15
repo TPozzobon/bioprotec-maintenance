@@ -29,6 +29,12 @@ class ExternalInterlocutorsController < ApplicationController
     @external_interlocutor.update(external_interlocutor_params)
     redirect_to external_interlocutors_path
   end
+
+  def destroy
+    @external_interlocutor = ExternalInterlocutor.find(params[:id])
+    @external_interlocutor.destroy
+    redirect_to external_interlocutors_path
+  end
   
   private
 
