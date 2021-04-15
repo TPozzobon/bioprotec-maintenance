@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2021_04_15_083736) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "external_interlocutors", force: :cascade do |t|
     t.string "name"
     t.string "company"
