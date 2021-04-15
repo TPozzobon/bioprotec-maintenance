@@ -1,6 +1,14 @@
 class MaintenancesController < ApplicationController
-  def index
-    @maintenances = Maintenance.all
+  def index  
+    if params[:maintenance].present?
+      sql_maintenance = "
+      equipment.name ILIKE :maintenance
+      OR equipment.identifiant ILIKE :maintenance
+      "
+      @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
+    else
+      @maintenances = Maintenance.all
+    end
   end
 
   def show
