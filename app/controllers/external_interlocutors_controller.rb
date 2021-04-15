@@ -1,6 +1,14 @@
 class ExternalInterlocutorsController < ApplicationController
   def index
-    @external_interlocutors = ExternalInterlocutor.all
+    if params[:external].present?
+      sql_external = "
+      external_interlocutors.name ILIKE :external
+      OR external_interlocutors.company ILIKE :external
+      "
+      @external_interlocutors = ExternalInterlocutor.where(sql_external, external: "%#{params[:external]}%")
+    else
+      @external_interlocutors = ExternalInterlocutor.all
+    end
   end
 
   def show

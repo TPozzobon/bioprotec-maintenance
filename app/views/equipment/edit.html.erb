@@ -2,12 +2,13 @@
   <div class="container">
     <div class="row mt-10 rounded">
       <div class="col-6 m-auto w-50 rounded p-4 border bg-transparen">
-      <div class="d-flex justify-content-between align-items-center">
-        <h3 class="title-edit-equipment font-weight-bold">Modifier un équipement</h3>
-          <%= link_to equipment_path,class: "delete-equipment h3 mt-1", method: :delete do %>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="title-edit-equipment font-weight-bold">Modifier un équipement</h3>
+          <%= link_to equipment_path, class: "delete-equipment h3 mt-1", method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
-      </div>
+        </div>
+        
         <%= simple_form_for [ @equipment ] do |f| %>
           <%= f.input :name, label: 'Type' %>
           <%= f.input :identifiant %>
