@@ -67,7 +67,8 @@ external_interlocutor = ExternalInterlocutor.create!(
   company: "Médiplan", 
   phone_number: "0400000000", 
   mobile_number: "0600000000", 
-  email: "taint@mediplan.com"
+  email: "taint@mediplan.com",
+  detail: "Prestataire de Médiplan"
 )
 
 external_interlocutor = ExternalInterlocutor.create!(
@@ -75,7 +76,8 @@ external_interlocutor = ExternalInterlocutor.create!(
   company: "Merck Millipore", 
   phone_number: "0400000000", 
   mobile_number: "0600000000", 
-  email: "bob@merck.com"
+  email: "bob@merck.com",
+  detail: "Ne se déplace que les après-midi"
 )
 
 external_interlocutor = ExternalInterlocutor.create!(

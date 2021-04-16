@@ -11,7 +11,7 @@
    <div class="maintenances_show_equipment">
       <% @equipment.maintenances.each do |maintenance| %>         
          <div class="card mb-4">
-            <div class="card-header d-flex justify-content-between">
+            <div class="back-color card-header d-flex justify-content-between">
                <% if maintenance.start_date === maintenance.end_date %>
                   <%= maintenance.start_date.strftime("%d/%m/%Y") %>
                <% else %>
