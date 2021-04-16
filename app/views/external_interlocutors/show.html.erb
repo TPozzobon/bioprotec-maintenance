@@ -12,7 +12,7 @@
         <div class="d-flex justify-content-between border-bottom p-4">
           <p>Téléphone : <span class="h5 font-weight-bold"><%= @external_interlocutor.phone_number %></span></p>
           <p>Mobile : <span class="h5 font-weight-bold"><%= @external_interlocutor.mobile_number %></span></p>
-          <p>Email : <span class="h5 font-weight-bold"><%= @external_interlocutor.email %></span></p>
+          <p>Email : <span class="h5 font-weight-bold"><%= mail_to "#{@external_interlocutor.email}", @external_interlocutor.email, class: "remove-deco-link" %></span></p>
         </div>
         <div class="d-flex mt-3 flex-column p-3">
           <div class="d-flex justify-content-center">
