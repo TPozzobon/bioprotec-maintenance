@@ -1,5 +1,26 @@
-<h2><%= @external_interlocutor.name %></h2>
-<p><%= @external_interlocutor.company %></p>
-<p><%= @external_interlocutor.phone_number %></p>
-<p><%= @external_interlocutor.mobile_number %></p>
-<p><%= @external_interlocutor.email %></p>
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <h2 class="title-external font-weight-bold mb-5 border-bottom">Fiche prestataire</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="card w-75">
+      <div class="back-show-color card-header d-flex justify-content-between p-4">
+        <h5 class="font-weight-bold"><%= @external_interlocutor.name %></h5>
+        <h5 class="font-weight-bold">( <%= @external_interlocutor.company %> )</h5>
+      </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between border-bottom p-4">
+          <p>Téléphone : <span class="h5 font-weight-bold"><%= @external_interlocutor.phone_number %></span></p>
+          <p>Mobile : <span class="h5 font-weight-bold"><%= @external_interlocutor.mobile_number %></span></p>
+          <p>Email : <span class="h5 font-weight-bold"><%= mail_to "#{@external_interlocutor.email}", @external_interlocutor.email, class: "remove-deco-link" %></span></p>
+        </div>
+        <div class="d-flex mt-3 flex-column p-3">
+          <div class="d-flex justify-content-center">
+            <p class="border p-2">Informations complémentaires</p>
+          </div>
+          <h5 class="mt-4"><%= @external_interlocutor.detail %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
