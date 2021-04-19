@@ -22,6 +22,7 @@
           <th class="p-3 text-center h6 font-weight-bold">Date de début</th>
           <th class="p-3 text-center h6 font-weight-bold">Date de fin</th>
           <th class="p-3 text-center h6 font-weight-bold">Prestataire</th>
+          <th class="p-3 text-center h6 font-weight-bold">Bioprotec</th>
           <th class="p-3 text-center h6 font-weight-bold">État</th>
         </tr>
       </thead>
@@ -34,6 +35,7 @@
             <td class="p-4 text-center h5"><%= maintenance.start_date.strftime("%d/%m/%Y") %></td>
             <td class="p-4 text-center h5"><%= maintenance.end_date.strftime("%d/%m/%Y") %></td>
             <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
+            <td class="p-4 text-center h5"><%= current_user.visa %></td>
             <td class="p-4 text-center h5"><%= maintenance.status %></td>
           </tr>
         <% end %>

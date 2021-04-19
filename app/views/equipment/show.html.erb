@@ -12,22 +12,29 @@
       <% @equipment.maintenances.each do |maintenance| %>         
          <div class="card mb-4">
             <div class="back-color card-header d-flex justify-content-between">
-               <% if maintenance.start_date === maintenance.end_date %>
-                  <%= maintenance.start_date.strftime("%d/%m/%Y") %>
-               <% else %>
-                  <p><%= maintenance.start_date.strftime("%d/%m/%Y") %> - <%= maintenance.end_date.strftime("%d/%m/%Y") %></p>
-               <% end %>
-               <p><%= maintenance.status %></p> 
+               <div class="d-flex flex-column">
+                  <% if maintenance.start_date === maintenance.end_date %>
+                     <p class="equipment-show-color font-weight-bold"><%= maintenance.start_date.strftime("%d/%m/%Y") %></p>
+                  <% else %>
+                     <p class="equipment-show-color font-weight-bold"><%= maintenance.start_date.strftime("%d/%m/%Y") %> - <%= maintenance.end_date.strftime("%d/%m/%Y") %></p>
+                  <% end %>
+                  <p><%= current_user.visa %></p>
+               </div>
+               <div class="d-flex flex-column align-items-end">
+                  <p class="font-weight-bold"><%= maintenance.status %></p> 
+                  <p><%= link_to edit_maintenance_path(maintenance) do %>
+                     <i class="fas fa-user-edit"></i>
+                  <% end %></p>
+               </div>
             </div>
             <div class="card-body">
-               <h5 class="card-title"><%= maintenance.title %></h5>
-               <p class="card-text text-wrap"><%= maintenance.description %></p>
-               <p class="d-flex justify-content-between">
-               <%= "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})" %> 
-               <%= link_to edit_maintenance_path(maintenance) do %>
-                  <i class="fas fa-user-edit"></i>
-               <% end %>
-               </p>
+               <div class="d-flex justify-content-center">
+                  <h5 class="equipment-show-color border p-2 card-title"><%= maintenance.title %></h5>
+               </div>
+               <p class="card-text text-wrap mt-4"><%= maintenance.description %></p>
+               <div class="d-flex justify-content-center">
+                  <h6 class="d-flex pt-3"><%= "- #{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company}) -" %></h6>
+               </div>
             </div>
          </div>
       <% end %>         
