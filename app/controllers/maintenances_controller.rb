@@ -28,6 +28,7 @@ class MaintenancesController < ApplicationController
     @maintenance = Maintenance.new(maintenance_params)
     @maintenance.external_interlocutor = @external_interlocutor
     @maintenance.equipment = @equipment
+    @maintenance.user = current_user
     if @maintenance.save
       redirect_to equipment_path(@equipment)
     else
