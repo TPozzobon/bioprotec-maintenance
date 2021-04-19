@@ -37,7 +37,11 @@
             <td class="p-3 text-center h5"><%= equipment.location %></td>
             <td class="p-3 text-center h5"><%= equipment.detail %></td>
             <td class="p-3 text-center h5"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
-            <td class="p-3 text-center h5"><%= equipment.status %></td>
+            <% if equipment.status == "Actif" %>
+              <td class="status-color-green p-3 text-center h5"><%= equipment.status %></td>
+            <% else %>
+              <td class="status-color-red p-3 text-center h5"><%= equipment.status %></td>
+            <% end %>
             <td class="back-color p-4 text-center h5">
               <%= link_to edit_equipment_path(equipment) do %>
                 <i class="fas fa-user-edit"></i>
