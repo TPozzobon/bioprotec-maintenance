@@ -36,7 +36,13 @@
             <td class="p-4 text-center h5"><%= maintenance.end_date.strftime("%d/%m/%Y") %></td>
             <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
             <td class="p-4 text-center h5"><%= current_user.visa %></td>
-            <td class="p-4 text-center h5"><%= maintenance.status %></td>
+            <% if maintenance.status == "Planifiée" %>
+              <td class="maintenance-status-blue p-4 text-center h5"><%= maintenance.status %></td>
+            <% elsif maintenance.status == "En cours" %>
+              <td class="maintenance-status-orange p-4 text-center h5"><%= maintenance.status %></td>
+            <% else %>
+              <td class="maintenance-status-green p-4 text-center h5"><%= maintenance.status %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

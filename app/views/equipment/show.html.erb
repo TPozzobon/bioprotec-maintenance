@@ -21,7 +21,13 @@
                   <p><%= current_user.visa %></p>
                </div>
                <div class="d-flex flex-column align-items-end">
-                  <p class="font-weight-bold"><%= maintenance.status %></p> 
+                  <% if maintenance.status == "Planifiée" %>
+                     <p class="maintenance-status-blue font-weight-bold"><%= maintenance.status %></p>
+                  <% elsif maintenance.status == "En cours" %>
+                     <p class="maintenance-status-orange font-weight-bold"><%= maintenance.status %></p>
+                  <% else %>
+                     <p class="maintenance-status-green font-weight-bold"><%= maintenance.status %></p>
+                  <% end %>
                   <p><%= link_to edit_maintenance_path(maintenance) do %>
                      <i class="fas fa-user-edit"></i>
                   <% end %></p>
