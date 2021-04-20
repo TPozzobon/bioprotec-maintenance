@@ -1,18 +1,13 @@
 <div class="container-fluid">
   <div class="d-flex flex-column mb-3 align-items-center">
-    <h2 class="title-external font-weight-bold mb-5 border-bottom">Intervenants Bioprotec</h2>
+    <h2 class="title-index-user font-weight-bold mb-5 border-bottom">Intervenants Bioprotec</h2>
   </div>
   <div class="d-flex justify-content-center">
     <table>
-      <thead class="back-color">
+      <thead class="back-index-user-color">
         <tr>
           <th class="font-weight-bold p-3 text-center h6">Visa</th>
           <th class="font-weight-bold p-3 text-center h6">Email</th>
-          <th class="font-weight-bold p-3 text-center h6">Mot de passe</th>
-          <th class="p-1 text-center h1">
-            <%= link_to new_user_path do %>
-              <i class="fas fa-folder-plus"></i>
-            <% end %>
           </th>
         </tr>
       </thead>
@@ -21,12 +16,6 @@
           <tr>
             <td class="p-4 text-center h5"><%= user.visa %></td>
             <td class="p-4 text-center h5"><%= user.email %></td>
-            <td class="p-4 text-center h5"><%= user.password %></td>
-            <td class="back-color p-4 text-center h5">
-              <%= link_to edit_user_path(user) do %>
-                <i class="fas fa-user-edit"></i>
-              <% end %>
-            </td>
           </tr>
         <% end %>
       </tbody>
