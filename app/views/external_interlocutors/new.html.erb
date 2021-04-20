@@ -9,6 +9,7 @@
           <%= f.input :phone_number, label: 'Téléphone fixe' %>
           <%= f.input :mobile_number, label: 'Mobile' %>
           <%= f.input :email %>
+          <%= f.input :detail, label: 'Informations complémentaires' %>
           <%= f.submit "Valider", class: "mt-3 btn-radius btn btn-success" %>
           <%= link_to "Annuler", external_interlocutors_path, class: "mt-3 btn-radius btn btn-danger" %>
         <% end %>
