@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="d-flex flex-column mb-3 align-items-center">
+    <h2 class="title-index-user font-weight-bold mb-5 border-bottom">Intervenants Bioprotec</h2>
+  </div>
+  <div class="d-flex justify-content-center">
+    <table>
+      <thead class="back-index-user-color">
+        <tr>
+          <th class="font-weight-bold p-3 text-center h6">Visa</th>
+          <th class="font-weight-bold p-3 text-center h6">Email</th>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td class="p-4 text-center h5"><%= user.visa %></td>
+            <td class="p-4 text-center h5"><%= user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
