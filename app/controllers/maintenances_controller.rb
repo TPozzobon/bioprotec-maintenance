@@ -42,6 +42,8 @@ class MaintenancesController < ApplicationController
   def edit
     @external_interlocutors = ExternalInterlocutor.all
     @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
+    @users = User.all
+    @user = User.where(user_id: params[:user_id])
     @maintenance = Maintenance.find(params[:id])
   end
   
