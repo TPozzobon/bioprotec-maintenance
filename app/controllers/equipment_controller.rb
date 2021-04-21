@@ -13,6 +13,7 @@ class EquipmentController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
+    @sort_maintenances = @equipment.maintenances.order('start_date asc')
   end
   
   def new
