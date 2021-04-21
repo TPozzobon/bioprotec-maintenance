@@ -7,7 +7,7 @@ class ExternalInterlocutorsController < ApplicationController
       "
       @external_interlocutors = ExternalInterlocutor.where(sql_external, external: "%#{params[:external]}%")
     else
-      @external_interlocutors = ExternalInterlocutor.all
+      @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     end
   end
 
