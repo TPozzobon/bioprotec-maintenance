@@ -7,12 +7,13 @@ class EquipmentController < ApplicationController
       "
       @equipment = Equipment.where(sql_query, query: "%#{params[:query]}%")
     else
-      @equipment = Equipment.all
+      @equipment = Equipment.all.order('name asc')
     end
   end
 
   def show
     @equipment = Equipment.find(params[:id])
+    @sort_maintenances = @equipment.maintenances.order('start_date asc')
   end
   
   def new

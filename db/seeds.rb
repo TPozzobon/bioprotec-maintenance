@@ -4,12 +4,12 @@ Equipment.destroy_all
 ExternalInterlocutor.destroy_all
 
 puts "Creating Users"
-User.create!(email: "user@gmail.com", password: "password", visa: "AZE")
+User.create!(email: "user@gmail.com", password: "password", visa: "AAA")
 
 puts "Creating Equipment"
 
 equipment = Equipment.create!(
-  name: "Frigo", 
+  name: "Réfrigérateur", 
   identifiant: "RE12", 
   serial_number: "34398935N2", 
   location: "Réception kits", 
@@ -20,7 +20,7 @@ equipment = Equipment.create!(
 )
 
 equipment = Equipment.create!(
-  name: "Frigo", 
+  name: "Réfrigérateur", 
   identifiant: "RE9", 
   serial_number: "34391635N2", 
   location: "Réception kits", 
@@ -56,7 +56,7 @@ puts "Creating External Interlocutors"
 
 external_interlocutor = ExternalInterlocutor.create!(
   name: "Gérard Brodar", 
-  company: "Médiplan", 
+  company: "Mediplan", 
   phone_number: "0400000000", 
   mobile_number: "0600000000", 
   email: "brodar@mediplan.com"
@@ -64,7 +64,7 @@ external_interlocutor = ExternalInterlocutor.create!(
 
 external_interlocutor = ExternalInterlocutor.create!(
   name: "Cédric Taint", 
-  company: "Médiplan", 
+  company: "Mediplan", 
   phone_number: "0400000000", 
   mobile_number: "0600000000", 
   email: "taint@mediplan.com",

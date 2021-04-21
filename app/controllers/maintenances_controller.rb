@@ -7,7 +7,7 @@ class MaintenancesController < ApplicationController
       "
       @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
     else
-      @maintenances = Maintenance.all
+      @maintenances = Maintenance.all.order('start_date asc')
     end
   end
 
@@ -18,15 +18,19 @@ class MaintenancesController < ApplicationController
   def new
     @external_interlocutors = ExternalInterlocutor.all
     @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
+    @users = User.all
+    @user = User.where(user_id: params[:user_id])
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new
   end
   
   def create
     @external_interlocutor = ExternalInterlocutor.find(params[:external_interlocutor_id])
+    @user = User.find(params[:user_id])
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new(maintenance_params)
     @maintenance.external_interlocutor = @external_interlocutor
+    @maintenance.user = @user
     @maintenance.equipment = @equipment
     if @maintenance.save
       redirect_to equipment_path(@equipment)
@@ -38,6 +42,8 @@ class MaintenancesController < ApplicationController
   def edit
     @external_interlocutors = ExternalInterlocutor.all
     @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
+    @users = User.all
+    @user = User.where(user_id: params[:user_id])
     @maintenance = Maintenance.find(params[:id])
   end
   

@@ -3,7 +3,7 @@
     <div class="row rounded">
       <div class="col-6 m-auto rounded p-4 border bg-transparent">
         <div class="d-flex justify-content-between align-items-center">
-          <h3 class="title-edit font-weight-bold mb-3">Éditer une intervention</h3>
+          <h3 class="title-edit font-weight-bold mb-3">Modifier une intervention</h3>
           <%= link_to maintenance_path, class: "delete-external h3", method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
@@ -14,7 +14,10 @@
           <%= f.input :start_date, as: :date, html5: true, label: 'Date de début' %>
           <%= f.input :end_date, as: :date, html5: true, label: 'Date de fin' %>
           <div class="d-flex flex-column w-100">
-            <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataires", class: "select-menu mt-3 mb-4" %>
+            <%= select_tag :external_interlocutor_id, options_for_select(@external_interlocutors.map{ |e| ["#{e.company} - #{e.name}", e.id] }), prompt: "Prestataire", class: "select-menu mt-3 mb-4" %>
+          </div>
+          <div class="d-flex flex-column w-100">
+            <%= select_tag :user_id, options_for_select(@users.map{ |u| ["#{u.visa}", u.id] }), prompt: "Bioprotec", class: "select-menu mt-2 mb-4" %>
           </div>
           <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé'] %>
           <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>

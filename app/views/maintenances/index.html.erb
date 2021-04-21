@@ -18,10 +18,10 @@
         <tr>
           <th class="p-3 text-center h6 font-weight-bold">Équipement</th>
           <th class="p-3 text-center h6 font-weight-bold">Intitulé</th>
-          <th class="p-3 text-center h6 font-weight-bold">Description</th>
           <th class="p-3 text-center h6 font-weight-bold">Date de début</th>
           <th class="p-3 text-center h6 font-weight-bold">Date de fin</th>
           <th class="p-3 text-center h6 font-weight-bold">Prestataire</th>
+          <th class="p-3 text-center h6 font-weight-bold">Bioprotec</th>
           <th class="p-3 text-center h6 font-weight-bold">État</th>
         </tr>
       </thead>
@@ -30,11 +30,17 @@
           <tr class= "hover">
             <td class="p-4 text-center h5"><%= link_to "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})", equipment_path(maintenance.equipment), class: "remove-deco-link" %></td>
             <td class="p-4 text-center h5"><%= maintenance.title %></td>
-            <td class="p-4 text-center h5"><%= maintenance.description %></td>
             <td class="p-4 text-center h5"><%= maintenance.start_date.strftime("%d/%m/%Y") %></td>
             <td class="p-4 text-center h5"><%= maintenance.end_date.strftime("%d/%m/%Y") %></td>
             <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
-            <td class="p-4 text-center h5"><%= maintenance.status %></td>
+            <td class="p-4 text-center h5"><%= maintenance.user.visa %></td>
+            <% if maintenance.status == "Planifiée" %>
+              <td class="maintenance-status-blue p-4 text-center h5"><%= maintenance.status %></td>
+            <% elsif maintenance.status == "En cours" %>
+              <td class="maintenance-status-orange p-4 text-center h5"><%= maintenance.status %></td>
+            <% else %>
+              <td class="maintenance-status-green p-4 text-center h5"><%= maintenance.status %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
