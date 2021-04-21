@@ -7,7 +7,7 @@ class MaintenancesController < ApplicationController
       "
       @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
     else
-      @maintenances = Maintenance.all
+      @maintenances = Maintenance.all.order('start_date asc')
     end
   end
 
