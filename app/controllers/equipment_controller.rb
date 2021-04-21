@@ -7,7 +7,7 @@ class EquipmentController < ApplicationController
       "
       @equipment = Equipment.where(sql_query, query: "%#{params[:query]}%")
     else
-      @equipment = Equipment.all
+      @equipment = Equipment.all.order('name asc')
     end
   end
 
