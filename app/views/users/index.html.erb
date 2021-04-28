@@ -15,7 +15,7 @@
         <% @users.each do |user| %>
           <tr>
             <td class="p-4 text-center h5"><%= user.visa %></td>
-            <td class="p-4 text-center h5"><%= user.email %></td>
+            <td class="p-4 text-center h5"><%= mail_to "#{user.email}", user.email, class: "remove-deco-link" %></td>
           </tr>
         <% end %>
       </tbody>
