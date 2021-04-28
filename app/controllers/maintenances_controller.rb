@@ -48,7 +48,11 @@ class MaintenancesController < ApplicationController
   end
   
   def update
+    @external_interlocutor = ExternalInterlocutor.find(params[:external_interlocutor_id])
     @maintenance = Maintenance.find(params[:id])
+    @maintenance.external_interlocutor = @external_interlocutor
+    @user = User.find(params[:user_id])
+    @maintenance.user = @user
     @maintenance.update(maintenance_params)
     redirect_to root_path
   end
@@ -62,6 +66,6 @@ class MaintenancesController < ApplicationController
   private
 
   def maintenance_params
-    params.require(:maintenance).permit(:title, :start_date, :end_date, :description, :status, :external_interlocutor)
+    params.require(:maintenance).permit(:title, :start_date, :end_date, :description, :status, :external_interlocutor_id, :user_id)
   end
 end
