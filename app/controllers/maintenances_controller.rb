@@ -41,9 +41,9 @@ class MaintenancesController < ApplicationController
 
   def edit
     @external_interlocutors = ExternalInterlocutor.all
-    @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
+    @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
     @users = User.all
-    @user = User.where(user_id: params[:user_id])
+    @filtered_users = @users.map { |u| [u.visa, u.id] }
     @maintenance = Maintenance.find(params[:id])
   end
   
@@ -62,6 +62,6 @@ class MaintenancesController < ApplicationController
   private
 
   def maintenance_params
-    params.require(:maintenance).permit(:title, :start_date, :end_date, :description, :status)
+    params.require(:maintenance).permit(:title, :start_date, :end_date, :description, :status, :external_interlocutor)
   end
 end
