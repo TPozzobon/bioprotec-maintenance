@@ -17,9 +17,9 @@ class MaintenancesController < ApplicationController
   
   def new
     @external_interlocutors = ExternalInterlocutor.all
-    @external_interlocutor = ExternalInterlocutor.where(external_interlocutor_id: params[:external_interlocutor_id])
+    @filtered_externals = @external_interlocutors.map { |e| [e.name, e.id] }
     @users = User.all
-    @user = User.where(user_id: params[:user_id])
+    @filtered_users = @users.map { |u| [u.visa, u.id] }
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new
   end
