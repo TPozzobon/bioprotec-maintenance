@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_075724) do
+ActiveRecord::Schema.define(version: 2021_05_04_092940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,15 +62,15 @@ ActiveRecord::Schema.define(version: 2021_04_19_075724) do
   end
 
   create_table "maintenances", force: :cascade do |t|
-    t.string "title"
-    t.date "start_date"
+    t.string "name"
+    t.date "start_time"
     t.text "description"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "equipment_id", null: false
     t.bigint "external_interlocutor_id", null: false
-    t.date "end_date"
+    t.date "end_time"
     t.bigint "user_id", null: false
     t.index ["equipment_id"], name: "index_maintenances_on_equipment_id"
     t.index ["external_interlocutor_id"], name: "index_maintenances_on_external_interlocutor_id"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_075724) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "visa"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
