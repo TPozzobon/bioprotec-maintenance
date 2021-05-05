@@ -62,15 +62,15 @@ ActiveRecord::Schema.define(version: 2021_05_04_092940) do
   end
 
   create_table "maintenances", force: :cascade do |t|
-    t.string "name"
-    t.date "start_time"
+    t.string "title"
+    t.date "start_date"
     t.text "description"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "equipment_id", null: false
     t.bigint "external_interlocutor_id", null: false
-    t.date "end_time"
+    t.date "end_date"
     t.bigint "user_id", null: false
     t.index ["equipment_id"], name: "index_maintenances_on_equipment_id"
     t.index ["external_interlocutor_id"], name: "index_maintenances_on_external_interlocutor_id"
