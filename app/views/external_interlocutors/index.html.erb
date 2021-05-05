@@ -21,11 +21,13 @@
           <th class="font-weight-bold p-3 text-center h6">Téléphone</th>
           <th class="font-weight-bold p-3 text-center h6">Mobile</th>
           <th class="font-weight-bold p-3 text-center h6">Email</th>
-          <th class="p-1 text-center h1">
-            <%= link_to new_external_interlocutor_path do %>
-              <i class="fas fa-folder-plus"></i>
-            <% end %>
-          </th>
+          <% if current_user.admin == true %>
+            <th class="p-1 text-center h1">
+              <%= link_to new_external_interlocutor_path do %>
+                <i class="fas fa-folder-plus"></i>
+              <% end %>
+            </th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -36,11 +38,13 @@
             <td class="p-4 text-center h5"><%= external_interlocutor.phone_number %></td>
             <td class="p-4 text-center h5"><%= external_interlocutor.mobile_number %></td>
             <td class="p-4 text-center h5"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
-            <td class="back-color p-4 text-center h5">
-              <%= link_to edit_external_interlocutor_path(external_interlocutor) do %>
-                <i class="fas fa-user-edit"></i>
-              <% end %>
-            </td>
+            <% if current_user.admin == true %>
+              <td class="back-color p-4 text-center h5">
+                <%= link_to edit_external_interlocutor_path(external_interlocutor) do %>
+                  <i class="fas fa-user-edit"></i>
+                <% end %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
