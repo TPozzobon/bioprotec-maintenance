@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_084047) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "detail"
-    t.string "status"
+    t.string "status", default: "Actif"
   end
 
   create_table "maintenances", force: :cascade do |t|
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2021_05_05_084047) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "visa"
     t.boolean "admin"
-    t.string "status"
+    t.string "status", default: "Actif"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
