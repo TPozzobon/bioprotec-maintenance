@@ -21,11 +21,13 @@
           <th class="font-weight-bold p-3 text-center h6">Localisation</th>
           <th class="font-weight-bold p-3 px-5 text-center h6">Date QP</th>
           <th class="font-weight-bold p-3 text-center h6">Statut</th>
-          <th class="p-1 text-center h1">
-            <%= link_to new_equipment_path do %>
-              <i class="fas fa-folder-plus"></i>
-            <% end %>
-          </th>
+          <% if current_user.admin == true %>
+            <th class="p-1 text-center h1">
+              <%= link_to new_equipment_path do %>
+                <i class="fas fa-folder-plus"></i>
+              <% end %>
+            </th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -40,11 +42,13 @@
             <% else %>
               <td class="status-color-red p-3 text-center h5"><%= equipment.status %></td>
             <% end %>
-            <td class="back-color p-4 text-center h5">
-              <%= link_to edit_equipment_path(equipment) do %>
-                <i class="fas fa-user-edit"></i>
-              <% end %>
-            </td>
+            <% if current_user.admin == true %>
+              <td class="back-color p-4 text-center h5">
+                <%= link_to edit_equipment_path(equipment) do %>
+                  <i class="fas fa-user-edit"></i>
+                <% end %>
+              </td>
+            <% end %> 
           </tr>
         <% end %>
       </tbody>
