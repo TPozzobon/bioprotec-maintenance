@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
   resources :maintenances, only: [ :index, :edit, :update, :destroy]
   resources :external_interlocutors
-  resources :users
+  resources :users, only: :index
 end
