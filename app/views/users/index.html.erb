@@ -8,6 +8,7 @@
         <tr>
           <th class="font-weight-bold p-3 text-center h6">Visa</th>
           <th class="font-weight-bold p-3 text-center h6">Email</th>
+          <th class="font-weight-bold p-3 text-center h6">Statut</th>
           </th>
         </tr>
       </thead>
@@ -16,6 +17,11 @@
           <tr>
             <td class="p-4 text-center h5"><%= user.visa %></td>
             <td class="p-4 text-center h5"><%= mail_to "#{user.email}", user.email, class: "remove-deco-link" %></td>
+            <% if user.status == "Actif" %>
+              <td class="status-color-green p-3 text-center h5"><%= user.status %></td>
+            <% else %>
+              <td class="status-color-red p-3 text-center h5"><%= user.status %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

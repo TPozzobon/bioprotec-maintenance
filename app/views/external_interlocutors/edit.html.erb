@@ -16,6 +16,7 @@
           <%= f.input :mobile_number, label: 'Mobile' %>
           <%= f.input :email %>
           <%= f.input :detail, label: 'Informations complémentaires' %>
+          <%= f.input :status, label: 'Statut', :collection => ['Actif', 'Inactif'] %>
           <%= f.submit "Valider", class: "mt-3 btn-edit btn btn-success" %>
           <%= link_to "Annuler", external_interlocutors_path, class: "mt-3 btn-edit btn btn-danger" %>
         <% end %>
