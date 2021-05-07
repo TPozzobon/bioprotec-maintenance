@@ -13,3 +13,16 @@
 .status-color-red {
   color: red;
 }
+
+.btn-equipment {
+  width: 60px;
+  text-align: center;
+  background-color: #0275d8;
+  padding: 4px 4px;
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.btn-equipment:hover  {
+  opacity: 0.8;
+}
