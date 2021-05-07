@@ -15,6 +15,12 @@
       <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
    <div class="maintenances_show_equipment">
+      <div class="d-flex justify-content-center">
+         <% @status.each do |status| %>
+         <div class="m-3 mb-5" role="button"><%= link_to "#{status}", equipment_path(status: status), class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+         <% end %>
+         <div class="m-3 mb-5" role="button"><%= link_to "Toutes", equipment_path(@equipment), class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+      </div>
       <% @sort_maintenances.each do |sort_maintenance| %>         
          <div class="card mb-4">
             <div class="back-color card-header d-flex justify-content-between">

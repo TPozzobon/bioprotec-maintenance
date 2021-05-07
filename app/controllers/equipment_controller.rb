@@ -22,7 +22,15 @@ class EquipmentController < ApplicationController
 
   def show
     @equipment = Equipment.find(params[:id])
-    @sort_maintenances = @equipment.maintenances.order('start_date asc')
+
+    unfiltered_status = @equipment.maintenances.map { |maintenance| maintenance.status }
+    @status = unfiltered_status.uniq
+
+    if params[:status].present?
+      @sort_maintenances = @equipment.maintenances.where(status: params[:status]).order('start_date asc')
+    else
+      @sort_maintenances = @equipment.maintenances.order('start_date asc')
+    end
   end
   
   def new
