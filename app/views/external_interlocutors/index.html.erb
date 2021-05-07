@@ -11,6 +11,12 @@
         %>
       <% end %>
     </div>
+    <div class="d-flex justify-content-center">
+      <% @status.each do |status| %>
+        <div class="m-3 mt-4" role="button"><%= link_to "#{status}s", external_interlocutors_path(status: status), class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+      <% end %>
+      <div class="m-3 mt-4" role="button"><%= link_to "Tous", external_interlocutors_path, class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+    </div>
   </div>
   <div class="d-flex justify-content-center">
     <table>

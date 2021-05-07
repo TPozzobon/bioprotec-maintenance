@@ -14,7 +14,7 @@ class EquipmentController < ApplicationController
     @status = unfiltered_status.uniq
 
     if params[:status].present?
-      @equipment = Equipment.where(status: params[:status])
+      @equipment = Equipment.where(status: params[:status]).order('name asc')
     else
       @equipment = Equipment.all.order('name asc')
     end

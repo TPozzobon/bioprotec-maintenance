@@ -9,6 +9,15 @@ class ExternalInterlocutorsController < ApplicationController
     else
       @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     end
+
+    unfiltered_status = @external_interlocutors.map { |external_interlocutor| external_interlocutor.status }
+    @status = unfiltered_status.uniq
+
+    if params[:status].present?
+      @external_interlocutors = ExternalInterlocutor.where(status: params[:status]).order('company asc')
+    else
+      @external_interlocutors = ExternalInterlocutor.all.order('company asc')
+    end
   end
 
   def show
