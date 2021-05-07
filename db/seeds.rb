@@ -56,15 +56,19 @@ equipment = Equipment.create!(
 puts "Creating External Interlocutors"
 
 external_interlocutor = ExternalInterlocutor.create!(
-  name: "Pas de prestataire", 
-  company: "NA"
-)
-external_interlocutor = ExternalInterlocutor.create!(
   name: "Gérard Brodar", 
   company: "Mediplan", 
   phone_number: "0400000000", 
   mobile_number: "0600000000", 
   email: "brodar@mediplan.com"
+)
+
+external_interlocutor = ExternalInterlocutor.create!(
+  name: "John John", 
+  company: "Sauermann", 
+  phone_number: "0400000000", 
+  mobile_number: "0600000000", 
+  email: "john@sauermann.com"
 )
 
 external_interlocutor = ExternalInterlocutor.create!(
@@ -77,20 +81,17 @@ external_interlocutor = ExternalInterlocutor.create!(
 )
 
 external_interlocutor = ExternalInterlocutor.create!(
+  name: "Pas de prestataire", 
+  company: " NA "
+)
+
+external_interlocutor = ExternalInterlocutor.create!(
   name: "Bob Bob", 
   company: "Merck Millipore", 
   phone_number: "0400000000", 
   mobile_number: "0600000000", 
   email: "bob@merck.com",
   detail: "Ne se déplace que les après-midi"
-)
-
-external_interlocutor = ExternalInterlocutor.create!(
-  name: "John John", 
-  company: "Sauermann", 
-  phone_number: "0400000000", 
-  mobile_number: "0600000000", 
-  email: "john@sauermann.com"
 )
 
 puts "Finished!"

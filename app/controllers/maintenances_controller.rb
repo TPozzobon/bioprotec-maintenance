@@ -16,7 +16,7 @@ class MaintenancesController < ApplicationController
   end
   
   def new
-    @external_interlocutors = ExternalInterlocutor.all
+    @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
     @users = User.all
     @filtered_users = @users.map { |u| [u.visa, u.id] }
@@ -40,7 +40,7 @@ class MaintenancesController < ApplicationController
   end
 
   def edit
-    @external_interlocutors = ExternalInterlocutor.all
+    @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
     @users = User.all
     @filtered_users = @users.map { |u| [u.visa, u.id] }
