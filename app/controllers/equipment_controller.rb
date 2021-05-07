@@ -9,6 +9,15 @@ class EquipmentController < ApplicationController
     else
       @equipment = Equipment.all.order('name asc')
     end
+
+    unfiltered_status = @equipment.map { |equipment| equipment.status }
+    @status = unfiltered_status.uniq
+
+    if params[:status].present?
+      @equipment = Equipment.where(status: params[:status])
+    else
+      @equipment = Equipment.all.order('name asc')
+    end
   end
 
   def show
