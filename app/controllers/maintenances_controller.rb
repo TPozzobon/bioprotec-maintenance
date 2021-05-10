@@ -23,19 +23,15 @@ class MaintenancesController < ApplicationController
   def new
     @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
-    @users = User.all
+    @users = User.all.order('visa asc')
     @filtered_users = @users.map { |u| [u.visa, u.id] }
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new
   end
   
   def create
-    @external_interlocutor = ExternalInterlocutor.find(params[:external_interlocutor_id])
-    @user = User.find(params[:user_id])
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new(maintenance_params)
-    @maintenance.external_interlocutor = @external_interlocutor
-    @maintenance.user = @user
     @maintenance.equipment = @equipment
     if @maintenance.save
       redirect_to equipment_path(@equipment)
