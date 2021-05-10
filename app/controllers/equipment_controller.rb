@@ -6,26 +6,22 @@ class EquipmentController < ApplicationController
       OR equipment.identifiant ILIKE :query
       "
       @equipment = Equipment.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @equipment = Equipment.all.order('name asc')
-    end
-
-    unfiltered_status = @equipment.map { |equipment| equipment.status }
-    @status = unfiltered_status.uniq
-
-    if params[:status].present?
+    elsif params[:status].present?
       @equipment = Equipment.where(status: params[:status]).order('name asc')
     else
       @equipment = Equipment.all.order('name asc')
     end
+    
+    unfiltered_status = @equipment.map { |equipment| equipment.status }
+    @status = unfiltered_status.uniq
   end
-
+  
   def show
     @equipment = Equipment.find(params[:id])
-
+    
     unfiltered_status = @equipment.maintenances.map { |maintenance| maintenance.status }
     @status = unfiltered_status.uniq
-
+    
     if params[:status].present?
       @sort_maintenances = @equipment.maintenances.where(status: params[:status]).order('start_date asc')
     else
@@ -45,7 +41,7 @@ class EquipmentController < ApplicationController
       render :new
     end
   end
-
+  
   def edit
     @equipment = Equipment.find(params[:id])
   end
@@ -61,9 +57,9 @@ class EquipmentController < ApplicationController
     @equipment.destroy
     redirect_to root_path
   end
-
+  
   private
-
+  
   def equipment_params
     params.require(:equipment).permit(:name, :identifiant, :location, :detail, :commissioning_date, :validity_qualification, :status)
   end
