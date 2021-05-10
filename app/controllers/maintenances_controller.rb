@@ -23,7 +23,7 @@ class MaintenancesController < ApplicationController
   def new
     @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
-    @users = User.all
+    @users = User.all.order('visa asc')
     @filtered_users = @users.map { |u| [u.visa, u.id] }
     @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new
