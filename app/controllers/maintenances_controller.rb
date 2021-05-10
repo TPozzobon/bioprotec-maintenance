@@ -47,17 +47,13 @@ class MaintenancesController < ApplicationController
   def edit
     @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
-    @users = User.all
+    @users = User.all.order('visa asc')
     @filtered_users = @users.map { |u| [u.visa, u.id] }
     @maintenance = Maintenance.find(params[:id])
   end
   
   def update
-    @external_interlocutor = ExternalInterlocutor.find(params[:external_interlocutor_id])
     @maintenance = Maintenance.find(params[:id])
-    @maintenance.external_interlocutor = @external_interlocutor
-    @user = User.find(params[:user_id])
-    @maintenance.user = @user
     @maintenance.update(maintenance_params)
     redirect_to root_path
   end
