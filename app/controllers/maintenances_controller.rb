@@ -7,9 +7,9 @@ class MaintenancesController < ApplicationController
       "
       @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
     elsif params[:status].present?
-      @maintenances = Maintenance.where(status: params[:status]).order('start_date asc')
+      @maintenances = Maintenance.where(status: params[:status]).order('start_date desc')
     else
-      @maintenances = Maintenance.all.order('start_date asc')
+      @maintenances = Maintenance.all.order('start_date desc')
     end
 
     unfiltered_status = @maintenances.map { |maintenance| maintenance.status }
@@ -51,13 +51,13 @@ class MaintenancesController < ApplicationController
   def update
     @maintenance = Maintenance.find(params[:id])
     @maintenance.update(maintenance_params)
-    redirect_to root_path
+    redirect_to maintenances_path
   end
   
   def destroy
     @maintenance = Maintenance.find(params[:id])
     @maintenance.destroy
-    redirect_to root_path
+    redirect_to maintenances_path
   end
 
   private

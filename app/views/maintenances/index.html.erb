@@ -44,7 +44,7 @@
               <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
             <% end %>
             <td class="p-4 text-center h5"><%= maintenance.user.visa %></td>
-            <% if maintenance.status == "Planifiée" %>
+            <% if maintenance.status == "Planifié" %>
               <td class="maintenance-status-blue p-4 text-center h5"><%= maintenance.status %></td>
             <% elsif maintenance.status == "En cours" %>
               <td class="maintenance-status-orange p-4 text-center h5"><%= maintenance.status %></td>

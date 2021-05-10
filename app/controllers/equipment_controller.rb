@@ -23,9 +23,9 @@ class EquipmentController < ApplicationController
     @status = unfiltered_status.uniq
     
     if params[:status].present?
-      @sort_maintenances = @equipment.maintenances.where(status: params[:status]).order('start_date asc')
+      @sort_maintenances = @equipment.maintenances.where(status: params[:status]).order('start_date desc')
     else
-      @sort_maintenances = @equipment.maintenances.order('start_date asc')
+      @sort_maintenances = @equipment.maintenances.order('start_date desc')
     end
   end
   
