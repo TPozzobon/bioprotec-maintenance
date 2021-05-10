@@ -6,18 +6,14 @@ class MaintenancesController < ApplicationController
       OR equipment.identifiant ILIKE :maintenance
       "
       @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
+    elsif params[:status].present?
+      @maintenances = Maintenance.where(status: params[:status]).order('start_date asc')
     else
       @maintenances = Maintenance.all.order('start_date asc')
     end
 
     unfiltered_status = @maintenances.map { |maintenance| maintenance.status }
     @status = unfiltered_status.uniq
-
-    if params[:status].present?
-      @maintenances = Maintenance.where(status: params[:status]).order('start_date asc')
-    else
-      @maintenances = Maintenance.all.order('start_date asc')
-    end
   end
 
   def show
