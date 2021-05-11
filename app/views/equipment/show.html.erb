@@ -1,4 +1,7 @@
  <div class="container_show_equipment">
+
+
+
    <div class="card-equipment sticky-top">
       <h3 class="title-show text-center h2 font-weight-bold"><%= @equipment.identifiant %></br><span class="h4 text-muted">(<%= @equipment.location %>)</span></h3>
       <p class="h5 ml-4 font-weight-bold">
@@ -14,6 +17,10 @@
       <p class="h5 ml-4 font-weight-bold">Informations complémentaires : </br><span class="equipement_item_show"><%= @equipment.detail %></span>
       <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
+
+
+
+
    <div class="maintenances_show_equipment">
       <div class="d-flex justify-content-center">
          <% @status.each do |status| %>
@@ -21,14 +28,17 @@
          <% end %>
          <div class="m-3 mb-5" role="button"><%= link_to "Toutes", equipment_path(@equipment), class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
       </div>
+
+
+
       <% @sort_maintenances.each do |sort_maintenance| %>         
          <div class="card mb-4">
             <div class="back-color card-header d-flex justify-content-between">
                <div class="d-flex flex-column">
-                  <% if sort_maintenance.start_date === sort_maintenance.end_date %>
-                     <p class="equipment-show-color font-weight-bold"><%= sort_maintenance.start_date.strftime("%d/%m/%Y") %></p>
+                  <% if sort_maintenance.start_time === sort_maintenance.end_time %>
+                     <p class="equipment-show-color font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                   <% else %>
-                     <p class="equipment-show-color font-weight-bold"><%= sort_maintenance.start_date.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_date.strftime("%d/%m/%Y") %></p>
+                     <p class="equipment-show-color font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                   <% end %>
                   <p><%= sort_maintenance.user.visa %></p>
                </div>
@@ -47,7 +57,7 @@
             </div>
             <div class="card-body">
                <div class="d-flex justify-content-center">
-                  <h5 class="equipment-show-color border-bottom p-2 card-title"><%= sort_maintenance.title %></h5>
+                  <h5 class="equipment-show-color border-bottom p-2 card-title"><%= sort_maintenance.name %></h5>
                </div>
                <p class="card-text text-wrap mt-4"><%= sort_maintenance.description %></p>
                <div class="d-flex justify-content-center">
@@ -55,6 +65,9 @@
                </div>
             </div>
          </div>
-      <% end %>         
+      <% end %>   
+
+
+
    </div>
  </div>

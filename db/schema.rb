@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_05_094846) do
+ActiveRecord::Schema.define(version: 2021_05_11_124210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,15 +63,15 @@ ActiveRecord::Schema.define(version: 2021_05_05_094846) do
   end
 
   create_table "maintenances", force: :cascade do |t|
-    t.string "title"
-    t.date "start_date"
+    t.string "name"
+    t.datetime "start_time"
     t.text "description"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "equipment_id", null: false
     t.bigint "external_interlocutor_id"
-    t.date "end_date"
+    t.datetime "end_time"
     t.bigint "user_id", null: false
     t.index ["equipment_id"], name: "index_maintenances_on_equipment_id"
     t.index ["external_interlocutor_id"], name: "index_maintenances_on_external_interlocutor_id"

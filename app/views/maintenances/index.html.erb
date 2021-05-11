@@ -35,9 +35,9 @@
         <% @maintenances.each do |maintenance| %>
           <tr class= "hover">
             <td class="p-4 text-center h5"><%= link_to "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})", equipment_path(maintenance.equipment), class: "remove-deco-link" %></td>
-            <td class="p-4 text-center h5"><%= maintenance.title %></td>
-            <td class="p-4 text-center h5"><%= maintenance.start_date.strftime("%d/%m/%Y") %></td>
-            <td class="p-4 text-center h5"><%= maintenance.end_date.strftime("%d/%m/%Y") %></td>
+            <td class="p-4 text-center h5"><%= maintenance.name %></td>
+            <td class="p-4 text-center h5"><%= maintenance.start_time.strftime("%d/%m/%Y") %></td>
+            <td class="p-4 text-center h5"><%= maintenance.end_time.strftime("%d/%m/%Y") %></td>
             <% if maintenance.external_interlocutor.company == " NA " %>
               <td class="p-4 text-center h5"><%= "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})" %></td>
             <% else %>

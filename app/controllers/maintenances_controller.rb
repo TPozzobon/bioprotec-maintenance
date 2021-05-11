@@ -7,9 +7,9 @@ class MaintenancesController < ApplicationController
       "
       @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
     elsif params[:status].present?
-      @maintenances = Maintenance.where(status: params[:status]).order('start_date desc')
+      @maintenances = Maintenance.where(status: params[:status]).order('start_time desc')
     else
-      @maintenances = Maintenance.all.order('start_date desc')
+      @maintenances = Maintenance.all.order('start_time desc')
     end
 
     unfiltered_status = @maintenances.map { |maintenance| maintenance.status }
@@ -60,9 +60,17 @@ class MaintenancesController < ApplicationController
     redirect_to maintenances_path
   end
 
+  def calendar
+    # Scope your query to the dates being shown:
+    start_date = params.fetch(:start_date, Date.today).to_date
+  
+    # For a monthly view:
+    @maintenances = Maintenance.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+  end
+
   private
 
   def maintenance_params
-    params.require(:maintenance).permit(:title, :start_date, :end_date, :description, :status, :external_interlocutor_id, :user_id)
+    params.require(:maintenance).permit(:name, :start_time, :end_time, :description, :status, :external_interlocutor_id, :user_id)
   end
 end
