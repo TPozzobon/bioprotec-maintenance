@@ -63,6 +63,6 @@ class MaintenancesController < ApplicationController
   private
 
   def maintenance_params
-    params.require(:maintenance).permit(:title, :start_date, :end_date, :description, :status, :external_interlocutor_id, :user_id)
+    params.require(:maintenance).permit(:name, :start_time, :end_time, :description, :status, :external_interlocutor_id, :user_id)
   end
 end
