@@ -1,11 +1,12 @@
-<div class="container">
+<div class="calendar-container">
   <%= month_calendar(events: @maintenances, end_attribute: :end_time) do |date, maintenances| %>
     <%= date %>
 
     <% maintenances.each do |maintenance| %>
-    <div class="meeting">
-      <p><%= maintenance.name %></p>
-    </div>
+      <div class="meeting">
+        <p><%= maintenance.name %></p>
+        <small><%= maintenance.time unless maintenance.multi_days? %></small>
+      </div>
     <% end %>
-<% end %>
+  <% end %>
 </div>
