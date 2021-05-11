@@ -3,9 +3,9 @@
     <%= date %>
 
     <% maintenances.each do |maintenance| %>
-      <div class="meeting">
-        <p><%= maintenance.name %></p>
+      <div class="meeting mb-1">
         <small><%= maintenance.time unless maintenance.multi_days? %></small>
+        <p><%= maintenance.name %></p>
       </div>
     <% end %>
   <% end %>
