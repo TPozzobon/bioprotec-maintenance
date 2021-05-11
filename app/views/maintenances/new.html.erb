@@ -7,11 +7,11 @@
         <%= f.input :description, as: :text, :input_html => { 'rows' => 5, 'cols' => 10 } %>
         <%= f.input :start_date, as: :date, html5: true, label: 'Date de début' %>
         <%= f.input :end_date, as: :date, html5: true, label: 'Date de fin' %>
-        <div class="d-flex flex-column w-100">
-          <%= f.select :external_interlocutor_id, options_for_select(@filtered_externals), include_blank: "Prestataire", class: "select-menu mt-3 mb-3" %>
+        <div class="d-flex flex-column w-100 my-4">
+          <%= f.select :external_interlocutor_id, options_for_select(@filtered_externals), include_blank: "Prestataire" %>
         </div>
-        <div class="d-flex flex-column w-100">
-          <%= f.select :user_id, options_for_select(@filtered_users), include_blank: "Bioprotec", class: "select-menu mt-2 mb-4" %>
+        <div class="d-flex flex-column w-100 mb-3">
+          <%= f.select :user_id, options_for_select(@filtered_users), include_blank: "Bioprotec" %>
         </div>
         <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé'] %>
         <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>
