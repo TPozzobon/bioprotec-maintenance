@@ -31,34 +31,66 @@
 
 
       <% @sort_maintenances.each do |sort_maintenance| %>    
-
          <div class="maintenance_card mb-5">
-            <div class="maintenance_card_list">
-               <p><% if sort_maintenance.status == "Planifié" %>
-                     <p class="maintenance-status-blue font-weight-bold"><%= sort_maintenance.status %></p>
-                  <% elsif sort_maintenance.status == "En cours" %>
-                     <p class="maintenance-status-orange font-weight-bold"><%= sort_maintenance.status %></p>
-                  <% else %>
-                     <p class="maintenance-status-green font-weight-bold"><%= sort_maintenance.status %></p>
-                  <% end %>
-               </p>
-               <p><% if sort_maintenance.start_time === sort_maintenance.end_time %>
-                     <p class="equipment-show-color font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
-                  <% else %>
-                     <p class="equipment-show-color font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
-                  <% end %></p>
-               <p><%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %></p>
-               <p><%= sort_maintenance.user.visa %></p>
-            </div>
+            <% if sort_maintenance.status == "Planifié" %>
+               <div class="maintenance_card_list maintenance-status-blue">
+               <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+                  <p>
+                     <% if sort_maintenance.start_time === sort_maintenance.end_time %>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                     <% else %>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                     <% end %>
+                  </p>
+                  <p>
+                     <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                  </p>
+                  <p><%= sort_maintenance.user.visa %></p>
+               </div>
+            <% elsif sort_maintenance.status == "En cours" %>
+               <div class="maintenance_card_list maintenance-status-orange">
+                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+                  <p>
+                     <% if sort_maintenance.start_time === sort_maintenance.end_time %>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                     <% else %>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                     <% end %>
+                  </p>
+                  <p>
+                     <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                  </p>
+                  <p><%= sort_maintenance.user.visa %></p>
+               </div>
+            <% else %>
+               <div class="maintenance_card_list maintenance-status-green">
+                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+                  <p>
+                     <% if sort_maintenance.start_time === sort_maintenance.end_time %>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                     <% else %>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                     <% end %>
+                  </p>
+                  <p>
+                     <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                  </p>
+                  <p><%= sort_maintenance.user.visa %></p>
+               </div>
+            <% end %>
             <div class="maintenance_card_description">
                <h3 class="text-center mb-4"><%= sort_maintenance.name %></h3>
                <p><%= sort_maintenance.description %></p>
-               <p class="maintenance_edit"><%= link_to edit_maintenance_path(sort_maintenance) do %>
+               <p class="maintenance_edit">
+                  <%= link_to edit_maintenance_path(sort_maintenance) do %>
                      <i class="fas fa-user-edit"></i>
-                  <% end %>
+                  <% end %></p>
                </p>
             </div>
          </div>
       <% end %>
    </div>
  </div>
+
+
+

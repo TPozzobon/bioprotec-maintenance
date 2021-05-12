@@ -1,13 +1,13 @@
 .maintenance_card {
   display: flex;
   border: 1px solid lightgrey;
-  position: relative
+  position: relative;
 }
 
 .maintenance_card_list {
-  background-color: rgb(240, 240, 240);
   padding: 32px;
   width: 20%;
+  color: black;
 }
 
 .maintenance_card_description {
@@ -19,6 +19,6 @@
 
 .maintenance_edit {
   position: absolute;
-  bottom: 5px;
-  right: 25px;
+  bottom: 0;
+  right: 20px;
 }
