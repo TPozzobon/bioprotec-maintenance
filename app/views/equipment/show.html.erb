@@ -24,9 +24,9 @@
    <div class="maintenances_show_equipment">
       <div class="d-flex justify-content-center">
          <% @status.each do |status| %>
-         <div class="m-3 mb-5" role="button"><%= link_to "#{status}", equipment_path(status: status), class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+         <div class="m-3 mb-5" role="button"><%= link_to "#{status}", equipment_path(status: status), class: "btn btn-primary" %></div>
          <% end %>
-         <div class="m-3 mb-5" role="button"><%= link_to "Toutes", equipment_path(@equipment), class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+         <div class="m-3 mb-5" role="button"><%= link_to "Toutes", equipment_path(@equipment), class: "btn btn-primary" %></div>
       </div>
 
 
