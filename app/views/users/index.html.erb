@@ -4,9 +4,9 @@
   </div>
   <div class="d-flex justify-content-center">
     <% @status.each do |status| %>
-      <div class="m-3" role="button"><%= link_to "#{status}s", users_path(status: status), class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+      <div class="m-3" role="button"><%= link_to "#{status}s", users_path(status: status), class: "btn btn-primary" %></div>
     <% end %>
-    <div class="m-3" role="button"><%= link_to "Tous", users_path, class: "btn-equipment", style: "text-decoration: none; color: white;" %></div>
+    <div class="m-3" role="button"><%= link_to "Tous", users_path, class: "btn btn-primary" %></div>
   </div>
   <div class="d-flex justify-content-center mt-3">
     <table>
