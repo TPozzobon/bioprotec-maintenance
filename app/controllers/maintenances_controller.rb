@@ -41,11 +41,13 @@ class MaintenancesController < ApplicationController
   end
 
   def edit
+    @maintenance = Maintenance.find(params[:id])
+    @external_interlocutor = @maintenance.external_interlocutor.id
+    @user = @maintenance.user.id
     @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
     @users = User.all.order('visa asc')
     @filtered_users = @users.map { |u| [u.visa, u.id] }
-    @maintenance = Maintenance.find(params[:id])
   end
   
   def update
