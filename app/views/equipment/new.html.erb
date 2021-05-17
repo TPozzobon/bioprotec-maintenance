@@ -9,8 +9,8 @@
           <%= f.input :serial_number, label: 'Numéro de série' %>
           <%= f.input :location, label: 'Localisation' %>
           <%= f.input :detail, label: 'Informations complémentaires' %>
-          <%= f.input :commissioning_date, label: 'Date de mise en service' %>
-          <%= f.input :validity_qualification, label: 'Date de fin de validité QP' %>
+          <%= f.input :commissioning_date, as: :date, html5: true, label: 'Date de mise en service' %>
+          <%= f.input :validity_qualification,  as: :date, html5: true, label: 'Date de fin de validité QP' %>
           <%= f.input :status, :collection => ['Actif', 'Inactif'] %>
           <%= f.submit "Valider", class: "btn btn-success" %>
           <%= link_to "Annuler", equipment_index_path, class: "btn btn-danger" %>
