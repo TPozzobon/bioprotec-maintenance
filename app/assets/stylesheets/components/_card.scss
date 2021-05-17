@@ -1,24 +1,24 @@
 .maintenance_card {
-  display: flex;
-  border: 1px solid lightgrey;
-  position: relative;
+	display: flex;
+	border: 1px solid lightgrey;
+	position: relative;
 }
 
 .maintenance_card_list {
-  padding: 32px;
-  width: 20%;
-  color: black;
+	padding: 32px;
+	width: 30%;
+	color: black;
 }
 
 .maintenance_card_description {
-  background-color: rgb(255, 255, 255);
-  padding: 32px;
-  text-align: justify;
-  width: 80%;
+	background-color: rgb(255, 255, 255);
+	padding: 32px;
+	text-align: justify;
+	width: 70%;
 }
 
 .maintenance_edit {
-  position: absolute;
-  bottom: 0;
-  right: 20px;
+	position: absolute;
+	bottom: 0;
+	right: 20px;
 }
