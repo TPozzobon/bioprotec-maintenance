@@ -1,7 +1,15 @@
-.back-show-color {
-  background-color: rgba(1, 106, 151, .1);
-}
+.show_external_container {
+	margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+	transform: translateY(-60%); /* tiré de la moitié de sa propre hauteur */
+	background-color: white;
+	padding: 32px;
+	border-radius: 4px;
 
-.external-show-color {
-  color: #016A97;
+	h2 {
+		color: #016a97;
+		margin-bottom: 2em;
+	}
+	p {
+		margin-bottom: 2em;
+	}
 }
