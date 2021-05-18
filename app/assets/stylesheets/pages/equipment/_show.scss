@@ -1,40 +1,44 @@
 .container_show_equipment {
-  display: flex;
-  justify-content: space-evenly;
+	display: flex;
+	justify-content: space-evenly;
 
-  .card-equipment {
-    border-radius: 8px;
-    background: white;
-    padding-left: 16px;
-    padding-right: 16px;
-    width: 25vw;
-    height: 60vh;
-    top:  20vh;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+	.card-equipment {
+		border-radius: 8px;
+		background: white;
+		padding-left: 16px;
+		padding-right: 16px;
+		width: 30vw;
+		height: 70vh;
+		top: 20vh;
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
 
-    .equipement_item_show {
-      color: #016A97;
-    }
+		.equipement_item_show {
+			color: #016a97;
+		}
 
-    .btn_add_maintenance {
-      display: flex;
-      justify-content: center;
-      // margin-bottom: -5%;
-    }
-  }
+		.btn_add_maintenance {
+			display: flex;
+			justify-content: center;
+			// margin-bottom: -5%;
+		}
 
-  .maintenances_show_equipment {
-    min-width: 30%;
-    max-width: 40%;
-  }
+		p {
+			font-size: 1.2em;
+		}
+	}
+
+	.maintenances_show_equipment {
+		min-width: 30%;
+		max-width: 40%;
+	}
 }
 
 .title-show {
-  color: #016A97;
+	color: #016a97;
 }
 
 .equipment-show-color {
-  color: #016A97;
+	color: #016a97;
 }
