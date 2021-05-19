@@ -34,7 +34,7 @@ class EquipmentController < ApplicationController
   def create
     @equipment = Equipment.new(equipment_params)
     if @equipment.save
-      redirect_to root_path
+      redirect_to equipment_index_path
     else
       render :new
     end
@@ -45,12 +45,12 @@ class EquipmentController < ApplicationController
   
   def update
     @equipment.update(equipment_params)
-    redirect_to root_path
+    redirect_to equipment_index_path
   end
   
   def destroy
     @equipment.destroy
-    redirect_to root_path
+    redirect_to equipment_index_path
   end
   
   private
