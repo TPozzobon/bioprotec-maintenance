@@ -1,6 +1,6 @@
 class EquipmentController < ApplicationController
   before_action :find_equipment, only: [ :show, :edit, :update, :destroy ]
-  
+
   def index
     if params[:query].present?
       sql_query = "
@@ -13,14 +13,12 @@ class EquipmentController < ApplicationController
     else
       @equipment = Equipment.all.order('name asc')
     end
-    
-    unfiltered_status = @equipment.map { |equipment| equipment.status }
-    @status = unfiltered_status.uniq
+
+    filtered_equipment_status
   end
   
   def show
-    unfiltered_status = @equipment.maintenances.map { |maintenance| maintenance.status }
-    @status = unfiltered_status.uniq
+    filtered_maintenance_status
     
     if params[:status].present?
       @sort_maintenances = @equipment.maintenances.where(status: params[:status]).order('start_time desc')
@@ -59,6 +57,16 @@ class EquipmentController < ApplicationController
   
   def find_equipment
     @equipment = Equipment.find(params[:id])
+  end
+
+  def filtered_equipment_status
+    unfiltered_status = @equipment.map { |equipment| equipment.status }
+    @status = unfiltered_status.uniq
+  end
+
+  def filtered_maintenance_status
+    unfiltered_status = @equipment.maintenances.map { |maintenance| maintenance.status }
+    @status = unfiltered_status.uniq
   end
   
   def equipment_params
