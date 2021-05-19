@@ -1,6 +1,6 @@
 class ExternalInterlocutorsController < ApplicationController
   before_action :find_external, only: [ :show, :edit, :update, :destroy ]
-  
+
   def index
     if params[:external].present?
       sql_external = "
@@ -14,8 +14,7 @@ class ExternalInterlocutorsController < ApplicationController
       @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     end
 
-    unfiltered_status = @external_interlocutors.map { |external_interlocutor| external_interlocutor.status }
-    @status = unfiltered_status.uniq
+    filtered_status
   end
 
   def show
@@ -51,6 +50,11 @@ class ExternalInterlocutorsController < ApplicationController
 
   def find_external
     @external_interlocutor = ExternalInterlocutor.find(params[:id])
+  end
+  
+  def filtered_status
+    unfiltered_status = @external_interlocutors.map { |external_interlocutor| external_interlocutor.status }
+    @status = unfiltered_status.uniq
   end
   
   def external_interlocutor_params
