@@ -1,4 +1,6 @@
 class ExternalInterlocutorsController < ApplicationController
+  before_action :find_external, only: [ :show, :edit, :update, :destroy ]
+
   def index
     if params[:external].present?
       sql_external = "
@@ -12,12 +14,10 @@ class ExternalInterlocutorsController < ApplicationController
       @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     end
 
-    unfiltered_status = @external_interlocutors.map { |external_interlocutor| external_interlocutor.status }
-    @status = unfiltered_status.uniq
+    filtered_status
   end
 
   def show
-    @external_interlocutor = ExternalInterlocutor.find(params[:id])
   end
 
   def new
@@ -34,23 +34,29 @@ class ExternalInterlocutorsController < ApplicationController
   end
 
   def edit
-    @external_interlocutor = ExternalInterlocutor.find(params[:id])
   end
   
   def update
-    @external_interlocutor = ExternalInterlocutor.find(params[:id])
     @external_interlocutor.update(external_interlocutor_params)
     redirect_to external_interlocutors_path
   end
 
   def destroy
-    @external_interlocutor = ExternalInterlocutor.find(params[:id])
     @external_interlocutor.destroy
     redirect_to external_interlocutors_path
   end
   
   private
 
+  def find_external
+    @external_interlocutor = ExternalInterlocutor.find(params[:id])
+  end
+  
+  def filtered_status
+    unfiltered_status = @external_interlocutors.map { |external_interlocutor| external_interlocutor.status }
+    @status = unfiltered_status.uniq
+  end
+  
   def external_interlocutor_params
     params.require(:external_interlocutor).permit(:name, :company, :phone_number, :mobile_number, :email, :status)
   end
