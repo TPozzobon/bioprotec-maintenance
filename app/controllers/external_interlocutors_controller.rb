@@ -14,7 +14,7 @@ class ExternalInterlocutorsController < ApplicationController
       @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     end
 
-    filtered_external_status
+    filtered_externals_status
   end
 
   def show
@@ -52,7 +52,7 @@ class ExternalInterlocutorsController < ApplicationController
     @external_interlocutor = ExternalInterlocutor.find(params[:id])
   end
   
-  def filtered_external_status
+  def filtered_externals_status
     unfiltered_status = @external_interlocutors.map { |external_interlocutor| external_interlocutor.status }
     @status = unfiltered_status.uniq
   end

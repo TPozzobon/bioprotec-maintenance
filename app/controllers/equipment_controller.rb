@@ -18,7 +18,7 @@ class EquipmentController < ApplicationController
   end
   
   def show
-    filtered_maintenance_status
+    filtered_maintenances_status
     
     if params[:status].present?
       @sort_maintenances = @equipment.maintenances.where(status: params[:status]).order('start_time desc')
@@ -64,7 +64,7 @@ class EquipmentController < ApplicationController
     @status = unfiltered_status.uniq
   end
 
-  def filtered_maintenance_status
+  def filtered_maintenances_status
     unfiltered_status = @equipment.maintenances.map { |maintenance| maintenance.status }
     @status = unfiltered_status.uniq
   end
