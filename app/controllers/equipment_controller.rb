@@ -1,4 +1,6 @@
 class EquipmentController < ApplicationController
+  before_action :find_equipment, only: [ :show, :edit, :update, :destroy ]
+  
   def index
     if params[:query].present?
       sql_query = "
@@ -17,8 +19,6 @@ class EquipmentController < ApplicationController
   end
   
   def show
-    @equipment = Equipment.find(params[:id])
-    
     unfiltered_status = @equipment.maintenances.map { |maintenance| maintenance.status }
     @status = unfiltered_status.uniq
     
@@ -43,22 +43,23 @@ class EquipmentController < ApplicationController
   end
   
   def edit
-    @equipment = Equipment.find(params[:id])
   end
   
   def update
-    @equipment = Equipment.find(params[:id])
     @equipment.update(equipment_params)
     redirect_to root_path
   end
   
   def destroy
-    @equipment = Equipment.find(params[:id])
     @equipment.destroy
     redirect_to root_path
   end
   
   private
+  
+  def find_equipment
+    @equipment = Equipment.find(params[:id])
+  end
   
   def equipment_params
     params.require(:equipment).permit(:name, :identifiant, :location, :detail, :commissioning_date, :validity_qualification, :status)
