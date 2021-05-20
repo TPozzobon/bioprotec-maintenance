@@ -38,8 +38,11 @@
       </thead>
       <tbody>
         <% @equipment.each do |equipment| %>
-          <tr class= "hover">
-            <td class="p-3 text-center h5"><%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %></td>
+          <tr>
+            <td class="p-3 text-center h5 td_name_equipment"><%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %>
+            <% if equipment.criticity %>
+              <i class="fas fa-exclamation-triangle criticity_index"></i></td>
+            <% end %>
             <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
             <td class="p-3 text-center h5"><%= equipment.location %></td>
         
@@ -64,7 +67,7 @@
             <% end %> 
           </tr>
         <% end %>
-      </tbody>
+        </tbody>
     </table>
   </div>
 </div>

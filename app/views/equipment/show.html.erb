@@ -6,6 +6,9 @@
             (<%= @equipment.location %>)
          </span>
       </h3>
+      <% if @equipment.criticity %>
+         <p class="criticity"><i class="fas fa-exclamation-triangle"></i></p>
+      <% end %>
 
       <p class="ml-4">Statut 
          <% if @equipment.status == "Actif" %>
@@ -20,6 +23,15 @@
          <br>
             <span class="equipement_item_show font-weight-bold">
                <%= @equipment.validity_qualification.strftime("%d/%m/%Y") %>
+            </span>
+         </p>
+      <% end %>
+
+      <% if @equipment.recurrence.present? %>
+         <p class="ml-4">Récurrence qualifications 
+         <br>
+            <span class="equipement_item_show font-weight-bold">
+               <%= @equipment.recurrence %>
             </span>
          </p>
       <% end %>
@@ -71,12 +83,12 @@
          <div class="maintenance_card mb-5">
             <% if sort_maintenance.status == "Planifié" %>
                <div class="maintenance_card_list maintenance-status-blue">
-               <p ><%= sort_maintenance.status %></p>
+               <p class="font-weight-bold"><%= sort_maintenance.status %></p>
                   <p>
                      <% if sort_maintenance.start_time == sort_maintenance.end_time %>
-                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                      <% else %>
-                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> <br>- <br> <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> <br>- <br> <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
 
@@ -91,12 +103,12 @@
 
             <% elsif sort_maintenance.status == "En cours" %>
                <div class="maintenance_card_list maintenance-status-orange">
-                  <p ><%= sort_maintenance.status %></p>
+                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
                   <p>
                      <% if sort_maintenance.start_time === sort_maintenance.end_time %>
-                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                      <% else %>
-                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
 
@@ -111,12 +123,12 @@
 
             <% else %>
                <div class="maintenance_card_list maintenance-status-green">
-                  <p ><%= sort_maintenance.status %></p>
+                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
                   <p>
                      <% if sort_maintenance.start_time === sort_maintenance.end_time %>
-                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                      <% else %>
-                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
 

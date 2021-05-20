@@ -17,8 +17,10 @@
           <%= f.input :detail, label: 'Informations complémentaires' %>
           <%= f.input :commissioning_date, as: :date, html5: true, label: 'Date de mise en service' %>
           <%= f.input :validity_qualification, as: :date, html5: true, label: 'Date de fin de validité QP' %>
+          <%= f.input :recurrence, label: 'Récurrence qualification' %>
           <%= f.input :signature_date, as: :date, html5: true, label: 'Date de signature du contrat de maintenance' %>
           <%= f.input :end_contract, as: :date, html5: true, label: 'Date de fin du contrat de maintenance' %>
+          <%= f.input :criticity, label: "Cocher si l'équipement est critique" %>
           <%= f.input :status, label: 'Statut', :collection => ['Actif', 'Inactif'] %>
           <%= f.submit "Valider", class: "btn-edit-equipment btn btn-success" %>
           <%= link_to "Annuler", equipment_index_path, class: "btn-edit-equipment btn btn-danger" %>
