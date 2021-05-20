@@ -3,10 +3,22 @@
     <%= date %>
 
     <% maintenances.each do |maintenance| %>
-      <div class="meeting mb-1">
-        <small><%= maintenance.time unless maintenance.multi_days? %></small>
-        <p><%= maintenance.name %></p>
-      </div>
+      <% if maintenance.status == "Planifié" %>
+        <div class="meeting mb-1 maintenance-status-blue">
+          <small><%= maintenance.time unless maintenance.multi_days? %></small>
+          <p><%= maintenance.name %></p>
+        </div>
+      <% elsif maintenance.status == "En cours" %>
+        <div class="meeting mb-1 maintenance-status-orange">
+          <small><%= maintenance.time unless maintenance.multi_days? %></small>
+          <p><%= maintenance.name %></p>
+        </div>
+      <% else %>
+        <div class="meeting mb-1 maintenance-status-green">
+          <small><%= maintenance.time unless maintenance.multi_days? %></small>
+          <p><%= maintenance.name %></p>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

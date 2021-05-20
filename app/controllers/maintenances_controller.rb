@@ -1,4 +1,7 @@
 class MaintenancesController < ApplicationController
+  before_action :find_maintenance, only: [ :show, :edit, :update, :destroy ]
+  before_action :find_equipment, only: [ :new, :create ]
+
   def index  
     if params[:maintenance].present?
       sql_maintenance = "
@@ -12,25 +15,19 @@ class MaintenancesController < ApplicationController
       @maintenances = Maintenance.all.order('start_time desc')
     end
 
-    unfiltered_status = @maintenances.map { |maintenance| maintenance.status }
-    @status = unfiltered_status.uniq
+    filtered_maintenances_status
   end
 
   def show
-    @maintenance = Maintenance.find(params[:id])
   end
   
   def new
-    @external_interlocutors = ExternalInterlocutor.all.order('company asc')
-    @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
-    @users = User.all.order('visa asc')
-    @filtered_users = @users.map { |u| [u.visa, u.id] }
-    @equipment = Equipment.find(params[:equipment_id])
+    filtered_externals
+    filtered_users
     @maintenance = Maintenance.new
   end
   
   def create
-    @equipment = Equipment.find(params[:equipment_id])
     @maintenance = Maintenance.new(maintenance_params)
     @maintenance.equipment = @equipment
     if @maintenance.save
@@ -41,37 +38,53 @@ class MaintenancesController < ApplicationController
   end
 
   def edit
-    @maintenance = Maintenance.find(params[:id])
+    filtered_externals
     @external_interlocutor = @maintenance.external_interlocutor.id
+
+    filtered_users
     @user = @maintenance.user.id
-    @external_interlocutors = ExternalInterlocutor.all.order('company asc')
-    @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
-    @users = User.all.order('visa asc')
-    @filtered_users = @users.map { |u| [u.visa, u.id] }
   end
   
   def update
-    @maintenance = Maintenance.find(params[:id])
     @maintenance.update(maintenance_params)
     redirect_to maintenances_path
   end
   
   def destroy
-    @maintenance = Maintenance.find(params[:id])
     @maintenance.destroy
     redirect_to maintenances_path
   end
 
   def calendar
-    # Scope your query to the dates being shown:
     start_date = params.fetch(:start_date, Date.today).to_date
-  
-    # For a monthly view:
     @maintenances = Maintenance.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   private
 
+  def find_maintenance
+    @maintenance = Maintenance.find(params[:id])
+  end
+
+  def find_equipment
+    @equipment = Equipment.find(params[:equipment_id])
+  end
+  
+  def filtered_maintenances_status
+    unfiltered_status = @maintenances.map { |maintenance| maintenance.status }
+    @status = unfiltered_status.uniq
+  end
+ 
+  def filtered_externals
+    @external_interlocutors = ExternalInterlocutor.all.order('company asc')
+    @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
+  end
+
+  def filtered_users
+    @users = User.all.order('visa asc')
+    @filtered_users = @users.map { |u| [u.visa, u.id] }
+  end
+ 
   def maintenance_params
     params.require(:maintenance).permit(:name, :start_time, :end_time, :description, :status, :external_interlocutor_id, :user_id)
   end

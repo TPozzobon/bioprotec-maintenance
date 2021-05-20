@@ -6,6 +6,12 @@ class UsersController < ApplicationController
       @users = User.all.order('visa asc')
     end
 
+    filtered_users_status
+  end
+  
+  private
+
+  def filtered_users_status
     unfiltered_status = @users.map { |user| user.status }
     @status = unfiltered_status.uniq
   end
