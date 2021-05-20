@@ -25,7 +25,7 @@
           <th class="font-weight-bold p-3 text-center h6">Nom</th>
           <th class="font-weight-bold p-3 text-center h6">Identifant</th>
           <th class="font-weight-bold p-3 text-center h6">Localisation</th>
-          <th class="font-weight-bold p-3 px-5 text-center h6">Date QP</th>
+          <th class="font-weight-bold p-3 px-5 text-center h6">Qualification</th>
           <th class="font-weight-bold p-3 text-center h6">Statut</th>
           <% if current_user.admin == true %>
             <th class="p-1 text-center h1">
@@ -46,6 +46,7 @@
             <% else %>
               <td class="p-3 text-center h5">/</td>
             <% end %>
+            
             <% if equipment.location.present? %>
               <td class="p-3 text-center h5"><%= equipment.location %></td>
             <% else %>
