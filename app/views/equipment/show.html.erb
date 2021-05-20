@@ -1,58 +1,62 @@
  <div class="container_show_equipment">
    <div class="card-equipment sticky-top">
-      <h3 class="title-show text-center h2 font-weight-bold">
-         <%= @equipment.identifiant %></br>
-         <span class="h4 text-muted">
+      <h3 class="title-show text-center font-weight-bold mt-3">
+         <%= @equipment.identifiant %><br>
+         <span class="h5 text-muted">
             (<%= @equipment.location %>)
          </span>
       </h3>
 
-      <p class="ml-4 font-weight-bold">Statut : 
+      <p class="ml-4">Statut 
          <% if @equipment.status == "Actif" %>
-            <span class="status-color-green"><%= @equipment.status %></span>
+            <span class="status-color-green font-weight-bold"><%= @equipment.status %></span>
          <% else %>
-            <span class="status-color-red"><%= @equipment.status %></span>
+            <span class="status-color-red font-weight-bold"><%= @equipment.status %></span>
          <% end %>
       </p>
 
       <% if @equipment.validity_qualification.present? %>
-         <p class="ml-4 font-weight-bold">Validité QP : 
-            <span class="equipement_item_show">
+         <p class="ml-4">Validité QP 
+         <br>
+            <span class="equipement_item_show font-weight-bold">
                <%= @equipment.validity_qualification.strftime("%d/%m/%Y") %>
             </span>
          </p>
       <% end %>
 
       <% if @equipment.commissioning_date.present? %>
-         <p class="ml-4 font-weight-bold">Date de mise en service : 
-            <span class="equipement_item_show">
+         <p class="ml-4">Date de mise en service
+         <br> 
+            <span class="equipement_item_show font-weight-bold">
                <%= @equipment.commissioning_date.strftime("%d/%m/%Y") %>
             </span>
          </p>
       <% end %>
 
       <% if @equipment.signature_date.present? %>
-         <p class="ml-4 font-weight-bold">Date de signature du contrat : 
-            <span class="equipement_item_show">
+         <p class="ml-4">Date de signature du contrat 
+         <br>
+            <span class="equipement_item_show font-weight-bold">
                <%= @equipment.signature_date.strftime("%d/%m/%Y") %>
             </span>
          </p>
       <% end %>
 
       <% if @equipment.end_contract.present? %>
-         <p class="ml-4 font-weight-bold">Date de fin du contrat : 
-            <span class="equipement_item_show">
+         <p class="ml-4">Date de fin du contrat 
+         <br>
+            <span class="equipement_item_show font-weight-bold">
                <%= @equipment.end_contract.strftime("%d/%m/%Y") %>
             </span>
          </p>
       <% end %>
       
-      <p class="ml-4 font-weight-bold">Informations complémentaires : 
-      </br>
-         <span class="equipement_item_show">
+      <p class="ml-4">Informations complémentaires 
+      <br>
+         <span class="equipement_item_show font-weight-bold">
             <%= @equipment.detail %>
          </span>
-      <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
+      <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success' %></p>
    </div>
 
    <div class="maintenances_show_equipment">
@@ -67,12 +71,12 @@
          <div class="maintenance_card mb-5">
             <% if sort_maintenance.status == "Planifié" %>
                <div class="maintenance_card_list maintenance-status-blue">
-               <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+               <p ><%= sort_maintenance.status %></p>
                   <p>
                      <% if sort_maintenance.start_time == sort_maintenance.end_time %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                      <% else %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> <br>- <br> <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
 
@@ -87,12 +91,12 @@
 
             <% elsif sort_maintenance.status == "En cours" %>
                <div class="maintenance_card_list maintenance-status-orange">
-                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+                  <p ><%= sort_maintenance.status %></p>
                   <p>
                      <% if sort_maintenance.start_time === sort_maintenance.end_time %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                      <% else %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
 
@@ -107,12 +111,12 @@
 
             <% else %>
                <div class="maintenance_card_list maintenance-status-green">
-                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+                  <p ><%= sort_maintenance.status %></p>
                   <p>
                      <% if sort_maintenance.start_time === sort_maintenance.end_time %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                      <% else %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                        <p ><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
 
