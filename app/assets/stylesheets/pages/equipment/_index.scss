@@ -1,27 +1,42 @@
 .title-equipment {
-  color: #016A97;
+	color: #016a97;
 }
 
 .back-color {
-  background-color: rgba(1, 106, 151, .1);
+	background-color: rgba(1, 106, 151, 0.1);
 }
 
 .status-color-green {
-  color: green;
+	color: green;
 }
 
 .status-color-red {
-  color: red;
+	color: red;
 }
 
 .btn-equipment {
-  text-align: center;
-  background-color: #0275d8;
-  padding: 8px 16px;
-  border-radius: 4px;
-  opacity: 1;
+	text-align: center;
+	background-color: #0275d8;
+	padding: 8px 16px;
+	border-radius: 4px;
+	opacity: 1;
 }
 
-.btn-equipment:hover  {
-  opacity: 0.8;
+.btn-equipment:hover {
+	opacity: 0.8;
+}
+
+.criticity_index {
+	font-size: 14px;
+	color: $red;
+	margin-left: 10px;
+}
+
+.td_name_equipment {
+	position: relative;
+	i {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
 }
