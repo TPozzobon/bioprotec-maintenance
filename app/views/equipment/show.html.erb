@@ -4,7 +4,7 @@
 
    <div class="card-equipment sticky-top">
       <h3 class="title-show text-center h2 font-weight-bold"><%= @equipment.identifiant %></br><span class="h4 text-muted">(<%= @equipment.location %>)</span></h3>
-      <p class="h5 ml-4 font-weight-bold">
+      <p class="ml-4 font-weight-bold">
          Statut : 
          <% if @equipment.status == "Actif" %>
             <span class="status-color-green"><%= @equipment.status %></span>
@@ -12,9 +12,44 @@
             <span class="status-color-red"><%= @equipment.status %></span>
          <% end %>
       </p>
-      <p class="h5 ml-4 font-weight-bold">Validité QP : <span class="equipement_item_show"><%= @equipment.validity_qualification.strftime("%d/%m/%Y") %></span></p>
-      <p class="h5 ml-4 font-weight-bold">Date de mise en service : <span class="equipement_item_show"><%= @equipment.commissioning_date.strftime("%d/%m/%Y") %></span></p>
-      <p class="h5 ml-4 font-weight-bold">Informations complémentaires : </br><span class="equipement_item_show"><%= @equipment.detail %></span>
+
+      <% if @equipment.validity_qualification.present? %>
+         <p class="ml-4 font-weight-bold">Validité QP : 
+            <span class="equipement_item_show">
+               <%= @equipment.validity_qualification.strftime("%d/%m/%Y") %>
+            </span>
+         </p>
+      <% end %>
+
+      <% if @equipment.commissioning_date.present? %>
+         <p class="ml-4 font-weight-bold">Date de mise en service : 
+            <span class="equipement_item_show">
+               <%= @equipment.commissioning_date.strftime("%d/%m/%Y") %>
+            </span>
+         </p>
+      <% end %>
+
+      <% if @equipment.signature_date.present? %>
+         <p class="ml-4 font-weight-bold">Date de signature du contrat : 
+            <span class="equipement_item_show">
+               <%= @equipment.signature_date.strftime("%d/%m/%Y") %>
+            </span>
+         </p>
+      <% end %>
+
+      <% if @equipment.end_contract.present? %>
+         <p class="ml-4 font-weight-bold">Date de fin du contrat : 
+            <span class="equipement_item_show">
+               <%= @equipment.end_contract.strftime("%d/%m/%Y") %>
+            </span>
+         </p>
+      <% end %>
+      
+      <p class="ml-4 font-weight-bold">Informations complémentaires : 
+      </br>
+         <span class="equipement_item_show">
+            <%= @equipment.detail %>
+         </span>
       <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
 

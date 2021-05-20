@@ -40,14 +40,30 @@
         <% @equipment.each do |equipment| %>
           <tr class= "hover">
             <td class="p-3 text-center h5"><%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %></td>
-            <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
-            <td class="p-3 text-center h5"><%= equipment.location %></td>
-            <td class="p-3 text-center h5"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
+
+            <% if equipment.identifiant.present? %>
+              <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
+            <% else %>
+              <td class="p-3 text-center h5">/</td>
+            <% end %>
+            <% if equipment.location.present? %>
+              <td class="p-3 text-center h5"><%= equipment.location %></td>
+            <% else %>
+              <td class="p-3 text-center h5">/</td>
+            <% end %>
+
+            <% if equipment.validity_qualification.present? %>
+              <td class="p-3 text-center h5"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
+            <% else %>
+              <td class="p-3 text-center h5">/</td>
+            <% end %>
+
             <% if equipment.status == "Actif" %>
               <td class="status-color-green p-3 text-center h5"><%= equipment.status %></td>
             <% else %>
               <td class="status-color-red p-3 text-center h5"><%= equipment.status %></td>
             <% end %>
+
             <% if current_user.admin == true %>
               <td class="back-color p-4 text-center h5">
                 <%= link_to edit_equipment_path(equipment) do %>

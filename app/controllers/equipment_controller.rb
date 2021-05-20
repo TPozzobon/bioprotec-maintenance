@@ -70,6 +70,6 @@ class EquipmentController < ApplicationController
   end
   
   def equipment_params
-    params.require(:equipment).permit(:name, :identifiant, :location, :detail, :commissioning_date, :validity_qualification, :status)
+    params.require(:equipment).permit(:name, :identifiant, :location, :detail, :commissioning_date, :validity_qualification, :status, :signature_date, :end_contract)
   end
 end
