@@ -34,7 +34,7 @@
       <% end %>
 
       <% if @equipment.signature_date.present? %>
-         <p class="ml-4">Date de signature du contrat 
+         <p class="ml-4">Début du contrat de maintenance
          <br>
             <span class="equipement_item_show font-weight-bold">
                <%= @equipment.signature_date.strftime("%d/%m/%Y") %>
@@ -43,7 +43,7 @@
       <% end %>
 
       <% if @equipment.end_contract.present? %>
-         <p class="ml-4">Date de fin du contrat 
+         <p class="ml-4">Fin du contrat de maintenance
          <br>
             <span class="equipement_item_show font-weight-bold">
                <%= @equipment.end_contract.strftime("%d/%m/%Y") %>
