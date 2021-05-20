@@ -6,7 +6,7 @@
 
 .maintenance_card_list {
 	padding: 32px;
-	width: 30%;
+	width: 31%;
 	color: black;
 }
 
@@ -14,7 +14,10 @@
 	background-color: rgb(255, 255, 255);
 	padding: 32px;
 	text-align: justify;
-	width: 70%;
+	width: 69%;
+	h3 {
+		color: $blue;
+	}
 }
 
 .maintenance_edit {
