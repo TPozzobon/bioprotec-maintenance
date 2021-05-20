@@ -77,12 +77,12 @@ class MaintenancesController < ApplicationController
  
   def filtered_externals
     @external_interlocutors = ExternalInterlocutor.all.order('company asc')
-    @filtered_externals = @external_interlocutors.map { |e| ["#{e.company} - #{e.name}", e.id] }
+    @filtered_externals = @external_interlocutors.where(status: "Actif").map { |e| ["#{e.company} - #{e.name}", e.id] }
   end
 
   def filtered_users
     @users = User.all.order('visa asc')
-    @filtered_users = @users.map { |u| [u.visa, u.id] }
+    @filtered_users = @users.where(status: "Actif").map { |u| [u.visa, u.id] }
   end
  
   def maintenance_params
