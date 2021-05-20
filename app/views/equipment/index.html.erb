@@ -40,19 +40,9 @@
         <% @equipment.each do |equipment| %>
           <tr class= "hover">
             <td class="p-3 text-center h5"><%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %></td>
-
-            <% if equipment.identifiant.present? %>
-              <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
-            <% else %>
-              <td class="p-3 text-center h5">/</td>
-            <% end %>
-            
-            <% if equipment.location.present? %>
-              <td class="p-3 text-center h5"><%= equipment.location %></td>
-            <% else %>
-              <td class="p-3 text-center h5">/</td>
-            <% end %>
-
+            <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
+            <td class="p-3 text-center h5"><%= equipment.location %></td>
+        
             <% if equipment.validity_qualification.present? %>
               <td class="p-3 text-center h5"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
             <% else %>
