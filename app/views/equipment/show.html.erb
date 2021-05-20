@@ -24,6 +24,15 @@
          </p>
       <% end %>
 
+      <% if @equipment.recurrence.present? %>
+         <p class="ml-4">Récurrence qualification 
+         <br>
+            <span class="equipement_item_show font-weight-bold">
+               <%= @equipment.recurrence %>
+            </span>
+         </p>
+      <% end %>
+
       <% if @equipment.commissioning_date.present? %>
          <p class="ml-4">Date de mise en service
          <br> 
