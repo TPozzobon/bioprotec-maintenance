@@ -6,7 +6,6 @@ class User < ApplicationRecord
 
   has_many :maintenances
 
-  validates :visa, presence: true
-  validates :status, presence: true
+  validates :visa, :status, presence: true
   validates :admin, presence: false
 end

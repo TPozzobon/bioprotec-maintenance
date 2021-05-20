@@ -13,7 +13,7 @@
           <%= f.input :validity_qualification,  as: :date, html5: true, label: 'Date de fin de validité QP' %>
           <%= f.input :signature_date, as: :date, html5: true, label: 'Date de signature du contrat de maintenance' %>
           <%= f.input :end_contract, as: :date, html5: true, label: 'Date de fin du contrat de maintenance' %>
-          <%= f.input :status, :collection => ['Actif', 'Inactif'] %>
+          <%= f.input :status, label: 'Statut', :collection => ['Actif', 'Inactif'] %>
           <%= f.submit "Valider", class: "btn btn-success" %>
           <%= link_to "Annuler", equipment_index_path, class: "btn btn-danger" %>
         <% end %>
