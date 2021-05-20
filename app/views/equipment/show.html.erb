@@ -1,11 +1,13 @@
  <div class="container_show_equipment">
-
-
-
    <div class="card-equipment sticky-top">
-      <h3 class="title-show text-center h2 font-weight-bold"><%= @equipment.identifiant %></br><span class="h4 text-muted">(<%= @equipment.location %>)</span></h3>
-      <p class="ml-4 font-weight-bold">
-         Statut : 
+      <h3 class="title-show text-center h2 font-weight-bold">
+         <%= @equipment.identifiant %></br>
+         <span class="h4 text-muted">
+            (<%= @equipment.location %>)
+         </span>
+      </h3>
+
+      <p class="ml-4 font-weight-bold">Statut : 
          <% if @equipment.status == "Actif" %>
             <span class="status-color-green"><%= @equipment.status %></span>
          <% else %>
@@ -53,9 +55,6 @@
       <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success text-light' %></p>
    </div>
 
-
-
-
    <div class="maintenances_show_equipment">
       <div class="d-flex justify-content-center">
          <% @status.each do |status| %>
@@ -64,24 +63,28 @@
          <div class="m-3 mb-5" role="button"><%= link_to "Toutes", equipment_path(@equipment), class: "btn btn-primary" %></div>
       </div>
 
-
       <% @sort_maintenances.each do |sort_maintenance| %>    
          <div class="maintenance_card mb-5">
             <% if sort_maintenance.status == "Planifié" %>
                <div class="maintenance_card_list maintenance-status-blue">
                <p class="font-weight-bold"><%= sort_maintenance.status %></p>
                   <p>
-                     <% if sort_maintenance.start_time === sort_maintenance.end_time %>
+                     <% if sort_maintenance.start_time == sort_maintenance.end_time %>
                         <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
                      <% else %>
                         <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
-                  <p>
-                     <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
-                  </p>
+
+                  <% if sort_maintenance.external_interlocutor.company != " NA " %>
+                     <p>
+                        <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                     </p>
+                  <% end %>
+
                   <p><%= sort_maintenance.user.visa %></p>
                </div>
+
             <% elsif sort_maintenance.status == "En cours" %>
                <div class="maintenance_card_list maintenance-status-orange">
                   <p class="font-weight-bold"><%= sort_maintenance.status %></p>
@@ -92,11 +95,16 @@
                         <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
-                  <p>
-                     <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
-                  </p>
+
+                  <% if sort_maintenance.external_interlocutor.company != " NA " %>
+                     <p>
+                        <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                     </p>
+                  <% end %>
+
                   <p><%= sort_maintenance.user.visa %></p>
                </div>
+
             <% else %>
                <div class="maintenance_card_list maintenance-status-green">
                   <p class="font-weight-bold"><%= sort_maintenance.status %></p>
@@ -107,9 +115,13 @@
                         <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> - <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
                      <% end %>
                   </p>
-                  <p>
-                     <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
-                  </p>
+
+                  <% if sort_maintenance.external_interlocutor.company != " NA " %>
+                     <p>
+                        <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                     </p>
+                  <% end %>
+
                   <p><%= sort_maintenance.user.visa %></p>
                </div>
             <% end %>
@@ -126,6 +138,3 @@
       <% end %>
    </div>
  </div>
-
-
-
