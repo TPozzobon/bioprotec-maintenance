@@ -10,6 +10,8 @@ class EquipmentController < ApplicationController
       @equipment = Equipment.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:status].present?
       @equipment = Equipment.where(status: params[:status]).order('name asc')
+    elsif params[:criticity].present?
+      @equipment = Equipment.where(criticity: params[:criticity]).order('name asc')
     else
       @equipment = Equipment.all.order('name asc')
     end

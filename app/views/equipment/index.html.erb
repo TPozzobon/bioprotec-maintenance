@@ -15,6 +15,7 @@
       <% @status.each do |status| %>
         <div class="m-3 mt-4" role="button"><%= link_to "#{status}s", equipment_index_path(status: status), class: "btn btn-primary" %></div>
       <% end %>
+      <div class="m-3 mt-4" role="button"><%= link_to "Critiques", equipment_index_path(criticity: true), class: "btn btn-primary" %></div>
       <div class="m-3 mt-4" role="button"><%= link_to "Tous", equipment_index_path, class: "btn btn-primary" %></div>
     </div>
   </div>
