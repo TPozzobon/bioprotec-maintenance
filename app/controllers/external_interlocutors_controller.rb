@@ -2,6 +2,10 @@ class ExternalInterlocutorsController < ApplicationController
   before_action :find_external, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    @external_interlocutors = ExternalInterlocutor.all.order('company asc')
+
+    filtered_externals_status
+
     if params[:external].present?
       sql_external = "
       external_interlocutors.name ILIKE :external
@@ -10,11 +14,7 @@ class ExternalInterlocutorsController < ApplicationController
       @external_interlocutors = ExternalInterlocutor.where(sql_external, external: "%#{params[:external]}%")
     elsif params[:status].present?
       @external_interlocutors = ExternalInterlocutor.where(status: params[:status]).order('company asc')
-    else
-      @external_interlocutors = ExternalInterlocutor.all.order('company asc')
     end
-
-    filtered_externals_status
   end
 
   def show
