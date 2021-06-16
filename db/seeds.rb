@@ -81,8 +81,7 @@ external_interlocutor = ExternalInterlocutor.create!(
 )
 
 external_interlocutor = ExternalInterlocutor.create!(
-  name: "Pas de prestataire", 
-  company: " NA "
+  name: "Pas de prestataire"
 )
 
 external_interlocutor = ExternalInterlocutor.create!(

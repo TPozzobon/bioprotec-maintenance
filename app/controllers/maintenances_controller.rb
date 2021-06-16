@@ -77,7 +77,7 @@ class MaintenancesController < ApplicationController
  
   def filtered_externals
     @external_interlocutors = ExternalInterlocutor.all.order('company asc')
-    @filtered_externals = @external_interlocutors.where(status: "Actif").map { |e| ["#{e.company} - #{e.name}", e.id] }
+    @filtered_externals = @external_interlocutors.where(status: "Actif").map { |e| [e.company.present? ? "#{e.company} - #{e.name}" : "#{e.name}", e.id] }
   end
 
   def filtered_users
