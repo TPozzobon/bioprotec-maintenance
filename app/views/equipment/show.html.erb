@@ -63,11 +63,14 @@
          </p>
       <% end %>
       
-      <p class="ml-4">Informations complémentaires 
-      <br>
+      <% if @equipment.detail.present? %>
+         <p class="ml-4">Informations complémentaires 
+         <br>
          <span class="equipement_item_show font-weight-bold">
             <%= @equipment.detail %>
          </span>
+      <% end %>
+
       <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success' %></p>
    </div>
 
