@@ -2,6 +2,10 @@ class EquipmentController < ApplicationController
   before_action :find_equipment, only: [ :show, :edit, :update, :destroy ]
 
   def index
+    @equipment = Equipment.all.order('name asc')
+
+    filtered_equipment_status
+
     if params[:query].present?
       sql_query = "
       equipment.name ILIKE :query
@@ -12,11 +16,7 @@ class EquipmentController < ApplicationController
       @equipment = Equipment.where(status: params[:status]).order('name asc')
     elsif params[:criticity].present?
       @equipment = Equipment.where(criticity: params[:criticity]).order('name asc')
-    else
-      @equipment = Equipment.all.order('name asc')
     end
-
-    filtered_equipment_status
   end
   
   def show
