@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def index
-    if params[:status].present?
-      @users = User.where(status: params[:status]).order('visa asc')
-    else
-      @users = User.all.order('visa asc')
-    end
+    @users = User.all.order('visa asc')
 
     filtered_users_status
+
+    if params[:status].present?
+      @users = User.where(status: params[:status]).order('visa asc')
+    end
   end
   
   private
