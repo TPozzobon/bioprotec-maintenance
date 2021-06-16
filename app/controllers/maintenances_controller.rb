@@ -3,6 +3,10 @@ class MaintenancesController < ApplicationController
   before_action :find_equipment, only: [ :new, :create ]
 
   def index  
+    @maintenances = Maintenance.all.order('start_time desc')
+
+    filtered_maintenances_status
+
     if params[:maintenance].present?
       sql_maintenance = "
       equipment.name ILIKE :maintenance
@@ -11,11 +15,7 @@ class MaintenancesController < ApplicationController
       @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
     elsif params[:status].present?
       @maintenances = Maintenance.where(status: params[:status]).order('start_time desc')
-    else
-      @maintenances = Maintenance.all.order('start_time desc')
     end
-
-    filtered_maintenances_status
   end
 
   def show
