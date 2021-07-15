@@ -1,4 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-bioprotec mb-5">
+  <!-- Lien vers le calendrier -->
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo_bioprotec.png", class:'logo_bioprotec_nav' %>
     <% end %>
@@ -9,6 +10,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <!-- Si l'utilisateur des déjà enregistré et connecté --> 
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Équipements", equipment_index_path, class: "nav-link" %>
@@ -26,6 +28,7 @@
             <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "nav-link logout" %>
         </li>
       <% else %>
+        <!-- Si l'utilisateur n'est pas connecté -->
         <li class="nav-item">
           <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
         </li>

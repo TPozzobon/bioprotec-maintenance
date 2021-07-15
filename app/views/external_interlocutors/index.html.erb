@@ -2,6 +2,7 @@
   <div class="d-flex flex-column mb-3 align-items-center">
     <h2 class="title-external font-weight-bold mb-5 border-bottom">Prestataires</h2>
 
+    <!-- Champ de recherche -->
     <div class="d-flex">
       <%= form_tag external_interlocutors_path, class:"form-inline", method: :get do %>
         <%= text_field_tag :external,
@@ -13,6 +14,7 @@
       <% end %>
     </div>
 
+    <!-- Boutons de tri en fonction du statut des prestataires -->
     <div class="d-flex justify-content-center">
       <% @status.each do |status| %>
         <div class="m-3 mt-4" role="button"><%= link_to "#{status}", external_interlocutors_path(status: status), class: "btn btn-primary" %></div>
@@ -22,9 +24,11 @@
   </div>
 
   <div class="d-flex justify-content-center">
-    <table>
 
+    <!-- Tableaux des prestataires -->
+    <table>
       <thead class="back-color">
+        <!-- Titres des colonnes -->
         <tr>
           <th class="font-weight-bold p-3 text-center h6">Nom</th>
           <th class="font-weight-bold p-3 text-center h6">Société</th>
@@ -32,6 +36,8 @@
           <th class="font-weight-bold p-3 text-center h6">Mobile</th>
           <th class="font-weight-bold p-3 text-center h6">Email</th>
           <th class="font-weight-bold p-3 text-center h6">Statut</th>
+
+          <!-- admin : lien vers le formulaire de création de prestataire -->
           <% if current_user.admin == true %>
             <th class="p-1 text-center h1">
               <%= link_to new_external_interlocutor_path do %>
@@ -43,29 +49,33 @@
       </thead>
 
       <tbody>
+        <!-- Corps du tableau -->
         <% @external_interlocutors.each do |external_interlocutor| %>
           <% if external_interlocutor.name != "Pas de prestataire" %>
             <tr>
+              <!-- Lien vers la show du prestataire -->
               <td class="p-4 text-center h5"><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor), class: "remove-deco-link" %></td>
               <td class="p-4 text-center h5"><%= external_interlocutor.company %></td>
               <td class="p-4 text-center h5"><%= external_interlocutor.phone_number %></td>
               <td class="p-4 text-center h5"><%= external_interlocutor.mobile_number %></td>
+              <!-- Ouvre la messagerie par défaut -->
               <td class="p-4 text-center h5"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
 
+              <!-- Changement de couleur de police en fonction du statut -->
               <% if external_interlocutor.status == "Actif" %>
                 <td class="status-color-green p-3 text-center h5"><%= external_interlocutor.status %></td>
               <% else %>
                 <td class="status-color-red p-3 text-center h5"><%= external_interlocutor.status %></td>
               <% end %>
 
+              <!-- admin : lien vers le formulaire de modification de prestataire -->
               <% if current_user.admin == true %>
                 <td class="back-color p-4 text-center h5">
                   <%= link_to edit_external_interlocutor_path(external_interlocutor) do %>
                     <i class="fas fa-user-edit"></i>
                   <% end %>
                 </td>
-              <% end %>
-              
+              <% end %>        
             </tr>
           <% end %>
         <% end %>

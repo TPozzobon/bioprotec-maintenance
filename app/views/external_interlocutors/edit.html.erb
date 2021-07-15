@@ -9,6 +9,7 @@
           <% end %>
         </div>
 
+        <!-- Formulaire pour éditer un prestataire -->
         <%= simple_form_for [ @external_interlocutor ] do |f| %>
           <%= f.input :name, label: 'Nom' %>
           <%= f.input :company, label: 'Société' %>

@@ -2,15 +2,20 @@
   <div class="d-flex flex-column mb-3 align-items-center">
     <h2 class="title-index-user font-weight-bold mb-4 border-bottom">Intervenants Bioprotec</h2>
   </div>
+
+  <!-- Boutons de tri en fonction du statut des utilisateurs -->
   <div class="d-flex justify-content-center">
     <% @status.each do |status| %>
       <div class="m-3" role="button"><%= link_to "#{status}", users_path(status: status), class: "btn btn-primary" %></div>
     <% end %>
     <div class="m-3" role="button"><%= link_to "Tous", users_path, class: "btn btn-primary" %></div>
   </div>
+
   <div class="d-flex justify-content-center mt-3">
+    <!-- Tableau des utilisateurs -->
     <table>
       <thead class="back-index-user-color">
+        <!-- Titre des colonnes -->
         <tr>
           <th class="font-weight-bold p-3 text-center h6">Visa</th>
           <th class="font-weight-bold p-3 text-center h6">Email</th>
@@ -18,11 +23,17 @@
           </th>
         </tr>
       </thead>
+      <!-- Corps du tableau -->
       <tbody>
         <% @users.each do |user| %>
           <tr>
             <td class="p-4 text-center h5"><%= user.visa %></td>
-            <td class="p-4 text-center h5"><%= mail_to "#{user.email}", user.email, class: "remove-deco-link" %></td>
+            <td class="p-4 text-center h5">
+              <!-- Ouvre la messagerie par défaut -->
+              <%= mail_to "#{user.email}", user.email, class: "remove-deco-link" %>
+            </td>
+
+            <!-- La couleur change en fonction du statut -->
             <% if user.status == "Actif" %>
               <td class="status-color-green p-3 text-center h5"><%= user.status %></td>
             <% else %>
