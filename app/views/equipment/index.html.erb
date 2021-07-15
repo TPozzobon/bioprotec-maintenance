@@ -1,26 +1,27 @@
 <div class="container-fluid">
   <div class="d-flex flex-column mb-3 align-items-center">
-    <h2 class="title-equipment font-weight-bold mb-5 border-bottom">Équipements</h2>
+    <h2 class="title-equipment font-weight-bold mb-5 border-bottom"><i class="fas fa-charging-station"></i> Équipements</h2>
     
     <!-- Champ de recherche -->
     <div class="d-flex">
-      <%= form_tag equipment_index_path, class:"form-inline", method: :get do %>
-        <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Rechercher un equipement",
-            style: "width: 250px;"
-        %>
-      <% end %>
-    </div>
+      <div>
+        <%= form_tag equipment_index_path, class:"form-inline", method: :get do %>
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Nom ou identifiant",
+              style: "width: 250px;"
+          %>
+          <%= submit_tag "Rechercher", class:"btn btn-primary mr-5" %>
+        <% end %>
+      </div>
 
     <!-- Boutons pour trier par statut/criticité -->
-    <div class="d-flex justify-content-center">
       <% @status.each do |status| %>
-        <div class="m-3 mt-4" role="button"><%= link_to "#{status}", equipment_index_path(status: status), class: "btn btn-primary" %></div>
+        <div class="ml-3" role="button"><%= link_to "#{status}", equipment_index_path(status: status), class: "btn btn-primary" %></div>
       <% end %>
-      <div class="m-3 mt-4" role="button"><%= link_to "Critiques", equipment_index_path(criticity: true), class: "btn btn-primary" %></div>
-      <div class="m-3 mt-4" role="button"><%= link_to "Tous", equipment_index_path, class: "btn btn-primary" %></div>
+      <div class="ml-3" role="button"><%= link_to "Critiques", equipment_index_path(criticity: true), class: "btn btn-primary" %></div>
+      <div class="ml-3" role="button"><%= link_to "Tous", equipment_index_path, class: "btn btn-primary" %></div>
     </div>
   </div>
 

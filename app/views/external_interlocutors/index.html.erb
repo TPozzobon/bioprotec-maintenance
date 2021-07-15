@@ -1,25 +1,26 @@
 <div class="container-fluid">
   <div class="d-flex flex-column mb-3 align-items-center">
-    <h2 class="title-external font-weight-bold mb-5 border-bottom">Prestataires</h2>
+    <h2 class="title-external font-weight-bold mb-5 border-bottom"><i class="fas fa-user-tie"></i> Prestataires</h2>
 
     <!-- Champ de recherche -->
     <div class="d-flex">
-      <%= form_tag external_interlocutors_path, class:"form-inline", method: :get do %>
-        <%= text_field_tag :external,
-            params[:external],
-            class: "form-control",
-            placeholder: "Rechercher un prestataire",
-            style: "width: 250px;"
-        %>
-      <% end %>
-    </div>
+      <div>
+        <%= form_tag external_interlocutors_path, class:"form-inline", method: :get do %>
+          <%= text_field_tag :external,
+              params[:external],
+              class: "form-control",
+              placeholder: "Nom ou société",
+              style: "width: 250px;"
+          %>
+          <%= submit_tag "Rechercher", class:"btn btn-primary mr-5" %>
+        <% end %>
+      </div>
 
     <!-- Boutons de tri en fonction du statut des prestataires -->
-    <div class="d-flex justify-content-center">
       <% @status.each do |status| %>
-        <div class="m-3 mt-4" role="button"><%= link_to "#{status}", external_interlocutors_path(status: status), class: "btn btn-primary" %></div>
+        <div class="ml-3" role="button"><%= link_to "#{status}", external_interlocutors_path(status: status), class: "btn btn-primary" %></div>
       <% end %>
-      <div class="m-3 mt-4" role="button"><%= link_to "Tous", external_interlocutors_path, class: "btn btn-primary" %></div>
+      <div class="ml-3" role="button"><%= link_to "Tous", external_interlocutors_path, class: "btn btn-primary" %></div>
     </div>
   </div>
 
