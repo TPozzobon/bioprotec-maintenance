@@ -13,8 +13,8 @@
       <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="btn-login mb-3 form-actions btn btn-success">
-      <%= f.button :submit, "Valider" %>
+    <div class="btn-login mb-3 form-actions btn btn-primary">
+      <%= f.button :submit, "Valider", class:"text-light" %>
     </div>
   <% end %>
 

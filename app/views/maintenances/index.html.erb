@@ -1,25 +1,26 @@
 <div class="container-fluid">
   <div class="d-flex flex-column mb-3 align-items-center">
-    <h2 class="title-external font-weight-bold mb-5 border-bottom">Maintenances</h2>
+    <h2 class="title-external font-weight-bold mb-5 border-bottom"><i class="fas fa-wrench"></i> Maintenances</h2>
 
     <!-- Champ de recherche -->
     <div class="d-flex">
-      <%= form_tag maintenances_path, class:"form-inline", method: :get do %>
-        <%= text_field_tag :maintenance,
-            params[:maintenance],
-            class: "form-control",
-            placeholder: "Rechercher une maintenance",
-            style: "width: 260px;"
-        %>
-      <% end %>
-    </div>
+      <div>
+        <%= form_tag maintenances_path, class:"form-inline", method: :get do %>
+          <%= text_field_tag :maintenance,
+              params[:maintenance],
+              class: "form-control",
+              placeholder: "Nom ou identifiant",
+              style: "width: 260px;"
+          %>
+          <%= submit_tag "Rechercher", class:"btn btn-primary mr-5" %>
+        <% end %>
+      </div>
 
-    <!-- Butons de tri en fonction du statut des maintenance -->
-    <div class="d-flex justify-content-center">
+    <!-- Boutons de tri en fonction du statut des maintenance -->
       <% @status.each do |status| %>
-        <div class="m-3 mt-4" role="button"><%= link_to "#{status}", maintenances_path(status: status), class: "btn btn-primary" %></div>
+        <div class="ml-3" role="button"><%= link_to "#{status}", maintenances_path(status: status), class: "btn btn-primary" %></div>
       <% end %>
-      <div class="m-3 mt-4" role="button"><%= link_to "Toutes", maintenances_path, class: "btn btn-primary" %></div>
+      <div class="ml-3" role="button"><%= link_to "Toutes", maintenances_path, class: "btn btn-primary" %></div>
     </div>
   </div>
 
