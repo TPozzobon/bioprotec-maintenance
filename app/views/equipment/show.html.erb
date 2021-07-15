@@ -82,7 +82,11 @@
       <% end %>
 
       <!-- Lien vers new_maintenance -->
-      <p class="btn_add_maintenance"><%= link_to 'Déclarer une intervention', new_equipment_maintenance_path(@equipment), class:'btn btn-success' %></p>
+      <p class="btn_add_maintenance">
+         <%= link_to  new_equipment_maintenance_path(@equipment), class:'btn btn-success' do %>
+            <i class="fab fa-whmcs"></i> Déclarer une intervention
+         <% end %>
+      </p>
    </div>
    <!-- Fin de la carte de l'équipement -->
 
@@ -102,7 +106,7 @@
             <!-- Partie gauche de la carte, la couleur change en fonction du statut de la maintenance  -->
             <% if sort_maintenance.status == "Planifié" %>
                <div class="maintenance_card_list maintenance-status-blue">
-               <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+               <p class="font-weight-bold"><i class="far fa-calendar-check"></i> <%= sort_maintenance.status %></p>
 
                   <!-- Affichage des dates de la maintenance -->
                   <p>
@@ -126,7 +130,7 @@
 
             <% elsif sort_maintenance.status == "En cours" %>
                <div class="maintenance_card_list maintenance-status-orange">
-                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+                  <p class="font-weight-bold"><i class="fas fa-spinner"></i> <%= sort_maintenance.status %></p>
 
                   <!-- Affichage des dates de la maintenance -->
                   <p>
@@ -150,7 +154,7 @@
 
             <% else %>
                <div class="maintenance_card_list maintenance-status-green">
-                  <p class="font-weight-bold"><%= sort_maintenance.status %></p>
+                  <p class="font-weight-bold"><i class="fas fa-check"></i> <%= sort_maintenance.status %></p>
 
                   <!-- Affichage des dates de la maintenance -->
                   <p>
