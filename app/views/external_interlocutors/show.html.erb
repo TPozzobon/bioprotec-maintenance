@@ -1,9 +1,20 @@
 <div class="container show_external_container">
-  <div class="toto">
-    <h2><%= @external_interlocutor.company %> - <%= @external_interlocutor.name %></h2>
-    <p>Téléphone portable: <%= @external_interlocutor.phone_number %></p>
-    <p>Téléphone fixe: <%= @external_interlocutor.mobile_number %></p>
-    <p>Email: <%= mail_to "#{@external_interlocutor.email}", @external_interlocutor.email, class: "remove-deco-link" %></p>
-    <p class="text-justify">Détails sur le préstataire: <br><br> <%= @external_interlocutor.detail %></p>
+
+  <div class="d-flex justify-content-around">
+    <div class="h4 presta_contact">
+      <p><i class="far fa-id-card mr-3 mb-4"></i><%= @external_interlocutor.name %></p>
+      <p><i class="fas fa-industry mr-3 mb-4"></i><%= @external_interlocutor.company %></p>
+      <p><i class="fas fa-mobile-alt mr-4 mb-4"></i><%= @external_interlocutor.phone_number %></p>
+      <p><i class="fas fa-phone mr-3 mb-4"></i><%= @external_interlocutor.mobile_number %></p>
+      <p><i class="far fa-envelope mr-3"></i><%= mail_to "#{@external_interlocutor.email}", @external_interlocutor.email, class: "remove-deco-link" %></p>
+    </div>
+
+    <div class="presta_detail">
+        <h3>Informations complémentaires</h3>
+        <br>
+        <br>
+        <p class="text-justify"><%= @external_interlocutor.detail %></p>
+    </div>
+
   </div>
 </div>

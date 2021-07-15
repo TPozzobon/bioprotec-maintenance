@@ -1,15 +1,18 @@
 .show_external_container {
 	margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-	transform: translateY(-60%); /* tiré de la moitié de sa propre hauteur */
-	background-color: white;
-	padding: 32px;
+	transform: translateY(-90%); /* tiré de la moitié de sa propre hauteur */
 	border-radius: 4px;
+}
 
-	h2 {
-		color: #016a97;
-		margin-bottom: 2em;
-	}
-	p {
-		margin-bottom: 2em;
-	}
+.presta_contact {
+	padding: 32px;
+	width: 40%;
+	margin-right: 50px;
+}
+.presta_detail {
+	padding: 32px;
+	border-radius: 8px;
+	width: 60%;
+	background-color: rgba($color: $blue, $alpha: 0.8);
+	color: white;
 }
