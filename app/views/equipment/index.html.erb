@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="d-flex flex-column mb-3 align-items-center">
     <h2 class="title-equipment font-weight-bold mb-5 border-bottom">Équipements</h2>
+    
+    <!-- Champ de recherche -->
     <div class="d-flex">
       <%= form_tag equipment_index_path, class:"form-inline", method: :get do %>
         <%= text_field_tag :query,
@@ -11,6 +13,8 @@
         %>
       <% end %>
     </div>
+
+    <!-- Boutons pour trier par statut/criticité -->
     <div class="d-flex justify-content-center">
       <% @status.each do |status| %>
         <div class="m-3 mt-4" role="button"><%= link_to "#{status}", equipment_index_path(status: status), class: "btn btn-primary" %></div>
@@ -19,15 +23,20 @@
       <div class="m-3 mt-4" role="button"><%= link_to "Tous", equipment_index_path, class: "btn btn-primary" %></div>
     </div>
   </div>
+
+  <!-- Tableau des équipements -->
   <div class="d-flex justify-content-center">
     <table>
       <thead class="back-color">
         <tr>
+          <!-- Titres des colonnes -->
           <th class="font-weight-bold p-3 text-center h6">Nom</th>
           <th class="font-weight-bold p-3 text-center h6">Identifant</th>
           <th class="font-weight-bold p-3 text-center h6">Localisation</th>
           <th class="font-weight-bold p-3 px-5 text-center h6">Qualification</th>
           <th class="font-weight-bold p-3 text-center h6">Statut</th>
+
+          <!-- admin : lien vers le formulaire de création d'équipement -->
           <% if current_user.admin == true %>
             <th class="p-1 text-center h1">
               <%= link_to new_equipment_path do %>
@@ -37,28 +46,37 @@
           <% end %>
         </tr>
       </thead>
+      <!-- Corps du tableau -->
       <tbody>
         <% @equipment.each do |equipment| %>
           <tr>
-            <td class="p-3 text-center h5 td_name_equipment"><%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %>
-            <% if equipment.criticity %>
-              <i class="fas fa-exclamation-triangle criticity_index"></i></td>
-            <% end %>
+            <td class="p-3 text-center h5 td_name_equipment">
+              <!-- Lien vers show equipement -->
+              <%= link_to "#{equipment.name}", equipment_path(equipment), class: "remove-deco-link" %>
+
+              <!-- Ajout d'un logo si l'équipement est critique -->
+              <% if equipment.criticity %>
+                <i class="fas fa-exclamation-triangle criticity_index"></i>
+              <% end %>
+            </td>
             <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
             <td class="p-3 text-center h5"><%= equipment.location %></td>
         
+            <!-- Remplissage de la case si l'équipement n'a pas de date de qualification -->
             <% if equipment.validity_qualification.present? %>
               <td class="p-3 text-center h5"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
             <% else %>
               <td class="p-3 text-center h5">/</td>
             <% end %>
 
+            <!-- Changement de couleur de police en fonction du statut de l'équipement -->
             <% if equipment.status == "Actif" %>
               <td class="status-color-green p-3 text-center h5"><%= equipment.status %></td>
             <% else %>
               <td class="status-color-red p-3 text-center h5"><%= equipment.status %></td>
             <% end %>
 
+            <!-- admin : lien vers le formulaire de modification d'équipement -->
             <% if current_user.admin == true %>
               <td class="back-color p-4 text-center h5">
                 <%= link_to edit_equipment_path(equipment) do %>

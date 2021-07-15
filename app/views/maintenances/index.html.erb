@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="d-flex flex-column mb-3 align-items-center">
     <h2 class="title-external font-weight-bold mb-5 border-bottom">Maintenances</h2>
+
+    <!-- Champ de recherche -->
     <div class="d-flex">
       <%= form_tag maintenances_path, class:"form-inline", method: :get do %>
         <%= text_field_tag :maintenance,
@@ -11,6 +13,8 @@
         %>
       <% end %>
     </div>
+
+    <!-- Butons de tri en fonction du statut des maintenance -->
     <div class="d-flex justify-content-center">
       <% @status.each do |status| %>
         <div class="m-3 mt-4" role="button"><%= link_to "#{status}", maintenances_path(status: status), class: "btn btn-primary" %></div>
@@ -18,8 +22,11 @@
       <div class="m-3 mt-4" role="button"><%= link_to "Toutes", maintenances_path, class: "btn btn-primary" %></div>
     </div>
   </div>
+
   <div class="d-flex justify-content-center">
+    <!-- Tableau des maintenances-->
     <table>
+      <!-- Titre des colonnes -->
       <thead class="back-color">
         <tr>
           <th class="p-3 text-center h6 font-weight-bold">Équipement</th>
@@ -31,19 +38,29 @@
           <th class="p-3 text-center h6 font-weight-bold">Statut</th>
         </tr>
       </thead>
+
+      <!-- Corps du tableau -->
       <tbody>
         <% @maintenances.each do |maintenance| %>
           <tr class= "hover">
-            <td class="p-4 text-center h5"><%= link_to "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})", equipment_path(maintenance.equipment), class: "remove-deco-link" %></td>
+            <td class="p-4 text-center h5">
+              <!-- Lien vers la show de l'équipement -->
+              <%= link_to "#{maintenance.equipment.name} (#{maintenance.equipment.identifiant})", equipment_path(maintenance.equipment), class: "remove-deco-link" %>
+            </td>
             <td class="p-4 text-center h5"><%= maintenance.name %></td>
             <td class="p-4 text-center h5"><%= maintenance.start_time.strftime("%d/%m/%Y") %></td>
             <td class="p-4 text-center h5"><%= maintenance.end_time.strftime("%d/%m/%Y") %></td>
+
+            <!--  Affichage ou non du prestataire -->
             <% if maintenance.external_interlocutor.name != "Pas de prestataire" %>
               <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
             <% else %>
               <td class="p-4 text-center h5"><%= "#{maintenance.external_interlocutor.name}" %></td>
             <% end %>
+
             <td class="p-4 text-center h5"><%= maintenance.user.visa %></td>
+            
+            <!-- Changement de couleur en fonction du statut -->
             <% if maintenance.status == "Planifié" %>
               <td class="maintenance-status-blue p-4 text-center h5"><%= maintenance.status %></td>
             <% elsif maintenance.status == "En cours" %>

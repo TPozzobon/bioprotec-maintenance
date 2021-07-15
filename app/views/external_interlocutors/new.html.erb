@@ -3,6 +3,8 @@
     <div class="row mt-10 rounded">
       <div class="col-6 m-auto w-50 rounded p-5 border bg-transparen">
         <h3 class="title-new font-weight-bold mb-3">Ajouter un prestataire</h3>
+
+        <!-- Formulaire de création de prestataire -->
         <%= simple_form_for [ @external_interlocutor ] do |f| %>
           <%= f.input :name, label: 'Nom' %>
           <%= f.input :company, label: 'Société' %>
