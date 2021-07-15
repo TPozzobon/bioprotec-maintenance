@@ -38,7 +38,7 @@
             <td class="p-4 text-center h5"><%= maintenance.name %></td>
             <td class="p-4 text-center h5"><%= maintenance.start_time.strftime("%d/%m/%Y") %></td>
             <td class="p-4 text-center h5"><%= maintenance.end_time.strftime("%d/%m/%Y") %></td>
-            <% if maintenance.external_interlocutor.company.present? %>
+            <% if maintenance.external_interlocutor.name != "Pas de prestataire" %>
               <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
             <% else %>
               <td class="p-4 text-center h5"><%= "#{maintenance.external_interlocutor.name}" %></td>

@@ -95,7 +95,7 @@
                      <% end %>
                   </p>
 
-                  <% if sort_maintenance.external_interlocutor.company.present? %>
+                  <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
                      <p>
                         <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
                      </p>
@@ -115,7 +115,7 @@
                      <% end %>
                   </p>
 
-                  <% if sort_maintenance.external_interlocutor.company.present? %>
+                  <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
                      <p>
                         <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
                      </p>
@@ -135,7 +135,7 @@
                      <% end %>
                   </p>
 
-                  <% if sort_maintenance.external_interlocutor.company.present? %>
+                  <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
                      <p>
                         <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
                      </p>

@@ -44,7 +44,7 @@
 
       <tbody>
         <% @external_interlocutors.each do |external_interlocutor| %>
-          <% if external_interlocutor.company.present? %>
+          <% if external_interlocutor.name != "Pas de prestataire" %>
             <tr>
               <td class="p-4 text-center h5"><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor), class: "remove-deco-link" %></td>
               <td class="p-4 text-center h5"><%= external_interlocutor.company %></td>
