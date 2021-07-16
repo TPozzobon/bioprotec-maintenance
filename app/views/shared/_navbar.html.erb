@@ -40,14 +40,7 @@
             <i class="fas fa-user"></i> Bioprotec
           <% end %>
         </li>
-
-        <!-- Lien vers le formulaire d'édition d'utilisateur -->
-        <li class="nav-item">
-          <%= link_to edit_user_registration_path, class: "nav-link" do %>
-            <i class="fas fa-user-edit"></i> Modifier profil
-          <% end %>
-        </li>
-
+        
         <!-- Déconnexion de la cession -->
         <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link logout" do %>
@@ -59,9 +52,6 @@
         <!-- Si l'utilisateur n'est pas connecté -->
         <li class="nav-item">
           <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Inscription", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
