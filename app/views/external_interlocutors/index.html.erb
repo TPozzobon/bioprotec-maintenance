@@ -56,11 +56,31 @@
             <tr>
               <!-- Lien vers la show du prestataire -->
               <td class="p-4 text-center h5"><%= link_to "#{external_interlocutor.name}", external_interlocutor_path(external_interlocutor), class: "remove-deco-link" %></td>
-              <td class="p-4 text-center h5"><%= external_interlocutor.company %></td>
-              <td class="p-4 text-center h5"><%= external_interlocutor.phone_number %></td>
-              <td class="p-4 text-center h5"><%= external_interlocutor.mobile_number %></td>
-              <!-- Ouvre la messagerie par défaut -->
-              <td class="p-4 text-center h5"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
+
+              <% if external_interlocutor.company.present?%>
+                <td class="p-4 text-center h5"><%= external_interlocutor.company %></td>
+              <% else %>
+                <td class="p-4 text-center h5">/</td>
+              <% end %>
+
+              <% if external_interlocutor.phone_number.present?%>
+                <td class="p-4 text-center h5"><%= external_interlocutor.phone_number %></td>
+              <% else %>
+                <td class="p-4 text-center h5">/</td>
+              <% end %>
+
+              <% if external_interlocutor.mobile_number.present?%>
+                <td class="p-4 text-center h5"><%= external_interlocutor.mobile_number %></td>
+              <% else %>
+                <td class="p-4 text-center h5">/</td>
+              <% end %>
+
+              <% if external_interlocutor.email.present? %>
+                <!-- Ouvre la messagerie par défaut -->
+                <td class="p-4 text-center h5"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
+              <% else %>
+                <td class="p-4 text-center h5">/</td>
+              <% end %>
 
               <!-- Changement de couleur de police en fonction du statut -->
               <% if external_interlocutor.status == "Actif" %>

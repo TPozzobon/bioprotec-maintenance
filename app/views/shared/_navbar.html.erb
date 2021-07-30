@@ -44,7 +44,7 @@
         <!-- Déconnexion de la cession -->
         <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link logout" do %>
-              <i class="fas fa-times-circle"></i> Déconnexion
+              <i class="fas fa-times-circle"></i> Déconnexion <%= current_user.visa %>
             <% end %>
         </li>
 
