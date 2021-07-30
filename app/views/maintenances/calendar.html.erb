@@ -8,18 +8,21 @@
         <div class="meeting mb-1 maintenance-status-blue">
           <h5><%= maintenance.equipment.identifiant %></h5>
           <small><%= maintenance.time unless maintenance.multi_days? %></small>
+          <br>
           <small><%= maintenance.name %></small>
         </div>
       <% elsif maintenance.status == "En cours" %>
         <div class="meeting mb-1 maintenance-status-orange">
           <h5><%= maintenance.equipment.identifiant %></h5>
-          <small><%= maintenance.time unless maintenance.multi_days? %></small> 
+          <small><%= maintenance.time unless maintenance.multi_days? %></small>
+          <br>
           <small><%= maintenance.name %></small>
         </div>
       <% else %>
         <div class="meeting mb-1 maintenance-status-green">
           <h5><%= maintenance.equipment.identifiant %></h5>
           <small><%= maintenance.time unless maintenance.multi_days? %></small>
+          <br>
           <small><%= maintenance.name %></small>
         </div>
       <% end %>

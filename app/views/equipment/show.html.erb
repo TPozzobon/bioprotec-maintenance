@@ -130,7 +130,11 @@
                   <!-- Affichage ou non du prestataire -->
                   <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
                      <p>
-                        <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                        <% if sort_maintenance.external_interlocutor.company.present? %>
+                           <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                        <% else %>
+                           <%= sort_maintenance.external_interlocutor.name %>
+                        <% end %>
                      </p>
                   <% end %>
                   
@@ -154,7 +158,11 @@
                   <!-- Affichage ou non du prestataire -->
                   <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
                      <p>
-                        <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                        <% if sort_maintenance.external_interlocutor.company.present? %>
+                           <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                        <% else %>
+                           <%= sort_maintenance.external_interlocutor.name %>
+                        <% end %>
                      </p>
                   <% end %>
 
@@ -178,7 +186,11 @@
                   <!-- Affichage ou non du prestataire -->
                   <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
                      <p>
-                        <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                        <% if sort_maintenance.external_interlocutor.company.present? %>
+                           <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
+                        <% else %>
+                           <%= sort_maintenance.external_interlocutor.name %>
+                        <% end %>
                      </p>
                   <% end %>
 
