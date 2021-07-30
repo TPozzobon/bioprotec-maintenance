@@ -8,18 +8,26 @@
 }
 
 .meeting {
-  color: black;
   padding: 8px 16px;
   border-radius: 4px;
   transition: background 0.3s ease;
+  color: black;
 }
 
 .meeting:hover {
-  background: #0281b8;
   color: white;
+  background: #016A97;
 }
 
 .calendar-container {
   width: 80vw;
   margin: 0 auto;
+}
+
+.remove-deco-link-calendar {
+  text-decoration: none;
+}
+
+.remove-deco-link-calendar:hover {
+  text-decoration: none;
 }

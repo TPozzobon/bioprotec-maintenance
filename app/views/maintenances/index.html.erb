@@ -54,7 +54,15 @@
 
             <!--  Affichage ou non du prestataire -->
             <% if maintenance.external_interlocutor.name != "Pas de prestataire" %>
-              <td class="p-4 text-center h5"><%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %></td>
+              <% if maintenance.external_interlocutor.company.present? %>
+                <td class="p-4 text-center h5">
+                  <%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %>
+                </td>
+              <% else %>
+                <td class="p-4 text-center h5">
+                  <%= link_to maintenance.external_interlocutor.name, external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %>
+                </td>
+              <% end %>
             <% else %>
               <td class="p-4 text-center h5"><%= "#{maintenance.external_interlocutor.name}" %></td>
             <% end %>

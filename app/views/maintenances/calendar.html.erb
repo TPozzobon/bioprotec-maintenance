@@ -5,26 +5,40 @@
 
     <% maintenances.each do |maintenance| %>
       <% if maintenance.status == "Planifié" %>
-        <div class="meeting mb-1 maintenance-status-blue">
-          <h5><%= maintenance.equipment.identifiant %></h5>
-          <small><%= maintenance.time unless maintenance.multi_days? %></small>
-          <br>
-          <small><%= maintenance.name %></small>
-        </div>
+
+          <!-- Lien vers l'équipement correspondant à la maintenance -->
+          <%= link_to equipment_path(maintenance.equipment), class: "remove-deco-link-calendar" do %>
+            <div class="meeting mb-1 maintenance-status-blue">
+              <h5><%= maintenance.equipment.identifiant%></h5>
+              <small><%= maintenance.time unless maintenance.multi_days? %></small>
+              <br>
+              <small><%= maintenance.name %></small>
+            </div>
+          <% end %>
+
       <% elsif maintenance.status == "En cours" %>
-        <div class="meeting mb-1 maintenance-status-orange">
-          <h5><%= maintenance.equipment.identifiant %></h5>
-          <small><%= maintenance.time unless maintenance.multi_days? %></small>
-          <br>
-          <small><%= maintenance.name %></small>
-        </div>
+
+        <!-- Lien vers l'équipement correspondant à la maintenance -->
+        <%= link_to equipment_path(maintenance.equipment), class: "remove-deco-link-calendar" do %>
+          <div class="meeting mb-1 maintenance-status-orange">
+            <h5><%= maintenance.equipment.identifiant%></h5>
+            <small><%= maintenance.time unless maintenance.multi_days? %></small>
+            <br>
+            <small><%= maintenance.name %></small>
+          </div>
+        <% end %>
+
       <% else %>
-        <div class="meeting mb-1 maintenance-status-green">
-          <h5><%= maintenance.equipment.identifiant %></h5>
-          <small><%= maintenance.time unless maintenance.multi_days? %></small>
-          <br>
-          <small><%= maintenance.name %></small>
-        </div>
+
+        <!-- Lien vers l'équipement correspondant à la maintenance -->
+        <%= link_to equipment_path(maintenance.equipment), class: "remove-deco-link-calendar" do %>
+          <div class="meeting mb-1 maintenance-status-green">
+            <h5><%= maintenance.equipment.identifiant%></h5>
+            <small><%= maintenance.time unless maintenance.multi_days? %></small>
+            <br>
+            <small><%= maintenance.name %></small>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
