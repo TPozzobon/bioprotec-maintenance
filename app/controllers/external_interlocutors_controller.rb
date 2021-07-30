@@ -58,6 +58,6 @@ class ExternalInterlocutorsController < ApplicationController
   end
   
   def external_interlocutor_params
-    params.require(:external_interlocutor).permit(:name, :company, :phone_number, :mobile_number, :email, :status)
+    params.require(:external_interlocutor).permit(:name, :company, :phone_number, :mobile_number, :email, :detail, :status)
   end
 end
