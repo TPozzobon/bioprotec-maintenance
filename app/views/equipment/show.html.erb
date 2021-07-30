@@ -22,6 +22,16 @@
          <% end %>
       </p>
 
+      <!-- Ligne non visible si l'équipement n'a pas de numéro de série -->
+      <% if @equipment.serial_number.present? %>
+         <p class="ml-4">Numéro de série 
+         <br>
+            <span class="equipement_item_show font-weight-bold">
+               <%= @equipment.serial_number %>
+            </span>
+         </p>
+      <% end %>
+
       <!-- Ligne non visible si l'équipement n'est pas soumi aux qualifications -->
       <% if @equipment.validity_qualification.present? %>
          <p class="ml-4">Validité QP 
