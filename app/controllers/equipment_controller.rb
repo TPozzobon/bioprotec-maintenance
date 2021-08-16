@@ -2,7 +2,7 @@ class EquipmentController < ApplicationController
   before_action :find_equipment, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @equipment = Equipment.all.order('name asc')
+    @equipment = Equipment.all.order('validity_qualification asc')
 
     filtered_equipment_status
 
@@ -13,9 +13,9 @@ class EquipmentController < ApplicationController
       "
       @equipment = Equipment.where(sql_query, query: "%#{params[:query]}%")
     elsif params[:status].present?
-      @equipment = Equipment.where(status: params[:status]).order('name asc')
+      @equipment = Equipment.where(status: params[:status]).order('validity_qualification asc')
     elsif params[:criticity].present?
-      @equipment = Equipment.where(criticity: params[:criticity]).order('name asc')
+      @equipment = Equipment.where(criticity: params[:criticity]).order('validity_qualification asc')
     end
   end
   
