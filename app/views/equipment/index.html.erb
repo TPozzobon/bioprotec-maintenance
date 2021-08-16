@@ -65,17 +65,16 @@
         
             <!-- Remplissage de la case si l'équipement n'a pas de date de qualification -->
             <% if equipment.validity_qualification.present? %>
-              <td class="p-3 text-center h5"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
+              <% if equipment.validity_qualification > Time.now %>
+                <td class="p-3 text-center h5 text-success"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
+              <% else %>
+                <td class="p-3 text-center h5 text-danger"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
+              <% end %>
             <% else %>
               <td class="p-3 text-center h5">/</td>
             <% end %>
 
-            <!-- Changement de couleur de police en fonction du statut de l'équipement -->
-            <% if equipment.status == "Actif" %>
-              <td class="status-color-green p-3 text-center h5"><%= equipment.status %></td>
-            <% else %>
-              <td class="status-color-red p-3 text-center h5"><%= equipment.status %></td>
-            <% end %>
+            <td class="p-3 text-center h5"><%= equipment.status %></td>
 
             <!-- admin : lien vers le formulaire de modification d'équipement -->
             <% if current_user.admin == true %>
