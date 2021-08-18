@@ -60,8 +60,20 @@
                 <i class="fas fa-exclamation-triangle criticity_index"></i>
               <% end %>
             </td>
-            <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
-            <td class="p-3 text-center h5"><%= equipment.location %></td>
+            
+            <!-- Remplissage de la case si l'équipement n'a pas d'identifiant -->
+            <% if equipment.identifiant.present? %>
+              <td class="p-3 text-center h5"><%= equipment.identifiant %></td>
+            <% else %>
+              <td class="p-3 text-center h5">/</td>
+            <% end %>
+
+            <!-- Remplissage de la case si l'équipement n'a pas de localisation précise -->
+            <% if equipment.location.present? %>
+              <td class="p-3 text-center h5"><%= equipment.location %></td>
+            <% else %>
+              <td class="p-3 text-center h5">/</td>
+            <% end %>
         
             <!-- Remplissage de la case si l'équipement n'a pas de date de qualification -->
             <% if equipment.validity_qualification.present? %>
