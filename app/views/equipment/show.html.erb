@@ -14,11 +14,11 @@
       <% end %>
 
       <!-- Changement de couleur de police en fonction du statut de l'équipement -->
-      <p class="ml-4">Statut 
+      <p class="ml-4">Statut : 
          <% if @equipment.status == "Actif" %>
-            <span class="status-color-green font-weight-bold"><%= @equipment.status %></span>
+            <span class="text-success font-weight-bold"><%= @equipment.status %></span>
          <% else %>
-            <span class="status-color-red font-weight-bold"><%= @equipment.status %></span>
+            <span class="text-danger font-weight-bold"><%= @equipment.status %></span>
          <% end %>
       </p>
 

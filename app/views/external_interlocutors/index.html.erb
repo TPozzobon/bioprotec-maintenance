@@ -60,26 +60,26 @@
               <% if external_interlocutor.company.present?%>
                 <td class="p-4 text-center h5"><%= external_interlocutor.company %></td>
               <% else %>
-                <td class="p-4 text-center h5">/</td>
+                <td class="p-4 text-center h5"><i class="far fa-eye-slash"></i></td>
               <% end %>
 
               <% if external_interlocutor.phone_number.present?%>
                 <td class="p-4 text-center h5"><%= external_interlocutor.phone_number %></td>
               <% else %>
-                <td class="p-4 text-center h5">/</td>
+                <td class="p-4 text-center h5"><i class="far fa-eye-slash"></i></td>
               <% end %>
 
               <% if external_interlocutor.mobile_number.present?%>
                 <td class="p-4 text-center h5"><%= external_interlocutor.mobile_number %></td>
               <% else %>
-                <td class="p-4 text-center h5">/</td>
+                <td class="p-4 text-center h5"><i class="far fa-eye-slash"></i></td>
               <% end %>
 
               <% if external_interlocutor.email.present? %>
                 <!-- Ouvre la messagerie par défaut -->
                 <td class="p-4 text-center h5"><%= mail_to "#{external_interlocutor.email}", external_interlocutor.email, class: "remove-deco-link" %></td>
               <% else %>
-                <td class="p-4 text-center h5">/</td>
+                <td class="p-4 text-center h5"><i class="far fa-eye-slash"></i></td>
               <% end %>
 
               <!-- L'icone change en fonction du statut -->
