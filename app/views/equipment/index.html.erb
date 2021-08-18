@@ -35,6 +35,7 @@
           <th class="font-weight-bold p-3 text-center h6">Identifant</th>
           <th class="font-weight-bold p-3 text-center h6">Localisation</th>
           <th class="font-weight-bold p-3 px-5 text-center h6">Qualification</th>
+          <th class="font-weight-bold p-3 px-5 text-center h6">Contrat de maintenance</th>
           <th class="font-weight-bold p-3 text-center h6">Statut</th>
 
           <!-- admin : lien vers le formulaire de création d'équipement -->
@@ -75,7 +76,7 @@
               <td class="p-3 text-center h5">/</td>
             <% end %>
         
-            <!-- Remplissage de la case si l'équipement n'a pas de date de qualification -->
+            <!-- La couleur de police change si la date est dépassée -->
             <% if equipment.validity_qualification.present? %>
               <% if equipment.validity_qualification > Time.now %>
                 <td class="p-3 text-center h5 text-success"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
@@ -83,10 +84,28 @@
                 <td class="p-3 text-center h5 text-danger"><%= equipment.validity_qualification.strftime("%d/%m/%Y") %></td>
               <% end %>
             <% else %>
+              <!-- Remplissage de la case si l'équipement n'a pas de date de qualification -->
               <td class="p-3 text-center h5">/</td>
             <% end %>
 
-            <td class="p-3 text-center h5"><%= equipment.status %></td>
+            <!-- La couleur de police change si la date est dépassée -->
+            <% if equipment.signature_date.present? %>
+              <% if equipment.signature_date > Time.now %>
+                <td class="p-3 text-center h5 text-success"><%= equipment.signature_date.strftime("%d/%m/%Y") %></td>
+              <% else %>
+                <td class="p-3 text-center h5 text-danger"><%= equipment.signature_date.strftime("%d/%m/%Y") %></td>
+              <% end %>
+            <% else %>
+              <!-- Remplissage de la case si l'équipement n'a pas de date de qualification -->
+              <td class="p-3 text-center h5">/</td>
+            <% end %>
+
+            <!-- L'icone change en fonction du statut -->
+            <% if equipment.status == "Actif" %>
+              <td class="p-3 text-center h5 text-success"><i class="fas fa-check"></i></td>
+            <% else %>
+              <td class="p-3 text-center h5 text-danger"><i class="fas fa-times"></i></i></td>
+            <% end %>
 
             <!-- admin : lien vers le formulaire de modification d'équipement -->
             <% if current_user.admin == true %>

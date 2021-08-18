@@ -82,11 +82,11 @@
                 <td class="p-4 text-center h5">/</td>
               <% end %>
 
-              <!-- Changement de couleur de police en fonction du statut -->
+              <!-- L'icone change en fonction du statut -->
               <% if external_interlocutor.status == "Actif" %>
-                <td class="status-color-green p-3 text-center h5"><%= external_interlocutor.status %></td>
+                <td class="p-3 text-center h5 text-success"><i class="fas fa-check"></i></td>
               <% else %>
-                <td class="status-color-red p-3 text-center h5"><%= external_interlocutor.status %></td>
+                <td class="p-3 text-center h5 text-danger"><i class="fas fa-times"></i></i></td>
               <% end %>
 
               <!-- admin : lien vers le formulaire de modification de prestataire -->
