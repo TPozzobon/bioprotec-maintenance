@@ -12,7 +12,7 @@ class MaintenancesController < ApplicationController
       equipment.name ILIKE :maintenance
       OR equipment.identifiant ILIKE :maintenance
       "
-      @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%")
+      @maintenances = Maintenance.joins(:equipment).where(sql_maintenance, maintenance: "%#{params[:maintenance]}%").order('start_time desc')
     elsif params[:status].present?
       @maintenances = Maintenance.where(status: params[:status]).order('start_time desc')
     end
