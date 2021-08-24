@@ -1,7 +1,7 @@
 class Maintenance < ApplicationRecord
   belongs_to :equipment
-  belongs_to :external_interlocutor
-  belongs_to :user
+  belongs_to :external_interlocutor, optional: true
+  belongs_to :user, optional: true
 
   validates :name, :start_time, :end_time, :status, presence: true
   
