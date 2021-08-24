@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :equipment do
     resources :maintenances, only: [ :new, :create ]
   end
-  resources :maintenances, only: [ :index, :edit, :update, :destroy]
+  resources :maintenances, only: [ :index, :edit, :update ]
   resources :external_interlocutors
   resources :users, only: :index
 
