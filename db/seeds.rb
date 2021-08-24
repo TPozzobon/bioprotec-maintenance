@@ -4,8 +4,8 @@ Equipment.destroy_all
 ExternalInterlocutor.destroy_all
 
 puts "Creating Users"
-User.create!(email: "user@gmail.com", password: "password", visa: "BBB", admin: false, status: "inactif")
-User.create!(email: "admin@gmail.com", password: "password", visa: "AAA", admin: true)
+User.create!(email: "user@gmail.com", password: "password", visa: "BBB", status: "inactif")
+User.create!(email: "admin@gmail.com", password: "password", visa: "AAA")
 
 puts "Creating Equipment"
 
