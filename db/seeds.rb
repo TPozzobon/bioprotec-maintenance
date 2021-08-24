@@ -81,10 +81,6 @@ external_interlocutor = ExternalInterlocutor.create!(
 )
 
 external_interlocutor = ExternalInterlocutor.create!(
-  name: "Pas de prestataire"
-)
-
-external_interlocutor = ExternalInterlocutor.create!(
   name: "Bob Bob", 
   company: "Merck Millipore", 
   phone_number: "0400000000", 
