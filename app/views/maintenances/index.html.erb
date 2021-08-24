@@ -68,7 +68,11 @@
             <% end %>
 
             <!-- Affichage de la personne ayant effectué ou ayant assisté à la maintenance -->
-            <td class="p-4 text-center h5"><%= maintenance.user.visa %></td>
+            <% if maintenance.user_id.present? %>
+              <td class="p-4 text-center h5"><%= maintenance.user.visa %></td>
+            <% else %>
+              <td class="p-4 text-center h5"><i class="far fa-eye-slash"></i></td>
+            <% end %>
             
             <!-- Changement de couleur en fonction du statut -->
             <% if maintenance.status == "Planifié" %>

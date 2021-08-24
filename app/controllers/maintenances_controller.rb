@@ -44,7 +44,9 @@ class MaintenancesController < ApplicationController
     end
 
     filtered_users
-    @user = @maintenance.user.id
+    if @maintenance.user_id.present?
+      @user = @maintenance.user.id
+    end
   end
   
   def update
