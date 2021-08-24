@@ -29,6 +29,7 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "simple_calendar", "~> 2.4"
 gem 'devise'
+gem "administrate"
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
