@@ -114,90 +114,39 @@
          <div class="maintenance_card mb-5">
 
             <!-- Partie gauche de la carte, la couleur change en fonction du statut de la maintenance  -->
-            <% if sort_maintenance.status == "Planifié" %>
-               <div class="maintenance_card_list maintenance-status-blue">
-               <p class="font-weight-bold"><i class="far fa-calendar-check"></i> <%= sort_maintenance.status %></p>
+         
+            <div class="maintenance_card_list">
+               <% if sort_maintenance.status == "Planifié" %>
+                  <p class="font-weight-bold text-primary"><i class="far fa-calendar-check"></i> <%= sort_maintenance.status %></p>
+               <% elsif sort_maintenance.status == "En cours" %>
+                  <p class="font-weight-bold text-warning"><i class="fas fa-spinner"></i> <%= sort_maintenance.status %></p>
+               <% else %>
+                  <p class="font-weight-bold text-success"><i class="fas fa-check-double"></i> <%= sort_maintenance.status %></p>
+               <% end %>
 
-                  <!-- Affichage des dates de la maintenance -->
+               <!-- Affichage des dates de la maintenance -->
+               <p>
+                  <% if sort_maintenance.start_time == sort_maintenance.end_time %>
+                     <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                  <% else %>
+                     <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> <br>- <br> <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                  <% end %>
+               </p>
+
+               <!-- Affichage ou non du prestataire -->
+               <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
                   <p>
-                     <% if sort_maintenance.start_time == sort_maintenance.end_time %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
+                     <% if sort_maintenance.external_interlocutor.company.present? %>
+                        <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
                      <% else %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> <br>- <br> <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
+                        <%= sort_maintenance.external_interlocutor.name %>
                      <% end %>
                   </p>
-
-                  <!-- Affichage ou non du prestataire -->
-                  <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
-                     <p>
-                        <% if sort_maintenance.external_interlocutor.company.present? %>
-                           <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
-                        <% else %>
-                           <%= sort_maintenance.external_interlocutor.name %>
-                        <% end %>
-                     </p>
-                  <% end %>
+               <% end %>
                   
-                  <!-- Affichage de la personne ayant déclarée la maintenance -->
-                  <p><%= sort_maintenance.user.visa %></p>
-               </div>
-
-            <% elsif sort_maintenance.status == "En cours" %>
-               <div class="maintenance_card_list maintenance-status-orange">
-                  <p class="font-weight-bold"><i class="fas fa-spinner"></i> <%= sort_maintenance.status %></p>
-
-                  <!-- Affichage des dates de la maintenance -->
-                  <p>
-                     <% if sort_maintenance.start_time === sort_maintenance.end_time %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
-                     <% else %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> <br>- <br> <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
-                     <% end %>
-                  </p>
-
-                  <!-- Affichage ou non du prestataire -->
-                  <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
-                     <p>
-                        <% if sort_maintenance.external_interlocutor.company.present? %>
-                           <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
-                        <% else %>
-                           <%= sort_maintenance.external_interlocutor.name %>
-                        <% end %>
-                     </p>
-                  <% end %>
-
-                  <!-- Affichage de la personne ayant déclarée la maintenance -->
-                  <p><%= sort_maintenance.user.visa %></p>
-               </div>
-
-            <% else %>
-               <div class="maintenance_card_list maintenance-status-green">
-                  <p class="font-weight-bold"><i class="fas fa-check-double"></i> <%= sort_maintenance.status %></p>
-
-                  <!-- Affichage des dates de la maintenance -->
-                  <p>
-                     <% if sort_maintenance.start_time === sort_maintenance.end_time %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %></p>
-                     <% else %>
-                        <p class="font-weight-bold"><%= sort_maintenance.start_time.strftime("%d/%m/%Y") %> <br>- <br> <%= sort_maintenance.end_time.strftime("%d/%m/%Y") %></p>
-                     <% end %>
-                  </p>
-
-                  <!-- Affichage ou non du prestataire -->
-                  <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
-                     <p>
-                        <% if sort_maintenance.external_interlocutor.company.present? %>
-                           <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
-                        <% else %>
-                           <%= sort_maintenance.external_interlocutor.name %>
-                        <% end %>
-                     </p>
-                  <% end %>
-
-                  <!-- Affichage de la personne ayant déclarée la maintenance -->
-                  <p><%= sort_maintenance.user.visa %></p>
-               </div>
-            <% end %>
+               <!-- Affichage de la personne ayant déclarée la maintenance -->
+               <p><%= sort_maintenance.user.visa %></p>
+            </div>
 
             <!-- Corps de la carte maintenance -->
             <div class="maintenance_card_description">
