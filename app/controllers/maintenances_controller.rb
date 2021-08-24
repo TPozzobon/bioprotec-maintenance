@@ -39,7 +39,9 @@ class MaintenancesController < ApplicationController
 
   def edit
     filtered_externals
-    @external_interlocutor = @maintenance.external_interlocutor.id
+    if @maintenance.external_interlocutor_id.present?
+      @external_interlocutor = @maintenance.external_interlocutor.id
+    end
 
     filtered_users
     @user = @maintenance.user.id

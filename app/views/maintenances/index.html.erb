@@ -53,7 +53,7 @@
             <td class="p-4 text-center h5"><%= maintenance.end_time.strftime("%d/%m/%Y") %></td>
 
             <!--  Affichage ou non du prestataire -->
-            <% if maintenance.external_interlocutor.name != "Pas de prestataire" %>
+            <% if maintenance.external_interlocutor_id.present? %>
               <% if maintenance.external_interlocutor.company.present? %>
                 <td class="p-4 text-center h5">
                   <%= link_to "#{maintenance.external_interlocutor.name} (#{maintenance.external_interlocutor.company})", external_interlocutor_path(maintenance.external_interlocutor), class: "remove-deco-link" %>
@@ -64,9 +64,10 @@
                 </td>
               <% end %>
             <% else %>
-              <td class="p-4 text-center h5"><%= "#{maintenance.external_interlocutor.name}" %></td>
+              <td class="p-4 text-center h5"><i class="far fa-eye-slash"></i></td>
             <% end %>
 
+            <!-- Affichage de la personne ayant effectué ou ayant assisté à la maintenance -->
             <td class="p-4 text-center h5"><%= maintenance.user.visa %></td>
             
             <!-- Changement de couleur en fonction du statut -->
