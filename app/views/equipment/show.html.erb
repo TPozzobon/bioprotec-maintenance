@@ -145,7 +145,9 @@
                <% end %>
                   
                <!-- Affichage de la personne ayant effectué ou ayant assisté à la maintenance -->
-               <p><%= sort_maintenance.user.visa %></p>
+               <% if sort_maintenance.user_id.present? %>
+                  <p><%= sort_maintenance.user.visa %></p>
+               <% end %>
             </div>
 
             <!-- Corps de la carte maintenance -->
