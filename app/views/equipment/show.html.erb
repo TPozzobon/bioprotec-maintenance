@@ -134,7 +134,7 @@
                </p>
 
                <!-- Affichage ou non du prestataire -->
-               <% if sort_maintenance.external_interlocutor.name != "Pas de prestataire" %>
+               <% if sort_maintenance.external_interlocutor_id.present? %>
                   <p>
                      <% if sort_maintenance.external_interlocutor.company.present? %>
                         <%= "#{sort_maintenance.external_interlocutor.name} (#{sort_maintenance.external_interlocutor.company})" %>
@@ -144,7 +144,7 @@
                   </p>
                <% end %>
                   
-               <!-- Affichage de la personne ayant déclarée la maintenance -->
+               <!-- Affichage de la personne ayant effectué ou ayant assisté à la maintenance -->
                <p><%= sort_maintenance.user.visa %></p>
             </div>
 
