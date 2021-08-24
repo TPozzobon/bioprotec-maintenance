@@ -38,14 +38,12 @@
           <th class="font-weight-bold p-3 text-center h6">Email</th>
           <th class="font-weight-bold p-3 text-center h6">Statut</th>
 
-          <!-- admin : lien vers le formulaire de création de prestataire -->
-          <% if current_user.admin == true %>
-            <th class="p-1 text-center h1">
-              <%= link_to new_external_interlocutor_path do %>
-                <i class="fas fa-folder-plus"></i>
-              <% end %>
-            </th>
-          <% end %>
+          <!-- Lien vers le formulaire de création de prestataire -->
+          <th class="p-1 text-center h1">
+            <%= link_to new_external_interlocutor_path do %>
+              <i class="fas fa-folder-plus"></i>
+            <% end %>
+          </th>
         </tr>
       </thead>
 
@@ -89,14 +87,12 @@
                 <td class="p-3 text-center h5 text-danger"><i class="fas fa-times"></i></i></td>
               <% end %>
 
-              <!-- admin : lien vers le formulaire de modification de prestataire -->
-              <% if current_user.admin == true %>
-                <td class="back-color p-4 text-center h5">
-                  <%= link_to edit_external_interlocutor_path(external_interlocutor) do %>
-                    <i class="fas fa-user-edit"></i>
-                  <% end %>
-                </td>
-              <% end %>        
+              <!-- Lien vers le formulaire de modification de prestataire -->
+              <td class="back-color p-4 text-center h5">
+                <%= link_to edit_external_interlocutor_path(external_interlocutor) do %>
+                  <i class="fas fa-user-edit"></i>
+                <% end %>
+              </td>       
             </tr>
           <% end %>
         <% end %>
