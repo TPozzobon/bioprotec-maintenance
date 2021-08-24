@@ -27,12 +27,7 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <% if user.admin == true %>
-              <td class="p-4 text-center h5"><%= user.visa %> <i class="fas fa-award"></i></td>
-            <% else %>
-             <td class="p-4 text-center h5"><%= user.visa %></td>
-            <% end %>
-
+            <td class="p-4 text-center h5"><%= user.visa %></td>
             <td class="p-4 text-center h5">
               <!-- Ouvre la messagerie par défaut -->
               <%= mail_to "#{user.email}", user.email, class: "remove-deco-link" %>
