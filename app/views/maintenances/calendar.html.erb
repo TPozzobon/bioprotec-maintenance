@@ -28,7 +28,7 @@
           </div>
         <% end %>
 
-      <% else %>
+      <% elsif maintenance.status == 'Clôturé' %>
 
         <!-- Lien vers l'équipement correspondant à la maintenance -->
         <%= link_to equipment_path(maintenance.equipment), class: "remove-deco-link-calendar" do %>
@@ -39,6 +39,19 @@
             <small><%= maintenance.name %></small>
           </div>
         <% end %>
+
+        <% else %>
+
+        <!-- Lien vers l'équipement correspondant à la maintenance -->
+        <%= link_to equipment_path(maintenance.equipment), class: "remove-deco-link-calendar" do %>
+          <div class="meeting mb-1 maintenance-status-red">
+            <h5><%= maintenance.equipment.identifiant%></h5>
+            <small><%= maintenance.time unless maintenance.multi_days? %></small>
+            <br>
+            <small><%= maintenance.name %></small>
+          </div>
+        <% end %>
+
       <% end %>
     <% end %>
   <% end %>
