@@ -120,8 +120,10 @@
                   <p class="font-weight-bold text-primary"><i class="far fa-calendar-check"></i> <%= sort_maintenance.status %></p>
                <% elsif sort_maintenance.status == "En cours" %>
                   <p class="font-weight-bold text-warning"><i class="fas fa-spinner"></i> <%= sort_maintenance.status %></p>
-               <% else %>
+               <% elsif sort_maintenance.status == "Clôturé" %>
                   <p class="font-weight-bold text-success"><i class="fas fa-check-double"></i> <%= sort_maintenance.status %></p>
+               <% else %>
+                  <p class="font-weight-bold text-danger"><i class="fas fa-exclamation-circle"></i> <%= sort_maintenance.status %></p>
                <% end %>
 
                <!-- Affichage des dates de la maintenance -->
