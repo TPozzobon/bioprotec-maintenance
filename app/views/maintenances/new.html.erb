@@ -15,7 +15,7 @@
         <div class="d-flex flex-column w-100 mb-3">
           <%= f.select :user_id, options_for_select(@filtered_users), include_blank: "Bioprotec" %>
         </div>
-        <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé'] %>
+        <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé', 'A Planifié'] %>
         <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>
         <%= link_to "Annuler", equipment_path(@equipment), class: "btn-new-maintenance btn btn-danger mt-3" %>
       <% end %>
