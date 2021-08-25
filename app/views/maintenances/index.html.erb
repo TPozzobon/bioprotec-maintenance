@@ -79,8 +79,10 @@
               <td class="maintenance-status-blue p-4 text-center h5"><%= maintenance.status %></td>
             <% elsif maintenance.status == "En cours" %>
               <td class="maintenance-status-orange p-4 text-center h5"><%= maintenance.status %></td>
-            <% else %>
+            <% elsif  maintenance.status == "Clôturé"%>
               <td class="maintenance-status-green p-4 text-center h5"><%= maintenance.status %></td>
+            <% else %>
+              <td class="maintenance-status-red p-4 text-center h5"><%= maintenance.status %></td>
             <% end %>
           </tr>
         <% end %>
