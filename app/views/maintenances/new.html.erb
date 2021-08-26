@@ -10,12 +10,12 @@
         <%= f.input :start_time, as: :datetime, html5: true, label: 'Date de début' %>
         <%= f.input :end_time, as: :datetime, html5: true, label: 'Date de fin' %>
         <div class="d-flex flex-column w-100 my-4">
-          <%= f.select :external_interlocutor_id, options_for_select(@filtered_externals), include_blank: "Prestataire" %>
+          <%= f.select :external_interlocutor_id, options_for_select(@filtered_externals), include_blank: "Prestataire intervenant" %>
         </div>
         <div class="d-flex flex-column w-100 mb-3">
-          <%= f.select :user_id, options_for_select(@filtered_users), include_blank: "Bioprotec" %>
+          <%= f.select :user_id, options_for_select(@filtered_users), include_blank: "Visa personnel Bioprotec" %>
         </div>
-        <%= f.input :status, label: 'Statut', :collection => ['Planifié', 'En cours' ,'Clôturé', 'A Planifié'] %>
+        <%= f.input :status, label: 'Statut', include_blank: "Statut de la maintenance", :collection => ['Planifié', 'En cours' ,'Clôturé', 'À Planifier'] %>
         <%= f.submit "Valider", class: "btn-new-maintenance btn btn-success mt-3" %>
         <%= link_to "Annuler", equipment_path(@equipment), class: "btn-new-maintenance btn btn-danger mt-3" %>
       <% end %>
