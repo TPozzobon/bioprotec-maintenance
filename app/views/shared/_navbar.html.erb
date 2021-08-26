@@ -40,15 +40,26 @@
             <i class="fas fa-user"></i> Bioprotec
           <% end %>
         </li>
+
+        <!-- Editer les données utilisateur -->
+        <li class="nav-item">
+            <%= link_to edit_user_registration_path, class: "nav-link edit" do %>
+              <i class="fas fa-user-edit"></i>
+            <% end %>
+        </li>
+
+
         
         <!-- Déconnexion de la cession -->
         <li class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link logout" do %>
-              <i class="fas fa-times-circle"></i> Déconnexion <%= current_user.visa %>
+              <i class="fas fa-door-open"></i>
             <% end %>
         </li>
-
       <% else %>
+
+
+        
         <!-- Si l'utilisateur n'est pas connecté -->
         <li class="nav-item">
           <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
