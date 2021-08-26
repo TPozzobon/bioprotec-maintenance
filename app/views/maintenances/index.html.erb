@@ -37,6 +37,8 @@
           <th class="p-3 text-center h6 font-weight-bold">Prestataire</th>
           <th class="p-3 text-center h6 font-weight-bold">Bioprotec</th>
           <th class="p-3 text-center h6 font-weight-bold">Statut</th>
+          <th class="p-3 text-center h6 font-weight-bold">Editer</th>
+
         </tr>
       </thead>
 
@@ -84,6 +86,12 @@
             <% else %>
               <td class="maintenance-status-red p-4 text-center h5"><%= maintenance.status %></td>
             <% end %>
+
+            <td class="back-color p-4 text-center h5">
+              <%= link_to edit_maintenance_path(maintenance) do %>
+                <i class="fas fa-user-edit"></i>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
