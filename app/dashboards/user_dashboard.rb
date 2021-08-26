@@ -18,7 +18,6 @@ class UserDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     visa: Field::String,
-    admin: Field::Boolean,
     status: Field::String,
   }.freeze
 
@@ -47,7 +46,6 @@ class UserDashboard < Administrate::BaseDashboard
     created_at
     updated_at
     visa
-    admin
     status
   ].freeze
 
@@ -62,7 +60,6 @@ class UserDashboard < Administrate::BaseDashboard
     reset_password_sent_at
     remember_created_at
     visa
-    admin
     status
   ].freeze
 
