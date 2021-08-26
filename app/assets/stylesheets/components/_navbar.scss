@@ -19,7 +19,7 @@
 }
 
 .nav-link {
-  color: #016A97 !important;
+  color: #016a97 !important;
   opacity: 0.8;
 }
 
@@ -34,4 +34,15 @@
 
 .logout {
   color: red !important;
+  font-size: 26px;
+  margin-top: -6px;
+}
+.edit {
+  color: #5cad5c !important;
+  font-size: 24px;
+  margin-top: -5px;
+}
+
+.nav-item {
+  position: relative;
 }
