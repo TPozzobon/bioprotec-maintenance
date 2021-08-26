@@ -17,7 +17,7 @@
           <%= f.input :signature_date, as: :date, html5: true, label: 'Date de signature du contrat de maintenance' %>
           <%= f.input :end_contract, as: :date, html5: true, label: 'Date de fin du contrat de maintenance' %>
           <%= f.input :criticity, label: "Cocher si l'équipement est critique" %>
-          <%= f.input :status, label: 'Statut', :collection => ['Actif', 'Inactif'] %>
+          <%= f.input :status, label: 'Statut', include_blank: "Statut de l'équipement", :collection => ['Actif', 'Inactif'] %>
           <%= f.submit "Valider", class: "btn btn-success" %>
           <%= link_to "Annuler", equipment_index_path, class: "btn btn-danger" %>
         <% end %>
